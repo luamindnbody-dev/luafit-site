@@ -1,4 +1,5 @@
 <!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}.gprev{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 2px 10px;margin:4px 0 2px;-webkit-overflow-scrolling:touch}.gprev a{flex:0 0 31%;max-width:150px;scroll-snap-align:start;text-decoration:none;color:inherit}.gprev img{width:100%;display:block;border-radius:6px;border:1px solid var(--line);box-shadow:0 2px 6px rgba(63,74,53,.12);background:#fff}.gprev span{display:block;text-align:center;font-size:11px;font-weight:700;color:var(--muted);margin-top:5px;line-height:1.3}.gprev-note{font-size:12px;color:var(--muted);margin:0 0 6px}
+.gbox{position:fixed;inset:0;background:rgba(30,34,26,.92);z-index:9999;display:none;align-items:center;justify-content:center;flex-direction:column}.gbox.on{display:flex}.gbox img{max-width:94vw;max-height:80vh;border-radius:8px;background:#fff}.gbox .x{position:absolute;top:calc(14px + env(safe-area-inset-top,0px));right:14px;width:44px;height:44px;border-radius:22px;border:0;background:#F4E890;color:#3F4A35;font-size:24px;font-weight:700}.gbox .nav{display:flex;gap:14px;margin-top:14px;align-items:center;color:#F4E890;font-weight:700;font-size:14px}.gbox .nav button{width:46px;height:40px;border-radius:12px;border:0;background:#F4E890;color:#3F4A35;font-size:20px;font-weight:700}
 </style></head><body>
 <title>루아핏 홈</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='16 38 72 72'%3E%3Ccircle cx='52' cy='74' r='36' fill='%23F4E890'/%3E%3Cpath d='M52 100 L52 72' stroke='%233F4A35' stroke-width='4'/%3E%3Cpath d='M52 73 C52 58 62 48 76 48 C76 63 66 73 52 73 Z' fill='%233F4A35'/%3E%3C/svg%3E">
@@ -749,16 +750,16 @@ footer .biz a{color:inherit}
           </ul>
           <h4>가이드 미리보기 (옆으로 슬라이드)</h4>
           <div class="gprev">
-            <a href="img/guide-sample-1.jpg" target="_blank" rel="noopener"><img src="img/guide-sample-1.jpg" alt="예시 가이드 표지" loading="lazy"><span>표지</span></a>
-            <a href="img/guide-sample-2.jpg" target="_blank" rel="noopener"><img src="img/guide-sample-2.jpg" alt="예시 가이드 내 몸 숫자" loading="lazy"><span>내 몸 숫자</span></a>
-            <a href="img/guide-sample-3.jpg" target="_blank" rel="noopener"><img src="img/guide-sample-3.jpg" alt="예시 가이드 식단 · 아침" loading="lazy"><span>식단 · 아침</span></a>
-            <a href="img/guide-sample-4.jpg" target="_blank" rel="noopener"><img src="img/guide-sample-4.jpg" alt="예시 가이드 식단 · 점심" loading="lazy"><span>식단 · 점심</span></a>
-            <a href="img/guide-sample-5.jpg" target="_blank" rel="noopener"><img src="img/guide-sample-5.jpg" alt="예시 가이드 식단 · 저녁" loading="lazy"><span>식단 · 저녁</span></a>
-            <a href="img/guide-sample-6.jpg" target="_blank" rel="noopener"><img src="img/guide-sample-6.jpg" alt="예시 가이드 운동 · 기본 루틴" loading="lazy"><span>운동 · 기본 루틴</span></a>
-            <a href="img/guide-sample-7.jpg" target="_blank" rel="noopener"><img src="img/guide-sample-7.jpg" alt="예시 가이드 운동 · 체형 맞춤" loading="lazy"><span>운동 · 체형 맞춤</span></a>
-            <a href="img/guide-sample-8.jpg" target="_blank" rel="noopener"><img src="img/guide-sample-8.jpg" alt="예시 가이드 운동 못 하는 날" loading="lazy"><span>운동 못 하는 날</span></a>
-            <a href="img/guide-sample-9.jpg" target="_blank" rel="noopener"><img src="img/guide-sample-9.jpg" alt="예시 가이드 습관 루틴 · 마인드셋" loading="lazy"><span>습관 루틴 · 마인드셋</span></a>
-            <a href="img/guide-sample-10.jpg" target="_blank" rel="noopener"><img src="img/guide-sample-10.jpg" alt="예시 가이드 정체기 · 먹는 습관" loading="lazy"><span>정체기 · 먹는 습관</span></a>
+            <a href="img/guide-sample-1.jpg" class="gp"><img src="img/guide-sample-1.jpg" alt="예시 가이드 표지" loading="lazy"><span>표지</span></a>
+            <a href="img/guide-sample-2.jpg" class="gp"><img src="img/guide-sample-2.jpg" alt="예시 가이드 내 몸 숫자" loading="lazy"><span>내 몸 숫자</span></a>
+            <a href="img/guide-sample-3.jpg" class="gp"><img src="img/guide-sample-3.jpg" alt="예시 가이드 식단 · 아침" loading="lazy"><span>식단 · 아침</span></a>
+            <a href="img/guide-sample-4.jpg" class="gp"><img src="img/guide-sample-4.jpg" alt="예시 가이드 식단 · 점심" loading="lazy"><span>식단 · 점심</span></a>
+            <a href="img/guide-sample-5.jpg" class="gp"><img src="img/guide-sample-5.jpg" alt="예시 가이드 식단 · 저녁" loading="lazy"><span>식단 · 저녁</span></a>
+            <a href="img/guide-sample-6.jpg" class="gp"><img src="img/guide-sample-6.jpg" alt="예시 가이드 운동 · 기본 루틴" loading="lazy"><span>운동 · 기본 루틴</span></a>
+            <a href="img/guide-sample-7.jpg" class="gp"><img src="img/guide-sample-7.jpg" alt="예시 가이드 운동 · 체형 맞춤" loading="lazy"><span>운동 · 체형 맞춤</span></a>
+            <a href="img/guide-sample-8.jpg" class="gp"><img src="img/guide-sample-8.jpg" alt="예시 가이드 운동 못 하는 날" loading="lazy"><span>운동 못 하는 날</span></a>
+            <a href="img/guide-sample-9.jpg" class="gp"><img src="img/guide-sample-9.jpg" alt="예시 가이드 습관 루틴 · 마인드셋" loading="lazy"><span>습관 루틴 · 마인드셋</span></a>
+            <a href="img/guide-sample-10.jpg" class="gp"><img src="img/guide-sample-10.jpg" alt="예시 가이드 정체기 · 먹는 습관" loading="lazy"><span>정체기 · 먹는 습관</span></a>
           </div>
           <p class="gprev-note">예시 가이드 10쪽이에요. 누르면 크게 볼 수 있어요.</p>
           <h4>이렇게 진행해요</h4>
@@ -1065,4 +1066,14 @@ footer .biz a{color:inherit}
 })();
 </script>
 
+<div class="gbox" id="gbox" role="dialog" aria-label="가이드 미리보기 크게 보기"><button class="x" id="gbx" aria-label="닫기">✕</button><img id="gbi" alt=""><div class="nav"><button id="gbp" aria-label="이전">‹</button><span id="gbn"></span><button id="gbnx" aria-label="다음">›</button></div></div>
+<script>(function(){var L=[].slice.call(document.querySelectorAll('.gprev a.gp'));if(!L.length)return;var b=document.getElementById('gbox');document.documentElement.appendChild(b);var im=document.getElementById('gbi'),n=document.getElementById('gbn'),k=0,sx=null;
+function show(i){k=(i+L.length)%L.length;im.src=L[k].getAttribute('href');n.textContent=(k+1)+' / '+L.length;b.classList.add('on');document.body.style.overflow='hidden';}
+function close(){b.classList.remove('on');document.body.style.overflow='';}
+L.forEach(function(a,i){a.addEventListener('click',function(e){e.preventDefault();show(i);});});
+document.getElementById('gbx').onclick=close;document.getElementById('gbp').onclick=function(e){e.stopPropagation();show(k-1);};document.getElementById('gbnx').onclick=function(e){e.stopPropagation();show(k+1);};
+b.addEventListener('click',function(e){if(e.target===b)close();});
+document.addEventListener('keydown',function(e){if(!b.classList.contains('on'))return;if(e.key==='Escape')close();if(e.key==='ArrowLeft')show(k-1);if(e.key==='ArrowRight')show(k+1);});
+im.addEventListener('touchstart',function(e){sx=e.touches[0].clientX;},{passive:true});im.addEventListener('touchend',function(e){if(sx===null)return;var d=e.changedTouches[0].clientX-sx;if(Math.abs(d)>40)show(k+(d<0?1:-1));sx=null;});
+})();</script>
 </body></html>
