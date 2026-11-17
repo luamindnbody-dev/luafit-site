@@ -302,12 +302,12 @@ const daysArr=d=>Array.isArray(d)?d:(DAYSETS[d]||[]);
 const dayLabel=d=>daysArr(d).slice().sort().map(w=>"일월화수목금토"[w]).join("·")||"요일 없음";
 const roomsOn=()=>(settings.rooms||0)>0;
 const roomTxt=d=>roomsOn()?` · ${roomOf(d)}번방`:"";
-function applySettings(){HOURS=Array.from({length:20},(_,i)=>pad(i+5)+":00");LESSON=+settings.lessonMin||50;WORKDAYS=(settings.workdays&&settings.workdays.length?settings.workdays:[1,2,3,4,5,6]).slice().sort((a,b)=>((a+6)%7)-((b+6)%7));
-  const st=[];for(let h=5;h<=23;h++){st.push(pad(h)+":00");st.push(pad(h)+":30")}TIMES=st.filter(x=>tmin(x)>=tmin(settings.dayStart||"06:00")&&tmin(x)+LESSON<=Math.max(tmin(settings.dayEnd||"24:00"),tmin(settings.dayStart||"06:00")+LESSON));
+function applySettings(){HOURS=Array.from({length:19},(_,i)=>pad(i+5)+":00");LESSON=+settings.lessonMin||50;WORKDAYS=(settings.workdays&&settings.workdays.length?settings.workdays:[1,2,3,4,5,6]).slice().sort((a,b)=>((a+6)%7)-((b+6)%7));
+  const st=[];for(let h=5;h<=23;h++){st.push(pad(h)+":00");st.push(pad(h)+":30")}TIMES=st.filter(x=>tmin(x)>=tmin(settings.dayStart||"09:00")&&tmin(x)+LESSON<=Math.max(tmin(settings.dayEnd||"22:00"),tmin(settings.dayStart||"09:00")+LESSON));
   document.documentElement.style.setProperty("--nd",WORKDAYS.length);document.documentElement.style.setProperty("--mr","0px")}
 const DAYNAME=["일","월","화","수","목","금","토"];
 let PER=8, MAXM=99;
-let db=null, assets=null, teams={}, sessions=[], tab="s", weekStart=null, loaded={t:false,s:false}, settings={lessonMin:50,dayStart:"06:00",dayEnd:"24:00",rooms:0};
+let db=null, assets=null, teams={}, sessions=[], tab="s", weekStart=null, loaded={t:false,s:false}, settings={lessonMin:50,dayStart:"09:00",dayEnd:"22:00",rooms:0};
 
 const $=s=>document.querySelector(s);
 const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
@@ -378,7 +378,7 @@ const ROWH=26;
 function renderSchedule(){
   const wd=WORKDAYS.map(w=>addD(weekStart,(w+6)%7));const today=todayS();
   const evs=allEvents().filter(e=>e.date>=wd[0]&&e.date<=wd[wd.length-1]);
-  let s0=tmin(settings.dayStart||"06:00"),s1=tmin(settings.dayEnd||"24:00");evs.forEach(e=>{s0=Math.min(s0,Math.floor(tmin(e.time)/30)*30);s1=Math.max(s1,tmin(e.time)+LESSON)});
+  let s0=tmin(settings.dayStart||"09:00"),s1=tmin(settings.dayEnd||"22:00");evs.forEach(e=>{s0=Math.min(s0,Math.floor(tmin(e.time)/30)*30);s1=Math.max(s1,tmin(e.time)+LESSON)});
   const rows=Math.ceil((s1-s0)/30),H=rows*ROWH;
   let h=(Object.keys(teams).length?"":`<div class="box" style="margin:0 0 12px;background:var(--butter)"><b>처음 쓰시나요?</b><div class="muted" style="margin-top:4px;color:var(--olive-ink)">회원 관리 탭 맨 아래 <b>설정</b>에서 수업 시간(분)과 요일을 확인하고, <b>+ 새 회원 추가</b>로 회원과 수강권을 등록하세요.</div></div>`);
   h+=`<div class="tgrid"><div></div>${wd.map(d=>`<div class="dh ${d===today?"today":""}">${DAYNAME[pd(d).getDay()]}<small>${pd(d).getMonth()+1}/${pd(d).getDate()}</small></div>`).join("")}`;
@@ -409,7 +409,7 @@ function renderTeams(){
   const WD=["일","월","화","수","목","금","토"];
   h+=`<div class="box"><h2>설정</h2>
    <div class="two"><label><span class="lab">수업 시간(분)</span><input type="number" id="st-len" min="10" max="180" step="5" value="${LESSON}"></label><span></span></div>
-   <div class="two"><label><span class="lab">시간표 시작</span><select id="st-s0">${HOURS.map(x=>`<option ${x===(settings.dayStart||"06:00")?"selected":""}>${x}</option>`).join("")}</select></label><label><span class="lab">시간표 끝</span><select id="st-s1">${HOURS.map(x=>`<option ${x===(settings.dayEnd||"24:00")?"selected":""}>${x}</option>`).join("")}</select></label></div>
+   <div class="two"><label><span class="lab">시간표 시작</span><select id="st-s0">${HOURS.map(x=>`<option ${x===(settings.dayStart||"09:00")?"selected":""}>${x}</option>`).join("")}</select></label><label><span class="lab">시간표 끝</span><select id="st-s1">${HOURS.map(x=>`<option ${x===(settings.dayEnd||"22:00")?"selected":""}>${x}</option>`).join("")}</select></label></div>
    <span class="lab">수업 요일</span><div class="choice">${[1,2,3,4,5,6,0].map(w=>`<button aria-pressed="${WORKDAYS.includes(w)}" data-stday="${w}">${WD[w]}</button>`).join("")}</div>
    <p class="muted" style="margin:8px 0 0">수업 시작은 30분 단위로 고를 수 있어요.</p>
    <button class="btn full" style="margin-top:12px" data-act="savesettings">설정 저장</button></div><div class="box"><h2>백업</h2><p class="muted" style="margin:0 0 10px">기록은 이 기기의 브라우저에만 저장돼요. 다른 사람은 볼 수 없지만, 브라우저 데이터를 지우거나 폰을 바꾸면 사라져요. 가끔 백업 코드를 복사해서 카톡 나에게 보내기나 메모장에 붙여 두세요. 자세 사진과 손글씨는 백업 코드에 들어가지 않아요.</p><button class="btn full" data-lbk="copy">백업 코드 복사</button><textarea id="lbk-in" style="margin-top:10px;min-height:64px" placeholder="새 기기에서는 복사해 둔 백업 코드를 여기에 붙여 넣고 아래 버튼을 눌러요"></textarea><button class="btn sub full" style="margin-top:8px" data-lbk="load">백업 불러오기</button></div>`;
@@ -442,7 +442,7 @@ function render(){invalidate();renderWeek();if(tab==="s")renderSchedule();else i
 
 /* ---------- sheets ---------- */
 function closeLayer(){$("#layer").innerHTML="";render()}
-function timeOpts(sel){const o=[];for(let m=tmin(settings.dayStart||"06:00");m+LESSON<=Math.max(tmin(settings.dayEnd||"24:00"),tmin(settings.dayStart||"06:00")+LESSON);m+=30)o.push(Math.floor(m/60)+":"+pad(m%60));if(sel&&!o.includes(sel))o.push(sel);return o.sort((a,b)=>tmin(a)-tmin(b))}
+function timeOpts(sel){const o=[];for(let m=360;m+LESSON<=1440;m+=30)o.push(Math.floor(m/60)+":"+pad(m%60));if(sel&&!o.includes(sel))o.push(sel);return o.sort((a,b)=>tmin(a)-tmin(b))}
 function openEv(d,t,tid){const e=allEvents().find(x=>x.date===d&&x.time===t&&x.team.id===tid);if(!e)return;const st=effStatus(e);const past=d<=todayS();const id=sid(d,t,tid);
   let h=`<div class="dim" data-close="1"><div class="sheet" role="dialog" aria-label="${short(d)} ${t}"><h3>${esc(teamFull(e.team))}</h3><p class="muted" style="margin:0">${nice(d)} ${t}–${endT(t)} · ${e.kind==="extra"?"예약 수업":"고정 수업"} · <b>${STATUS[st]}</b>${e.n&&e.total?` · ${passLabel(e)}`:e.over?` · <span class="warn">수강권 없음</span>`:""}</p>
    <div class="stack" style="margin-top:12px">${st!=="cancel"&&st!=="moved"?`<button class="btn" data-rec="${d}|${t}|${tid}">${e.doc&&e.doc.record?"기록 보기 · 수정":"수업 기록 쓰기"}</button>`:""}
