@@ -280,8 +280,10 @@ input[type=number],select{font:inherit;font-size:16px;padding:10px 12px;border:1
 details.card{scroll-margin-top:170px}
 .tiles-after{margin-top:40px}
 .about{padding-block:48px 0}
+.jump{display:flex;align-items:center;gap:6px;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin:-6px 0 18px;max-width:760px}.jump::-webkit-scrollbar{display:none}.jump .jl{font-size:12px;color:var(--muted);white-space:nowrap;margin-right:2px}.jump a{white-space:nowrap;font-size:13px;font-weight:600;padding:5px 11px;border-radius:99px;background:var(--chip);color:var(--fg);text-decoration:none;border:1px solid var(--line)}.jump a:hover{background:var(--butter);color:var(--olive-deep)}
+.gives{background:var(--butter);color:var(--olive-deep);border-radius:14px;padding:18px 18px 16px}.gives h4{font-size:17px;margin:0 0 10px}.gives ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}.gives li{display:grid;grid-template-columns:26px 1fr;gap:8px;align-items:start;font-size:15px;line-height:1.5}.gives .gi{font-size:18px;line-height:1.3}.gives li b{display:block}.gives li em{display:block;font-style:normal;font-size:14px;opacity:.85}.gives li em b{display:inline}
 .store{display:grid;gap:14px;max-width:760px}
-details.coach{display:block;padding:0}
+details.coach{display:block;padding:0;scroll-margin-top:150px}
 details.coach summary{list-style:none;cursor:pointer;padding:22px;display:grid;gap:10px}
 details.coach summary::-webkit-details-marker{display:none}
 details.coach summary h3{font-size:20px}
@@ -730,6 +732,7 @@ footer .biz a{color:inherit}
 <section class="view" id="v-store" data-view="store" hidden>
   <div class="wrap">
     <div class="page-head"><span class="eyebrow">PROGRAM</span><h1>루아핏 코칭 프로그램 안내</h1><p>1회 가이드부터 1:1 코칭까지, 나에게 맞는 방법으로 시작해 보세요.</p></div>
+    <div class="jump" role="navigation" aria-label="프로그램 바로가기"><span class="jl">바로가기</span><a href="#guide">루틴 가이드</a><a href="#coaching">1:1 코칭</a><a href="#program">루틴성형 함께하기</a></div>
     <div class="store">
 
       <details class="box coach" id="guide">
@@ -820,15 +823,21 @@ footer .biz a{color:inherit}
       </details>
 
       <details class="box coach" id="program">
-        <summary><span class="soon">COMING SOON · 2027년 1월 오픈</span><h3>루아쌤의 루틴성형 프로그램 함께하기</h3><p><b>한 달 동안 함께하는 자기관리 루틴.</b> 버릴 습관 하나, 채울 습관 하나. 운동, 독서, 수면, 식단까지 내가 바꾸고 싶은 습관을 정하고 20명이 함께 매일 인증해요.</p><span class="btn btn-olive more">구성·가격 보기</span></summary>
+        <summary><span class="soon">COMING SOON · 2027년 1월 오픈</span><h3>루아쌤의 루틴성형 프로그램 함께하기</h3><p><b>한 달 동안 함께하는 자기관리 루틴.</b> <b>평일 20분 루아쌤 운동 영상 제공</b>과 매니저의 매일 체크로 함께해요. 버릴 습관 하나, 채울 습관 하나. 운동, 독서, 수면, 식단까지 내가 바꾸고 싶은 습관을 정하고 20명이 함께 매일 인증해요.</p><span class="btn btn-olive more">구성·가격 보기</span></summary>
         <div class="coach-body">
+          <div class="gives"><h4>이만큼 드려요</h4><ul>
+            <li><span class="gi">🏋️</span><span><b>평일 20분 루아쌤 운동 영상 제공</b><em>달마다 새 테마로 바뀌어요</em></span></li>
+            <li><span class="gi">💬</span><span><b>매니저의 매일 확언 · 응원 메시지</b></span></li>
+            <li><span class="gi">✅</span><span><b>매니저의 매일 습관 · 운동 인증 체크</b></span></li>
+            <li><span class="gi">📍</span><span><b>2주 차 중간 점검 + 마지막 날 완주 축하</b></span></li>
+            <li><span class="gi">🎁</span><span><b>완주 혜택</b><em>인증 빠진 날이 4일 이하면 완주예요. 다음 달 이어서 신청하면 <b>10,000원 할인</b>. 두 달 연속 완주하면 <b>맞춤 루틴 가이드 PDF 무료</b> 또는 <b>1:1 코칭 1개월 50,000원 할인</b> 중 하나를 골라요.</em></span></li>
+          </ul></div>
           <h4>이렇게 진행해요</h4>
           <ol class="steps">
             <li><b>간단한 신청서</b> 닉네임, 이번 달 목표, 버릴 습관과 채울 습관을 적어요. (1~2분)</li>
             <li><b>오픈채팅방 입장</b> 20명 정도의 소규모 방에서 닉네임으로 함께해요. 전화번호는 공개되지 않아요.</li>
             <li><b>첫날: 나의 한 달 선언</b> 단톡방에서 내가 바꿀 습관을 함께 선언하며 시작해요.</li>
-            <li><b>매일 인증</b> 하루 두 번 습관 인증, 평일에는 루아쌤의 20분 운동 영상을 따라 하고 운동 인증을 해요. 매니저가 매일 체크해 드리고, 자세한 인증 방법은 오리엔테이션에서 알려 드려요.</li>
-            <li><b>매일 확언 · 동기부여</b> 매니저가 매일 확언과 응원 메시지를 보내 드려요.</li>
+            <li><b>매일 인증</b> 하루 두 번 습관 인증, 평일에는 루아쌤 운동 영상을 따라 하고 운동 인증을 해요. 자세한 인증 방법은 오리엔테이션에서 알려 드려요.</li>
             <li><b>앞 2주: 버릴 습관 줄이기 · 뒤 2주: 채울 습관 굳히기</b> 2주 차에 중간 점검, 마지막 날 완주를 함께 축하해요.</li>
             <li><b>매달 새 테마</b> 매달 1일에 시작하고, 달마다 운동 테마가 바뀌어요. 이어서 신청하면 두 달, 세 달로 습관을 더 단단하게 만들 수 있어요.</li>
           </ol>
@@ -837,7 +846,6 @@ footer .biz a{color:inherit}
             <div class="plan best"><span class="tagb">1기 특가</span><span class="pl">1기 특가</span><b>39,000원</b><span class="pm">정가 50,000원</span><span class="zm">1기에만 드리는 가격이에요</span></div>
             <div class="plan"><span class="pl">1기 신청 기간</span><b>12/20~24</b><span class="pm">12/26~31 입장 안내</span><span class="zm">진행 2027년 1/1(금) ~ 1/31(일)</span></div>
           </div>
-          <p class="upgrade"><b>완주 혜택</b> 인증을 빠진 날이 4일 이하면 완주예요. 완주하고 다음 달에 이어서 신청하면 <b>10,000원 할인</b>돼요.<br><b>두 달 연속 완주</b>하면 <b>맞춤 루틴 가이드 PDF 무료</b> 또는 <b>1:1 코칭 1개월 50,000원 할인</b> 중 하나를 골라 받을 수 있어요.</p>
           <ul class="incl">
             <li>질환, 통증이 있거나 임신 중이면 참여 전에 의사와 상의해 주세요. 운동은 무리하지 않는 범위에서 진행해 주세요.</li>
             <li>맞춤 관리가 필요하면 1:1 코칭을 추천해요.</li>
@@ -872,6 +880,8 @@ footer .biz a{color:inherit}
     else window.scrollTo(0,0);
   }
   addEventListener('hashchange',route); route();
+  document.querySelectorAll('.jump a').forEach(a=>a.addEventListener('click',e=>{const d=document.getElementById(a.getAttribute('href').slice(1));if(d&&location.hash===a.getAttribute('href')){e.preventDefault();d.open=true;d.scrollIntoView({block:'start'})}}));
+
 
   // per-item links
   const BASE='https://claude.ai/artifact/H8SR3S2BL6yviFgiZ7RAhA';
