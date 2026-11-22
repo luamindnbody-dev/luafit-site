@@ -16,6 +16,13 @@ body.nav-open header nav{transform:none}
 .nav-dim{position:fixed;inset:0;background:rgba(20,24,16,.45);z-index:35;opacity:0;pointer-events:none;transition:opacity .25s}
 body.nav-open .nav-dim{opacity:1;pointer-events:auto}
 .nav-x{position:absolute;top:calc(14px + env(safe-area-inset-top,0px));right:14px;width:40px;height:40px;border:0;background:transparent;color:var(--band-fg);font-size:26px}
+
+/* home: 논문·칼럼 읽기 (가로 줄 목록) */
+.rlist{display:grid;gap:8px}
+.rrow{display:flex;align-items:center;gap:12px;background:var(--surface);border:1px solid var(--line);padding:12px 14px;text-decoration:none;color:inherit}
+.rrow .tag{flex:0 0 auto;min-width:52px;text-align:center;font-size:11px;font-weight:700;background:var(--butter);color:var(--olive-deep);padding:2px 8px;white-space:nowrap}
+.rrow b{flex:1 1 auto;font-size:15px;font-weight:600;line-height:1.45;min-width:0}
+.rrow .go{flex:0 0 auto;font-weight:700;opacity:.7}
 </style></head><body>
 <title>루아핏 홈</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='16 38 72 72'%3E%3Ccircle cx='52' cy='74' r='36' fill='%23F4E890'/%3E%3Cpath d='M52 100 L52 72' stroke='%233F4A35' stroke-width='4'/%3E%3Cpath d='M52 73 C52 58 62 48 76 48 C76 63 66 73 52 73 Z' fill='%233F4A35'/%3E%3C/svg%3E">
@@ -459,6 +466,13 @@ footer .bizq a{color:var(--accent-ink);font-weight:700;font-size:15px;text-decor
       <a class="tile" href="#calc"><span class="k">kcal</span><h3>탄단지 계산기</h3><p>하루 목표 칼로리와 탄수화물·단백질·지방 양을 계산해요.</p><span class="go">계산하기 →</span></a>
       <a class="tile" href="#speed"><span class="k">speed</span><h3>감량 속도 계산기</h3><p>체지방률에 맞는 근손실 없는 안전 감량 속도를 알려드려요.</p><span class="go">확인하기 →</span></a>
       <a class="tile" href="#tools"><span class="k">habit</span><h3>습관 기록지·앱</h3><p>매일 체크하는 루아핏 습관 기록 도구예요.</p><span class="go">시작하기 →</span></a>
+    </div>
+    <div class="sec-head"><h2>논문·칼럼 읽기</h2><a href="#tips">전체 보기 →</a></div>
+    <div class="rlist">
+      <a class="rrow" href="#col-glp1"><span class="tag">칼럼</span><b>위고비·마운자로, 빼는 약일까 지키는 약일까</b><span class="go">→</span></a>
+      <a class="rrow" href="#col-40s"><span class="tag">칼럼</span><b>40대 다이어트, 20대와는 달라요</b><span class="go">→</span></a>
+      <a class="rrow" href="#paper-bellyfat"><span class="tag">정리편</span><b>과학으로 정리한 뱃살 빼는 방법</b><span class="go">→</span></a>
+      <a class="rrow" href="#paper-sleep"><span class="tag">논문</span><b>잠이 부족하면 지방 대신 근육이 빠진다</b><span class="go">→</span></a>
     </div>
   </div>
 </section>
