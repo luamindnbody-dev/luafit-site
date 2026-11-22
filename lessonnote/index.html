@@ -11,7 +11,7 @@
 <style>
 /* Layout: one phone-width column; schedule grid on top, sheets and full-screen editor/card layered over it */
 :root{
-  --olive:#3F4A35; --olive-ink:#2A3123; --butter:#F4E890; --ivory:#F3F1E9;
+  --olive:#6F7F5E; --olive-ink:#36412B; --butter:#F4E890; --ivory:#F3F1E9;
   --paper:#FFFFFF; --line:#DEDACB; --muted:#7A7F70; --alert:#B5563A; --alert-bg:#FBE3DA;
   --f-title:"Gowun Batang",serif;
   --f-body:Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;
@@ -98,7 +98,7 @@ textarea{min-height:84px;resize:vertical;line-height:1.5}
 .linkb{border:0;background:none;color:var(--olive);font-weight:800;font-size:13.5px;padding:6px 0;cursor:pointer}
 .ink-head{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:6px}
 .ink-tools{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}
-.inkb{border:1.5px solid var(--line,#D8D4C4);background:var(--ivory);border-radius:10px;min-height:40px;padding:0 12px;font-weight:700;font-size:13.5px;color:var(--ink,#2A3123);display:inline-flex;align-items:center;gap:6px;cursor:pointer}
+.inkb{border:1.5px solid var(--line,#D8D4C4);background:var(--ivory);border-radius:10px;min-height:40px;padding:0 12px;font-weight:700;font-size:13.5px;color:var(--ink,#36412B);display:inline-flex;align-items:center;gap:6px;cursor:pointer}
 .inkb[aria-pressed="true"]{border-color:var(--olive);box-shadow:inset 0 0 0 1.5px var(--olive)}
 .inkb i{width:18px;height:18px;border-radius:50%;display:block}
 .ink-wrap{background:#fff;border-radius:12px;border:1px solid #E1DDCF;overflow:hidden;background-image:repeating-linear-gradient(#fff 0 31px,#EEEBE0 31px 32px)}
@@ -477,7 +477,7 @@ function inkField(){const r=edit.r;const ph=r.memoPhotos||[];
   if(!edit.inkOpen){const has=r.ink||(ink&&ink.key===edit.id&&ink.strokes.length)||ph.length;
     return `<div class="field ink-closed"><button class="btn sub" style="width:100%" data-act="inkopen">손글씨 열기${has?` <span class="hint" style="color:inherit">· 적어둔 메모 있음</span>`:""}</button></div>`}
   return `<div class="field"><div class="ink-head"><span class="lab" style="margin:0">손글씨 메모 <span class="hint">수업 중에 펜슬로 적고, 끝나고 글자로 정리해요</span></span><button class="linkb" data-act="inkclose">닫기</button></div>
-   <div class="ink-tools"><button class="inkb" aria-pressed="${!ink||ink.col==="#2A3123"}" data-ink="col|#2A3123" aria-label="검은 펜"><i style="background:#2A3123"></i></button><button class="inkb" aria-pressed="${ink&&ink.col==="#C0392B"}" data-ink="col|#C0392B" aria-label="빨간 펜"><i style="background:#C0392B"></i></button><button class="inkb" aria-pressed="${ink&&ink.col==="#2E6FB7"}" data-ink="col|#2E6FB7" aria-label="파란 펜"><i style="background:#2E6FB7"></i></button><button class="inkb" aria-pressed="${ink&&ink.col==="erase"}" data-ink="col|erase">지우개</button><button class="inkb" data-ink="undo">되돌리기</button><button class="inkb" data-ink="clear">전체 지우기</button>${isTouchDev()?`<button class="inkb" aria-pressed="${penOnly()}" data-ink="pen">${penOnly()?"펜슬만 ✓":"손가락도 써짐"}</button>`:""}</div>
+   <div class="ink-tools"><button class="inkb" aria-pressed="${!ink||ink.col==="#36412B"}" data-ink="col|#36412B" aria-label="검은 펜"><i style="background:#36412B"></i></button><button class="inkb" aria-pressed="${ink&&ink.col==="#C0392B"}" data-ink="col|#C0392B" aria-label="빨간 펜"><i style="background:#C0392B"></i></button><button class="inkb" aria-pressed="${ink&&ink.col==="#2E6FB7"}" data-ink="col|#2E6FB7" aria-label="파란 펜"><i style="background:#2E6FB7"></i></button><button class="inkb" aria-pressed="${ink&&ink.col==="erase"}" data-ink="col|erase">지우개</button><button class="inkb" data-ink="undo">되돌리기</button><button class="inkb" data-ink="clear">전체 지우기</button>${isTouchDev()?`<button class="inkb" aria-pressed="${penOnly()}" data-ink="pen">${penOnly()?"펜슬만 ✓":"손가락도 써짐"}</button>`:""}</div>
    <div class="ink-wrap"><canvas id="inkc" aria-label="손글씨 메모 칸"></canvas></div>
    <p class="muted" style="margin:6px 0 0">${isTouchDev()?(penOnly()?"펜슬로만 써져요. 손바닥·손가락은 무시돼요.":"손가락으로도 써져요. 펜슬만 쓰려면 위 버튼을 눌러요."):""} 칸 바깥을 끌면 화면이 스크롤돼요.</p>
    <div class="two" style="margin-top:10px">${false?`<input type="file" id="memo-file" accept="image/*" multiple hidden><button class="btn sub" data-act="memopick">메모 사진 올리기</button>`:"<span></span>"}${sampleImg?`<button class="btn y" data-act="inkread">글자로 정리하기</button>`:`<span class="muted" style="align-self:center">손글씨는 그림으로 저장돼요</span>`}</div>
@@ -485,7 +485,7 @@ function inkField(){const r=edit.r;const ph=r.memoPhotos||[];
    <p class="muted" style="margin:6px 0 0">인터넷이 안 될 땐 아이패드 메모 앱에 손글씨로 적고, 나중에 캡처해서 '메모 사진 올리기'로 넣으면 같이 정리돼요.</p></div>`}
 function initInk(){const c=$("#inkc");if(!c)return;const wrap=c.parentElement;const W=wrap.clientWidth,H=Math.round(Math.max(320,W*0.75));const dpr=window.devicePixelRatio||1;
   c.width=W*dpr;c.height=H*dpr;c.style.height=H+"px";const g=c.getContext("2d");g.scale(dpr,dpr);g.lineCap="round";g.lineJoin="round";
-  ink=ink&&ink.key===edit.id?Object.assign(ink,{c,g,W,H}):{key:edit.id,c,g,W,H,col:"#2A3123",strokes:[],penSeen:false,dirty:false,base:null};
+  ink=ink&&ink.key===edit.id?Object.assign(ink,{c,g,W,H}):{key:edit.id,c,g,W,H,col:"#36412B",strokes:[],penSeen:false,dirty:false,base:null};
   const redraw=()=>{g.clearRect(0,0,W,H);if(ink.base)g.drawImage(ink.base,0,0,W,ink.base.naturalHeight*W/ink.base.naturalWidth);ink.strokes.forEach(drawStroke)};
   ink.redraw=redraw;
   if(!ink.base&&edit.r.ink&&edit.r.ink.url){const im=new Image();im.onload=()=>{ink.base=im;redraw()};im.src=edit.r.ink.url}else redraw();
@@ -744,7 +744,7 @@ function gridSvg(w,h,n,cx,col,gx,gy,hy,marks,join){const cell=w/n;const st=col==
   const va=(P.va||0)*Math.PI/180,ha=(P.ha||0)*Math.PI/180;const vX=(cx??.5)*w,vY=(P.vy??.5)*h,hX=(P.hx??.5)*w;
   return `<svg viewBox="0 0 ${w} ${h}" preserveAspectRatio="none" aria-hidden="true"><g stroke="${st}" stroke-width="1" vector-effect="non-scaling-stroke" fill="none">${l.replace(/<line /g,'<line vector-effect="non-scaling-stroke" ')}</g>${red(vX,vY,Math.sin(va),Math.cos(va))}${hy!=null?red(hX,hy*h,Math.cos(ha),Math.sin(ha)):""}${protractor(w,h,P,cx,hy)}${markSvg(w,h,marks,join)}</svg>`}
 function protractor(w,h,P,cx,hy){let o="";const R=w/7,fs=w/22;
-  const txt=(x,y,t)=>`<text x="${x}" y="${y}" font-size="${fs}" font-weight="800" text-anchor="middle" dominant-baseline="middle" fill="#F4E890" stroke="#2A3123" stroke-width="${fs/7}" paint-order="stroke" font-family="sans-serif">${t}</text>`;
+  const txt=(x,y,t)=>`<text x="${x}" y="${y}" font-size="${fs}" font-weight="800" text-anchor="middle" dominant-baseline="middle" fill="#F4E890" stroke="#36412B" stroke-width="${fs/7}" paint-order="stroke" font-family="sans-serif">${t}</text>`;
   const va=P.va||0;if(Math.abs(va)>=0.1){const a=va*Math.PI/180,X=(cx??.5)*w,Y=(P.vy??.5)*h;
     o+=`<line x1="${X}" y1="${Y}" x2="${X}" y2="${Y-R*1.4}" stroke="#F4E890" stroke-width="2" stroke-dasharray="6 5" vector-effect="non-scaling-stroke"/>`;
     o+=`<path d="M ${X} ${Y-R} A ${R} ${R} 0 0 ${va>0?0:1} ${X-Math.sin(a)*R} ${Y-Math.cos(a)*R}" fill="none" stroke="#F4E890" stroke-width="3" vector-effect="non-scaling-stroke"/>`;
@@ -758,7 +758,7 @@ function segAng(a,b,ar){let d=Math.atan2((b.y-a.y)*ar,b.x-a.x)*180/Math.PI;if(d>
   const hz=Math.abs(d)<=45;const v=hz?Math.abs(d):90-Math.abs(d);return {hz,v:Math.round(v*10)/10,dir:hz?(d>0.05?"오른쪽 내려감":d<-0.05?"오른쪽 올라감":""):""}}
 function markAngHtml(p){if(!p||!p.join||!p.marks)return"";const ar=p._ar||4/3,o=[];for(let i=0;i+1<p.marks.length;i+=2){const g=segAng(p.marks[i],p.marks[i+1],ar);o.push(`선${i/2+1} ${g.hz?"수평":"수직"} 기준 ${g.v.toFixed(1)}°${g.dir?" ("+g.dir+")":""}`)}return o.join(" · ")}
 function markSvg(w,h,marks,join){if(!marks||!marks.length)return"";const r=w/80;let o="";
-  if(join)for(let i=0;i+1<marks.length;i+=2){const a=marks[i],b=marks[i+1];o+=`<line x1="${a.x*w}" y1="${a.y*h}" x2="${b.x*w}" y2="${b.y*h}" stroke="#F4E890" stroke-width="3" vector-effect="non-scaling-stroke"/>`;const g=segAng(a,b,h/w);o+=`<text x="${(a.x+b.x)/2*w}" y="${(a.y+b.y)/2*h-r*1.6}" font-size="${w/24}" font-weight="800" text-anchor="middle" fill="#F4E890" stroke="#2A3123" stroke-width="${w/160}" paint-order="stroke" style="font-family:sans-serif">${g.v.toFixed(1)}°</text>`}
+  if(join)for(let i=0;i+1<marks.length;i+=2){const a=marks[i],b=marks[i+1];o+=`<line x1="${a.x*w}" y1="${a.y*h}" x2="${b.x*w}" y2="${b.y*h}" stroke="#F4E890" stroke-width="3" vector-effect="non-scaling-stroke"/>`;const g=segAng(a,b,h/w);o+=`<text x="${(a.x+b.x)/2*w}" y="${(a.y+b.y)/2*h-r*1.6}" font-size="${w/24}" font-weight="800" text-anchor="middle" fill="#F4E890" stroke="#36412B" stroke-width="${w/160}" paint-order="stroke" style="font-family:sans-serif">${g.v.toFixed(1)}°</text>`}
   marks.forEach((m,i)=>{o+=`<circle cx="${m.x*w}" cy="${m.y*h}" r="${r}" fill="#F4E890" stroke="#E2473B" stroke-width="2" vector-effect="non-scaling-stroke"/>`});return o}
 function attachGrids(root){(root||document).querySelectorAll(".pz img").forEach(img=>{const go=()=>{const box=img.parentElement;const p=postures.find(x=>x.id===box.dataset.pid);if(p&&img.naturalWidth){p._ar=img.naturalHeight/img.naturalWidth;document.querySelectorAll('[data-mang="'+p.id+'"]').forEach(m=>m.textContent=markAngHtml(p))}const old=box.querySelector("svg");if(old)old.remove();box.insertAdjacentHTML("beforeend",gridSvg(img.naturalWidth||1000,img.naturalHeight||1333,gridN,p?p.cx:.5,gridC,p?p.gx:null,p?p.gy:null,p?p.hy:null,p?p.marks:null,p?p.join:false,p||{}))};if(img.complete&&img.naturalWidth)go();else img.addEventListener("load",go,{once:true})})}
 function postureBox(t){
