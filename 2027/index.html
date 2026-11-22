@@ -26,6 +26,7 @@ figcaption{font-size:13px;color:var(--muted);margin-top:6px;text-align:center}
 .btn{display:block;text-align:center;background:var(--olive);color:var(--ivory);text-decoration:none;font-weight:700;padding:14px;font-size:16px}
 .btn.alt{background:var(--butter);color:var(--deep);margin-top:10px}
 .flash{outline:3px solid var(--butter);outline-offset:3px}
+.steps{background:#fff;border:1px solid #d6d3c4;padding:14px 16px;margin-top:16px;font-size:14px}.steps h3{font-family:"Gowun Batang",serif;font-size:17px;margin:0 0 8px;color:var(--olive)}.steps ol{margin:4px 0 12px;padding-left:20px}.steps li{margin:2px 0}
 .note{font-size:13px;color:var(--muted);margin:8px 0 0}
 footer{text-align:center;font-size:12px;color:var(--muted);padding:20px}
 footer a{color:inherit}
@@ -45,7 +46,24 @@ footer a{color:inherit}
   <figure><img src="luafit-2027-2.jpg" alt="2027 계획 기록지"><figcaption>2장 · 2027, 루틴으로 바꾸는 한 해</figcaption></figure>
 
   <a class="btn" id="pdf" href="/files/luafit-2027-routine.pdf" download="luafit-2027-routine.pdf">출력용 PDF 다운로드</a>
-  <p class="note" id="pdfnote"><b>아이폰</b>: 버튼을 <b>꾹 눌러 → 공유 → "파일에 저장"</b>하면 가장 확실해요.</p>
+  <p class="note" id="pdfnote"></p>
+  <div class="steps">
+    <h3>PDF 저장하는 법</h3>
+    <b>아이폰 (Safari)</b>
+    <ol>
+      <li>위 <b>출력용 PDF 다운로드</b> 버튼을 <b>길게 꾹</b> 눌러요.</li>
+      <li>뜨는 메뉴에서 <b>공유</b>를 눌러요.</li>
+      <li><b>"파일에 저장"</b>을 누르면 파일 앱에 저장돼요. (노트+·굿노트를 고르면 바로 열려요)</li>
+    </ol>
+    <p class="note" style="margin:-6px 0 12px">PDF가 이미 화면에 열렸다면: 주소창이나 아래 <b>공유 버튼(□↑)</b> → <b>"파일에 저장"</b></p>
+    <b>안드로이드 (크롬·삼성 인터넷)</b>
+    <ol>
+      <li>버튼을 <b>한 번</b> 눌러요. 바로 받아지면 끝이에요.</li>
+      <li>PDF가 화면에 열리기만 하면, 오른쪽 위 <b>⋮</b> → <b>다운로드</b>(↓)를 눌러요.</li>
+      <li>받은 파일은 <b>내 파일 → 다운로드</b> 폴더에 있어요.</li>
+    </ol>
+    <p class="note">카톡·인스타에서 열었다면 먼저 <b>⋯ → 다른(외부) 브라우저로 열기</b>를 누른 뒤 위 방법대로 해 주세요.</p>
+  </div>
 
   <a class="btn alt" href="https://luafit.kr/#program">루틴으로 2027을 바꾸고 싶다면 · 루틴성형 함께하기 →</a>
 </main>
@@ -54,15 +72,14 @@ footer a{color:inherit}
 (function(){
   var ua=navigator.userAgent||'', btn=document.getElementById('pdf'), note=document.getElementById('pdfnote');
   var kakao=/KAKAOTALK/i.test(ua), insta=/Instagram|FBAN|FBAV/i.test(ua);
-  if(/Android/i.test(ua)&&!kakao&&!insta){note.innerHTML='<b>안드로이드</b>: 버튼을 누르면 바로 받아져요. 알림창이나 <b>내 파일 → 다운로드</b> 폴더에서 열 수 있어요.'}
   if(kakao){
-    note.textContent='카톡 안에서는 다운로드가 막혀 있어요. 버튼을 누르면 Safari(또는 기본 브라우저)로 열려요. 거기서 한 번 더 눌러 주세요.';
+    note.textContent='지금 카톡 안에서 보고 있어요. 버튼을 누르면 Safari(또는 기본 브라우저)로 넘어가요. 거기서 아래 방법대로 저장해 주세요.';
     btn.addEventListener('click',function(e){
       e.preventDefault();
       location.href='kakaotalk://web/openExternal?url='+encodeURIComponent('https://luafit.kr/2027/#pdf');
     });
   } else if(insta){
-    note.textContent='인스타 안에서는 다운로드가 막혀 있어요. 오른쪽 위 ⋯ → "외부 브라우저에서 열기"를 누른 뒤 다시 눌러 주세요.';
+    note.textContent='지금 인스타 안에서 보고 있어요. 오른쪽 위 ⋯ → "외부 브라우저에서 열기"를 먼저 눌러 주세요.';
   }
   if(location.hash==='#pdf'){btn.scrollIntoView({block:'center'});btn.classList.add('flash')}
 })();
