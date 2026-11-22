@@ -54,6 +54,7 @@ footer a{color:inherit}
 (function(){
   var ua=navigator.userAgent||'', btn=document.getElementById('pdf'), note=document.getElementById('pdfnote');
   var kakao=/KAKAOTALK/i.test(ua), insta=/Instagram|FBAN|FBAV/i.test(ua);
+  if(/Android/i.test(ua)&&!kakao&&!insta){note.innerHTML='<b>안드로이드</b>: 버튼을 누르면 바로 받아져요. 알림창이나 <b>내 파일 → 다운로드</b> 폴더에서 열 수 있어요.'}
   if(kakao){
     note.textContent='카톡 안에서는 다운로드가 막혀 있어요. 버튼을 누르면 Safari(또는 기본 브라우저)로 열려요. 거기서 한 번 더 눌러 주세요.';
     btn.addEventListener('click',function(e){
