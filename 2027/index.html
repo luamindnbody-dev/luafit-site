@@ -27,6 +27,7 @@ figcaption{font-size:13px;color:var(--muted);margin-top:6px;text-align:center}
 .btn.alt{background:var(--butter);color:var(--deep);margin-top:10px}
 .flash{outline:3px solid var(--butter);outline-offset:3px}
 .steps{background:#fff;border:1px solid #d6d3c4;padding:14px 16px;margin-top:16px;font-size:14px}.steps h3{font-family:"Gowun Batang",serif;font-size:17px;margin:0 0 8px;color:var(--olive)}.steps ol{margin:4px 0 12px;padding-left:20px}.steps li{margin:2px 0}
+.dls{display:grid;gap:8px}.btn.bw{background:#fff;color:#111;border:1.5px solid #111}.btn small{font-weight:400;font-size:13px}
 .note{font-size:13px;color:var(--muted);margin:8px 0 0}
 footer{text-align:center;font-size:12px;color:var(--muted);padding:20px}
 footer a{color:inherit}
@@ -45,13 +46,16 @@ footer a{color:inherit}
   <figure><img src="luafit-2027-1.jpg" alt="2026 돌아보기 기록지"><figcaption>1장 · 2026, 나는 이렇게 살았다</figcaption></figure>
   <figure><img src="luafit-2027-2.jpg" alt="2027 계획 기록지"><figcaption>2장 · 2027, 루틴으로 바꾸는 한 해</figcaption></figure>
 
-  <a class="btn" id="pdf" href="/files/luafit-2027-routine.pdf" download="luafit-2027-routine.pdf">출력용 PDF 다운로드</a>
+  <div class="dls" id="pdf">
+    <a class="btn dl" href="/files/luafit-2027-routine.pdf" download="luafit-2027-routine.pdf">컬러 PDF 다운로드</a>
+    <a class="btn dl bw" href="/files/luafit-2027-routine-bw.pdf" download="luafit-2027-routine-bw.pdf">흑백 PDF 다운로드 <small>(프린트용)</small></a>
+  </div>
   <p class="note" id="pdfnote"></p>
   <div class="steps">
     <h3>PDF 저장하는 법</h3>
     <b>아이폰 (Safari)</b>
     <ol>
-      <li>위 <b>출력용 PDF 다운로드</b> 버튼을 <b>길게 꾹</b> 눌러요.</li>
+      <li>위 <b>컬러</b> 또는 <b>흑백 PDF 다운로드</b> 버튼을 <b>길게 꾹</b> 눌러요.</li>
       <li>뜨는 메뉴에서 <b>공유</b>를 눌러요.</li>
       <li><b>"파일에 저장"</b>을 누르면 파일 앱에 저장돼요. (노트+·굿노트를 고르면 바로 열려요)</li>
     </ol>
@@ -70,14 +74,14 @@ footer a{color:inherit}
 <footer>luafit.kr · <a href="https://www.instagram.com/luafit_healthylife/">@luafit_healthylife</a> · 만든이 루아쌤</footer>
 <script>
 (function(){
-  var ua=navigator.userAgent||'', btn=document.getElementById('pdf'), note=document.getElementById('pdfnote');
+  var ua=navigator.userAgent||'', btn=document.getElementById('pdf'), note=document.getElementById('pdfnote'), dls=document.querySelectorAll('.dl');
   var kakao=/KAKAOTALK/i.test(ua), insta=/Instagram|FBAN|FBAV/i.test(ua);
   if(kakao){
     note.textContent='지금 카톡 안에서 보고 있어요. 버튼을 누르면 Safari(또는 기본 브라우저)로 넘어가요. 거기서 아래 방법대로 저장해 주세요.';
-    btn.addEventListener('click',function(e){
+    dls.forEach(function(d){d.addEventListener('click',function(e){
       e.preventDefault();
       location.href='kakaotalk://web/openExternal?url='+encodeURIComponent('https://luafit.kr/2027/#pdf');
-    });
+    })});
   } else if(insta){
     note.textContent='지금 인스타 안에서 보고 있어요. 오른쪽 위 ⋯ → "외부 브라우저에서 열기"를 먼저 눌러 주세요.';
   }
