@@ -1,6 +1,22 @@
 <!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}.gprev{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 2px 10px;margin:4px 0 2px;-webkit-overflow-scrolling:touch}.gprev a{flex:0 0 31%;max-width:150px;scroll-snap-align:start;text-decoration:none;color:inherit}.gprev img{width:100%;display:block;border-radius:0;border:1px solid var(--line);box-shadow:0 2px 6px rgba(63,74,53,.12);background:#fff}.gprev span{display:block;text-align:center;font-size:11px;font-weight:700;color:var(--muted);margin-top:5px;line-height:1.3}.gprev-note{font-size:12px;color:var(--muted);margin:0 0 6px}
 .gbox{position:fixed;inset:0;background:rgba(30,34,26,.92);z-index:9999;display:none;align-items:center;justify-content:center;flex-direction:column}.gbox.on{display:flex}.gbox img{max-width:94vw;max-height:80vh;border-radius:0;background:#fff}.gbox .x{position:absolute;top:calc(14px + env(safe-area-inset-top,0px));right:14px;width:44px;height:44px;border-radius:0;border:0;background:#F4E890;color:#3F4A35;font-size:24px;font-weight:700}.gbox .nav{display:flex;gap:14px;margin-top:14px;align-items:center;color:#F4E890;font-weight:700;font-size:14px}.gbox .nav button{width:46px;height:40px;border-radius:0;border:0;background:#F4E890;color:#3F4A35;font-size:20px;font-weight:700}
-.sumprev h4{margin:14px 0 6px}</style></head><body>
+.sumprev h4{margin:14px 0 6px}
+/* compact header + drawer (preview) */
+header .bar{flex-direction:row;justify-content:space-between;align-items:center;gap:10px;padding-block:8px}
+header .logo svg{width:92px!important}
+.hb-right{display:flex;align-items:center;gap:8px}
+.hb-cta{background:var(--butter);color:var(--olive-deep);font-weight:700;font-size:13px;text-decoration:none;padding:6px 10px;white-space:nowrap}
+.hb-btn{width:40px;height:36px;border:0;background:transparent;color:var(--band-fg);display:grid;place-items:center;cursor:pointer;padding:0}
+.hb-btn span{display:block;width:22px;height:2px;background:currentColor;box-shadow:0 7px 0 currentColor,0 -7px 0 currentColor}
+header nav{position:fixed;top:0;right:0;bottom:0;width:min(78vw,300px);flex-direction:column;gap:0;background:var(--band);padding:calc(70px + env(safe-area-inset-top,0px)) 0 24px;transform:translateX(100%);transition:transform .25s ease;z-index:40;overflow-y:auto;max-width:none;justify-content:flex-start!important}
+header nav a{font-size:17px!important;padding:16px 26px!important;opacity:1;border-bottom:1px solid rgba(243,241,233,.12)}
+header nav .nav-contact{display:block!important}
+header nav .nav-cta{position:static!important;margin:18px 26px 0!important;text-align:center;border-bottom:0}
+body.nav-open header nav{transform:none}
+.nav-dim{position:fixed;inset:0;background:rgba(20,24,16,.45);z-index:35;opacity:0;pointer-events:none;transition:opacity .25s}
+body.nav-open .nav-dim{opacity:1;pointer-events:auto}
+.nav-x{position:absolute;top:calc(14px + env(safe-area-inset-top,0px));right:14px;width:40px;height:40px;border:0;background:transparent;color:var(--band-fg);font-size:26px}
+</style></head><body>
 <title>루아핏 홈</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='16 38 72 72'%3E%3Ccircle cx='52' cy='74' r='36' fill='%23F4E890'/%3E%3Cpath d='M52 100 L52 72' stroke='%233F4A35' stroke-width='4'/%3E%3Cpath d='M52 73 C52 58 62 48 76 48 C76 63 66 73 52 73 Z' fill='%233F4A35'/%3E%3C/svg%3E">
 <meta name="claude:viewport-fit-sides" content="cover">
@@ -392,7 +408,8 @@ footer .bizq a{color:var(--accent-ink);font-weight:700;font-size:15px;text-decor
 <header>
   <div class="wrap bar">
     <a class="logo" href="#home" aria-label="루아핏 홈"><svg viewBox="12 20 240 116" width="170" aria-hidden="true"><circle cx="52" cy="74" r="36" fill="#F4E890"/><path d="M52 100 L52 72" stroke="#3F4A35" stroke-width="4" stroke-linecap="round"/><path d="M52 82 C38 82 30 72 31 60 C44 60 52 68 52 82 Z" fill="#3F4A35" opacity=".75"/><path d="M52 73 C52 58 62 48 76 48 C76 63 66 73 52 73 Z" fill="#3F4A35"/><path d="M104 80 Q176 90 247 75" stroke="#F4E890" stroke-width="9" stroke-linecap="round" fill="none"/><text x="104" y="68" font-family="Gaegu,cursive" font-weight="700" font-size="62" fill="#F3F1E9">luafit</text><text x="106" y="106" font-family="Gowun Batang,serif" font-weight="700" font-size="14.5" textLength="138.4" lengthAdjust="spacing" fill="#F3F1E9">운동 · 식단 · 습관관리</text><text x="247.2" y="128" text-anchor="end" font-family="Noto Sans KR,sans-serif" font-size="10.5" letter-spacing="3" fill="#F4E890">BY 루아쌤</text></svg></a>
-    <nav aria-label="메뉴">
+    <div class="hb-right"><a class="hb-cta" href="#program">루틴성형 신청</a><button class="hb-btn" id="hbOpen" aria-label="메뉴 열기" aria-expanded="false"><span></span></button></div>
+    <nav aria-label="메뉴" id="hbNav"><button class="nav-x" id="hbClose" aria-label="메뉴 닫기">✕</button>
       <a href="#about">루아쌤 소개</a>
       <a href="#store">프로그램</a>
       <a href="#tips">논문·칼럼</a>
@@ -401,7 +418,7 @@ footer .bizq a{color:var(--accent-ink);font-weight:700;font-size:15px;text-decor
       <a class="nav-cta" href="#program">루틴성형 신청</a>
     </nav>
   </div>
-</header>
+</header><div class="nav-dim" id="hbDim"></div>
 
 <main>
 <!-- HOME -->
@@ -1259,4 +1276,4 @@ b.addEventListener('click',function(e){if(e.target===b)close();});
 document.addEventListener('keydown',function(e){if(!b.classList.contains('on'))return;if(e.key==='Escape')close();if(e.key==='ArrowLeft')show(k-1);if(e.key==='ArrowRight')show(k+1);});
 im.addEventListener('touchstart',function(e){sx=e.touches[0].clientX;},{passive:true});im.addEventListener('touchend',function(e){if(sx===null)return;var d=e.changedTouches[0].clientX-sx;if(Math.abs(d)>40)show(k+(d<0?1:-1));sx=null;});
 })();</script>
-</body></html>
+<script>(function(){var b=document.body,o=document.getElementById('hbOpen');function set(v){b.classList.toggle('nav-open',v);o.setAttribute('aria-expanded',v)}o.onclick=function(){set(true)};document.getElementById('hbClose').onclick=function(){set(false)};document.getElementById('hbDim').onclick=function(){set(false)};document.querySelectorAll('#hbNav a').forEach(function(a){a.addEventListener('click',function(){set(false)})})})();</script></body></html>
