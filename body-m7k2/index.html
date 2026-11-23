@@ -32,7 +32,9 @@ figcaption{font-size:13px;color:var(--muted);margin-top:6px;text-align:center}
 .note{font-size:13px;color:var(--muted);margin:8px 0 0}
 footer{text-align:center;font-size:12px;color:var(--muted);padding:20px}
 footer a{color:inherit}
-.one{margin-top:14px;background:#fff;border:1px solid #d6d3c4;padding:12px 14px}.one h4{margin:0 0 8px;font-size:14px}.one .r{display:grid;grid-template-columns:64px 1fr 1fr 1fr;gap:6px;align-items:center;margin-top:6px}.one .r b{font-size:13px}.one .r b small{display:block;font-size:11px;font-weight:600;color:var(--muted)}.one .r.hl{background:#fffbe0;outline:1.5px solid var(--olive);padding:6px;margin-left:-6px;margin-right:-6px}.one .r.hl b small{color:var(--olive)}.btn.sm{padding:9px 4px;font-size:13px}.btn.ph{background:var(--butter);color:var(--deep)}.btn.bw{background:#fff;color:#111;border:1.5px solid #111}</style>
+.one{margin-top:14px;background:#fff;border:1px solid #d6d3c4;padding:12px 14px}.one h4{margin:0 0 8px;font-size:14px}.one .r{display:grid;grid-template-columns:64px 1fr 1fr 1fr;gap:6px;align-items:center;margin-top:6px}.one .r b{font-size:13px}.one .r b small{display:block;font-size:11px;font-weight:600;color:var(--muted)}.one .r.hl{background:#fffbe0;outline:1.5px solid var(--olive);padding:6px;margin-left:-6px;margin-right:-6px}.one .r.hl b small{color:var(--olive)}.btn.sm{padding:9px 4px;font-size:13px}.btn.ph{background:var(--butter);color:var(--deep)}.btn.bw{background:#fff;color:#111;border:1.5px solid #111}
+.gate{background:#fff;border:1px solid #d6d3c4;padding:18px 16px;margin-bottom:6px}.gate .ey{font-size:12px;font-weight:700;color:var(--olive)}.gate h2{font-family:"Gowun Batang",serif;font-size:21px;line-height:1.4;margin:4px 0 8px}.gate p{font-size:14px;margin:0}.gate mark{background:var(--butter);color:inherit}.gate .sm{font-size:12px;color:var(--muted);margin-top:10px}
+.kk{display:block;margin-top:14px;background:#FEE500;color:#191919;text-decoration:none;text-align:center;font-weight:700;font-size:16px;padding:14px}</style>
 </head>
 <body>
 <header>
@@ -42,11 +44,19 @@ footer a{color:inherit}
   <p>루아쌤 예시판 + 빈 만다라트, 두 장</p>
 </header>
 <main>
-  <div class="how"><b>폰에 저장하기</b> 맨 아래 <b>저장 버튼</b>을 한 번 누르면 끝이에요. 노트 앱(노트+·굿노트 등)에서 바로 쓸 수 있어요.</div>
+  <div class="how"><b>폰에 저장하기</b> 카톡 채널을 추가하고 맨 아래 <b>저장 버튼</b>을 한 번 누르면 끝이에요. 노트 앱(노트+·굿노트 등)에서 바로 쓸 수 있어요.</div>
 
   <figure><img src="mandalart-1.jpg" alt="루아쌤 예시 만다라트"><figcaption>1장 · 루아쌤 예시판</figcaption></figure>
   <figure><img src="mandalart-2.jpg" alt="빈 만다라트"><figcaption>2장 · 나의 만다라트 (빈 판)</figcaption></figure>
 
+  <div class="gate" id="gate">
+    <span class="ey">무료로 받기</span>
+    <h2>카톡 친구 추가하면<br>바로 저장할 수 있어요</h2>
+    <p>루아핏 카카오톡 채널을 추가하면 <mark>사진·컬러 PDF·흑백 PDF</mark> 전부 무료로 열려요. 새 기록지와 자료가 나오면 카톡으로 먼저 알려드려요.</p>
+    <a class="kk" id="kk" href="https://pf.kakao.com/_tTWxeX/friend" target="_blank" rel="noopener">카카오톡 채널 추가하고 무료로 받기</a>
+    <p class="sm">한 번만 추가하면 돼요. 채널은 언제든 차단할 수 있어요.</p>
+  </div>
+  <div id="locked" hidden>
   <div class="dls" id="pdf">
     <button class="btn dl ph" data-f="mandalart-1.jpg,mandalart-2.jpg">📷 사진으로 저장 <small>(2장, 노트 앱용)</small></button>
     <a class="btn dl bw" href="mandalart-color.pdf" data-f="mandalart-color.pdf" download>컬러 PDF 저장</a>
@@ -63,6 +73,7 @@ footer a{color:inherit}
     </ol>
     <p class="note">안드로이드는 메뉴에서 <b>저장</b>이나 <b>다운로드</b>를 누르면 돼요. 메뉴 대신 다른 브라우저가 열리면, 거기서 버튼을 한 번 더 눌러 주세요.</p>
   </div>
+  </div>
 
   <a class="btn alt" href="https://luafit.kr/#program">루틴으로 2027을 바꾸고 싶다면 · 루틴성형 함께하기 →</a>
 </main>
@@ -72,6 +83,11 @@ footer a{color:inherit}
   var ua=navigator.userAgent||'', note=document.getElementById('pdfnote');
   var inapp=/KAKAOTALK|Instagram|FBAN|FBAV|NAVER\(inapp|Line\//i.test(ua), kakao=/KAKAOTALK/i.test(ua);
   var cache={};
+  var gate=document.getElementById('gate'),locked=document.getElementById('locked');
+  function unlock(){gate.hidden=true;locked.hidden=false;try{localStorage.setItem('luafitKakao','1')}catch(e){}}
+  var ok=/[?&]u=1/.test(location.search);try{ok=ok||localStorage.getItem('luafitKakao')==='1'}catch(e){}
+  if(ok) unlock();
+  document.getElementById('kk').addEventListener('click',function(){setTimeout(unlock,300)});
   function mime(n){return /\.pdf$/i.test(n)?'application/pdf':'image/jpeg'}
   function load(list){return Promise.all(list.map(function(u){
     if(cache[u]) return cache[u];
@@ -92,12 +108,12 @@ footer a{color:inherit}
         else load(list).then(function(fs){navigator.share({files:fs}).catch(function(){})});
         return;
       }
-      if(kakao){e.preventDefault();location.href='kakaotalk://web/openExternal?url='+encodeURIComponent('https://luafit.kr/body-m7k2/#pdf');return;}
+      if(kakao){e.preventDefault();location.href='kakaotalk://web/openExternal?url='+encodeURIComponent('https://luafit.kr/body-m7k2/?u=1#pdf');return;}
       if(inapp){e.preventDefault();note.textContent='지금 앱 안에서 보고 있어요. 오른쪽 위 ⋯ → "외부 브라우저에서 열기"를 누른 뒤 다시 눌러 주세요.';note.scrollIntoView({block:'center'});return;}
       if(b.tagName==='BUTTON'){list.forEach(function(u){var a=document.createElement('a');a.href=u;a.download=u.split('/').pop();document.body.appendChild(a);a.click();a.remove();});}
     });
   });
-  if(location.hash==='#pdf'){var d=document.getElementById('pdf');d.scrollIntoView({block:'center'});d.classList.add('flash')}
+  if(location.hash==='#pdf'){var d=document.getElementById(ok?'pdf':'gate');d.scrollIntoView({block:'center'});d.classList.add('flash')}
 })();
 </script>
 </body>
