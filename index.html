@@ -390,6 +390,16 @@ details.coach[open] .more{background:transparent;color:var(--accent-ink);border-
   .mcta[hidden]{display:none}
   body{padding-bottom:56px}
 }
+.legal{display:grid;gap:18px;padding-bottom:48px}
+.legal .box{gap:8px}
+.legal h2{font-size:20px;margin:0}
+.legal h3{font-size:15px;margin:14px 0 2px}
+.legal p,.legal li{font-size:14px;color:var(--muted);line-height:1.7;margin:0}
+.legal ul,.legal ol{margin:0;padding-left:20px;display:grid;gap:2px}
+.legal .lt{width:100%;border-collapse:collapse;font-size:13px;margin-top:4px}
+.legal .lt th,.legal .lt td{border:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top;color:var(--muted)}
+.legal .lt th{background:var(--bg);color:inherit}
+.legal .tw{overflow-x:auto}
 .refund{background:var(--bg);border-radius:0;padding:12px 14px}
 .refund h4{font-size:14px;margin:0 0 4px}
 .refund ul{margin:0;padding-left:18px;font-size:13px;color:var(--muted);display:grid;gap:2px}
@@ -1074,10 +1084,108 @@ footer .bizq a{color:var(--accent-ink);font-weight:700;font-size:15px;text-decor
     </div>
   </div>
 </section>
+<!-- LEGAL -->
+<section class="view" id="v-legal" data-view="legal" hidden>
+  <div class="wrap">
+    <div class="page-head"><span class="eyebrow">POLICY</span><h1>환불정책 · 개인정보처리방침 · 이용약관</h1><p>루아핏(프리웨이)의 서비스 이용 기준을 안내해요.</p></div>
+    <div class="jump" role="navigation" aria-label="정책 바로가기"><span class="jl">바로가기</span><a href="#refund">환불정책</a><a href="#privacy">개인정보처리방침</a><a href="#terms">이용약관</a></div>
+    <div class="legal">
+
+      <div class="box" id="refund">
+        <h2>환불정책</h2>
+        <h3>루틴성형 프로그램</h3>
+        <ul><li>시작일(매달 1일) 전: 전액 환불</li><li>시작 후: 정원제로 운영하는 프로그램이라 환불이 어려워요.</li></ul>
+        <h3>1:1 온라인 코칭</h3>
+        <ul><li>설문 제출 전: 전액 환불</li><li>설문 제출 후: 결제 금액에서 이용한 기간에 해당하는 상품 가격(1개월 이내 210,000원 · 3개월 이내 390,000원 · 6개월 이내 690,000원)을 뺀 금액을 환불해 드려요. 장기 할인은 기간을 다 채웠을 때 적용돼요.</li></ul>
+        <h3>나만의 루틴 가이드</h3>
+        <ul><li>설문 제출 전: 전액 환불</li><li>설문 제출 후: 맞춤 제작이 시작되어 환불이 어려워요.</li><li>줌 상담 일정 변경은 상담 하루 전까지 가능해요.</li></ul>
+        <h3>공통</h3>
+        <ul><li>루아핏 사정으로 서비스를 제공하지 못하면 이용하지 못한 부분을 전액 환불해요.</li><li>환불은 요청을 받은 날부터 3영업일 안에 처리하며, 카드 취소 반영 시점은 카드사마다 달라요.</li><li>환불 요청: luamindnbody@gmail.com 또는 카카오톡 채널</li></ul>
+      </div>
+
+      <div class="box" id="privacy">
+        <h2>개인정보처리방침</h2>
+        <p>프리웨이(이하 "루아핏")는 「개인정보 보호법」에 따라 이용자의 개인정보를 보호하고, 관련 고충을 빠르게 처리하기 위해 다음과 같이 개인정보처리방침을 둡니다.</p>
+        <h3>제1조 (처리하는 개인정보와 목적)</h3>
+        <div class="tw"><table class="lt"><thead><tr><th>구분</th><th>수집 항목</th><th>이용 목적</th></tr></thead><tbody>
+          <tr><td>신청·결제</td><td>이름, 휴대전화번호, 이메일, 결제 기록</td><td>상품 제공, 결제·환불 처리, 안내 연락</td></tr>
+          <tr><td>사전 설문</td><td>나이, 키·몸무게·체성분, 생활 패턴, 운동 경험, 식습관, 운동 환경</td><td>맞춤 가이드·코칭 계획 작성</td></tr>
+          <tr><td>건강 정보(민감정보)</td><td>건강 상태, 질환·통증 여부</td><td>안전한 운동·식단 설계</td></tr>
+          <tr><td>코칭 진행</td><td>체형 사진, 식단 사진, 운동 영상, 습관 기록, 상담 내용</td><td>피드백, 계획 수정</td></tr>
+          <tr><td>루틴성형 프로그램</td><td>이름(닉네임), 인증 기록</td><td>매일 인증 확인, 완주 혜택 제공</td></tr>
+          <tr><td>자동 수집</td><td>접속 기록, 쿠키</td><td>홈페이지 운영·개선</td></tr>
+        </tbody></table></div>
+        <p>건강 정보는 일반 개인정보와 따로 동의를 받은 뒤에만 수집해요. 동의하지 않을 수 있지만, 이 경우 맞춤 가이드와 1:1 코칭은 제공하기 어려워요.</p>
+        <h3>제2조 (보유 기간)</h3>
+        <p>목적을 달성하면 개인정보를 지체 없이 파기해요. 다만 다음은 정해진 기간 동안 보관해요.</p>
+        <ul><li>설문·사진·영상·상담 내용: 프로그램 종료 후 1년 (다시 신청할 때 이어서 보기 위함, 요청하면 즉시 삭제)</li><li>계약 또는 청약철회, 대금결제 및 재화 등의 공급에 관한 기록: 5년 (전자상거래법)</li><li>소비자 불만 또는 분쟁 처리에 관한 기록: 3년 (전자상거래법)</li><li>접속 기록: 3개월 (통신비밀보호법)</li></ul>
+        <h3>제3조 (파기 방법)</h3>
+        <p>전자 파일은 복구할 수 없는 방법으로 삭제하고, 종이 문서는 분쇄해요.</p>
+        <h3>제4조 (제3자 제공)</h3>
+        <p>루아핏은 이용자의 동의나 법령에 특별한 규정이 있는 경우를 빼고는 개인정보를 제3자에게 제공하지 않아요.</p>
+        <h3>제5조 (처리 위탁)</h3>
+        <div class="tw"><table class="lt"><thead><tr><th>수탁자</th><th>맡기는 일</th></tr></thead><tbody>
+          <tr><td>결제대행사(PG)</td><td>결제 처리, 환불 (업체명은 결제 서비스 도입 시 안내)</td></tr>
+          <tr><td>(주)카카오</td><td>카카오톡 채널 상담·안내 메시지</td></tr>
+          <tr><td>Google LLC</td><td>이메일(Gmail) 발송, 설문·파일 보관</td></tr>
+        </tbody></table></div>
+        <h3>제6조 (개인정보의 국외 이전)</h3>
+        <p>루아핏은 맞춤 가이드를 만들 때 AI 서비스를 사용해요. 이 과정에서 개인정보가 국외로 전송돼요.</p>
+        <div class="tw"><table class="lt"><thead><tr><th>받는 자</th><th>국가</th><th>이전 항목</th><th>목적</th><th>방법</th></tr></thead><tbody>
+          <tr><td>Anthropic, PBC</td><td>미국</td><td>설문 응답(건강 정보 포함)</td><td>맞춤 가이드 초안 작성</td><td>가이드 작성 시 인터넷으로 전송</td></tr>
+        </tbody></table></div>
+        <p>이름과 연락처는 빼고 보내며, 수집 때 따로 동의를 받아요. 국외 이전을 원하지 않으면 거부할 수 있고, 이 경우 루아쌤이 직접 가이드를 작성해요.</p>
+        <h3>제7조 (이용자의 권리)</h3>
+        <p>이용자는 언제든지 자기 개인정보를 열람, 정정, 삭제, 처리 정지를 요청할 수 있어요. 이메일이나 카카오톡 채널로 요청하면 10일 안에 처리해요.</p>
+        <h3>제8조 (안전성 확보 조치)</h3>
+        <ul><li>개인정보를 다루는 사람을 대표자와 매니저로 한정해요.</li><li>파일은 비밀번호와 2단계 인증이 걸린 계정에 보관해요.</li><li>체형 사진은 코칭 목적 밖으로 쓰지 않고, 홍보에 쓸 때는 따로 동의를 받아요.</li></ul>
+        <h3>제9조 (쿠키)</h3>
+        <p>홈페이지는 이용 현황을 파악하려고 쿠키를 쓸 수 있어요. 브라우저 설정에서 쿠키 저장을 거부할 수 있어요.</p>
+        <h3>제10조 (개인정보 보호책임자)</h3>
+        <ul><li>책임자: 정지혜 (대표)</li><li>이메일: luamindnbody@gmail.com</li></ul>
+        <p>개인정보 침해 신고나 상담은 개인정보침해신고센터(국번 없이 118)에도 할 수 있어요.</p>
+        <h3>제11조 (시행일)</h3>
+        <p>이 방침은 2026년 11월 25일부터 적용해요. 내용이 바뀌면 시행 7일 전에 홈페이지에 알려요.</p>
+      </div>
+
+      <div class="box" id="terms">
+        <h2>이용약관</h2>
+        <h3>제1조 (목적)</h3>
+        <p>이 약관은 프리웨이(이하 "루아핏")가 luafit.kr에서 판매하는 온라인 코칭 서비스를 이용할 때, 루아핏과 이용자의 권리와 의무를 정해요.</p>
+        <h3>제2조 (사업자 정보)</h3>
+        <p>상호 프리웨이 · 대표자 정지혜 · 사업자등록번호 892-10-01713 · 이메일 luamindnbody@gmail.com · 통신판매업 신고: 간이과세자 신고 면제</p>
+        <h3>제3조 (서비스 종류)</h3>
+        <ol><li><b>나만의 루틴 가이드:</b> 사전 설문을 바탕으로 만드는 맞춤 운동·식단·습관 가이드 PDF. 선택에 따라 줌 상담 30분이 포함돼요.</li><li><b>1:1 온라인 코칭:</b> 1·3·6·12개월 단위로 운동·식단·습관을 설계하고 피드백하는 서비스.</li><li><b>루틴성형 프로그램:</b> 한 달 단위로 운영하는 단체 자기관리 프로그램.</li></ol>
+        <p>상품별 구성, 가격, 진행 방식은 <a href="#store">프로그램 안내</a>를 따라요.</p>
+        <h3>제4조 (신청과 계약)</h3>
+        <p>이용자가 신청과 결제를 마치고 루아핏이 확인 연락을 보내면 계약이 성립해요. 정원이 찼거나 건강 상태상 안전한 진행이 어렵다고 판단되면 신청을 받지 않고 전액 환불할 수 있어요.</p>
+        <h3>제5조 (결제)</h3>
+        <p>결제는 홈페이지에 연결된 결제대행 서비스로 해요. 루아핏은 이용자의 카드 번호 등 결제 정보를 직접 보관하지 않아요.</p>
+        <h3>제6조 (환불)</h3>
+        <p>환불은 위의 <a href="#refund">환불정책</a>을 따라요.</p>
+        <h3>제7조 (상담 일정)</h3>
+        <p>실시간 상담 시간은 미리 정한 시간대 안에서 예약해요. 변경은 상담 전날까지 알려 주세요. 연락 없이 참여하지 않으면 그 회차는 진행한 것으로 봐요.</p>
+        <h3>제8조 (건강과 안전)</h3>
+        <ol><li>루아핏의 코칭은 운동·식단·생활 습관 교육이며, 의료 행위나 진단·치료를 대신하지 않아요.</li><li>질환이 있거나 임신 중이거나 약을 복용 중이면, 시작 전에 의사와 상의하고 설문에 사실대로 적어 주세요.</li><li>운동 중 통증이나 이상이 생기면 즉시 멈추고 루아핏에 알려 주세요.</li><li>참여 결과는 개인의 몸 상태와 실천에 따라 다르며, 특정 체중 감량이나 결과를 보장하지 않아요.</li></ol>
+        <h3>제9조 (저작권)</h3>
+        <p>가이드 PDF, 운동 영상, 자료의 저작권은 루아핏에 있어요. 이용자는 본인만 사용할 수 있고, 다른 사람에게 공유하거나 다시 판매할 수 없어요.</p>
+        <h3>제10조 (이용자의 의무)</h3>
+        <p>이용자는 설문과 상담에서 사실대로 답하고, 단체 프로그램에서 다른 참여자를 존중해야 해요. 다른 참여자에게 피해를 주면 루아핏은 참여를 제한할 수 있어요.</p>
+        <h3>제11조 (약관 변경)</h3>
+        <p>약관을 바꾸면 시행 7일 전에 홈페이지에 알려요. 이미 결제한 서비스에는 결제 당시 약관을 적용해요.</p>
+        <h3>제12조 (분쟁 해결)</h3>
+        <p>분쟁이 생기면 먼저 이메일이나 카카오톡 채널로 협의해요. 협의가 되지 않으면 한국소비자원 등 분쟁조정기구에 조정을 신청할 수 있어요.</p>
+        <h3>부칙</h3>
+        <p>이 약관은 2026년 11월 25일부터 적용해요.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
 </main>
 
 <a class="mcta" id="mcta" href="#store">루아쌤 코칭 프로그램 보기 →</a>
-<footer><div class="wrap"><span>© 루아핏 LUAFIT · BY 루아쌤</span><span><a href="https://www.instagram.com/luafit_healthylife/" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">인스타그램 @luafit_healthylife</a>에서 더 많은 정보를 만나 보세요</span><p class="bizq"><b>비즈니스 문의 · 협찬 · 강의</b><a href="mailto:luamindnbody@gmail.com?subject=%5B%EB%A3%A8%EC%95%84%ED%95%8F%20%EB%B9%84%EC%A6%88%EB%8B%88%EC%8A%A4%20%EB%AC%B8%EC%9D%98%5D">luamindnbody@gmail.com</a></p><p class="flinks"><a href="#tips">논문·칼럼</a><a href="#free">무료 자료</a><a href="#store">프로그램</a><a href="#refund">환불정책</a><a href="#privacy">개인정보처리방침</a></p><p class="biz">상호 프리웨이 · 대표자 정지혜 · 사업자등록번호 892-10-01713 · 이메일 <a href="mailto:luamindnbody@gmail.com">luamindnbody@gmail.com</a> · 통신판매업 신고: 간이과세자 신고 면제</p></div></footer>
+<footer><div class="wrap"><span>© 루아핏 LUAFIT · BY 루아쌤</span><span><a href="https://www.instagram.com/luafit_healthylife/" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">인스타그램 @luafit_healthylife</a>에서 더 많은 정보를 만나 보세요</span><p class="bizq"><b>비즈니스 문의 · 협찬 · 강의</b><a href="mailto:luamindnbody@gmail.com?subject=%5B%EB%A3%A8%EC%95%84%ED%95%8F%20%EB%B9%84%EC%A6%88%EB%8B%88%EC%8A%A4%20%EB%AC%B8%EC%9D%98%5D">luamindnbody@gmail.com</a></p><p class="flinks"><a href="#tips">논문·칼럼</a><a href="#free">무료 자료</a><a href="#store">프로그램</a><a href="#refund">환불정책</a><a href="#privacy">개인정보처리방침</a><a href="#terms">이용약관</a></p><p class="biz">상호 프리웨이 · 대표자 정지혜 · 사업자등록번호 892-10-01713 · 이메일 <a href="mailto:luamindnbody@gmail.com">luamindnbody@gmail.com</a> · 통신판매업 신고: 간이과세자 신고 면제</p></div></footer>
 
 <script>
 (function(){
