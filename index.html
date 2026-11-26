@@ -1332,6 +1332,7 @@ footer .bizq a{color:var(--accent-ink);font-weight:700;font-size:15px;text-decor
 
   // tip filters
   const chips=[...document.querySelectorAll('.chip:not(.sub)')], subs=[...document.querySelectorAll('.chip.sub')], psub=document.getElementById('paperSub');
+  let tipOpen=false; const TIPN=6;
   function applyF(f,p){
     p=p||'all';
     chips.forEach(x=>x.setAttribute('aria-pressed',x.dataset.f===f));
@@ -1340,13 +1341,13 @@ footer .bizq a{color:var(--accent-ink);font-weight:700;font-size:15px;text-decor
     document.querySelectorAll('#tipList .card').forEach(d=>(d.dataset.more='',d.hidden=!(f==='all'||(d.dataset.c===f&&(f!=='논문'||p==='all'||(d.dataset.p||'').split(' ').includes(p))))));
     tipOpen=false; tipLim();
   }
-  let tipOpen=false; const TIPN=6;
   function tipLim(){const L=document.getElementById('tipList'); if(!L) return;
     const on=[...L.querySelectorAll('.card')].filter(d=>!d.hidden||d.dataset.more==='1');
     on.forEach((d,i)=>{const cut=i>=TIPN&&!tipOpen&&!d.open; d.dataset.more=cut?'1':''; d.hidden=cut});
     let m=document.getElementById('tipMore'); if(!m){m=document.createElement('button');m.type='button';m.id='tipMore';m.className='rmore';m.addEventListener('click',()=>{const was=tipOpen;tipOpen=!tipOpen;tipLim();if(was)L.scrollIntoView({block:'start'})});L.after(m)}
     m.hidden=on.length<=TIPN; m.textContent=tipOpen?'접기 ↑':'더보기 ('+(on.length-TIPN)+'개 더) ↓'}
   window.__applyF=applyF;
+  tipLim();
   if(location.hash==='#papers') applyF('논문');
   chips.forEach(c=>c.addEventListener('click',()=>applyF(c.dataset.f)));
   subs.forEach(c=>c.addEventListener('click',()=>applyF('논문',c.dataset.p)));
