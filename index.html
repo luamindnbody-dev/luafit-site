@@ -4,6 +4,7 @@
 /* compact header + drawer (preview) */
 header .bar{flex-direction:row;justify-content:space-between;align-items:center;gap:10px;padding-block:8px}
 header .logo svg{width:92px!important}
+@media (min-width:761px){header .logo svg{width:140px!important}}
 .hb-right{display:flex;align-items:center;gap:8px}
 .hb-cta{background:var(--butter);color:var(--olive-deep);font-weight:700;font-size:13px;text-decoration:none;padding:6px 10px;white-space:nowrap}
 .hb-btn{width:40px;height:36px;border:0;background:transparent;color:var(--band-fg);display:grid;place-items:center;cursor:pointer;padding:0}
@@ -158,6 +159,10 @@ nav a.nav-cta[aria-current]{outline:1.5px solid var(--band-fg)}
 .col-fig img{width:100%;max-width:520px;height:auto;display:block;background:#fff;border:1px solid var(--line)}
 .col-fig figcaption{font-size:12px;color:var(--muted);margin-top:6px;line-height:1.5}
 .chip{font:inherit;font-size:14px;padding:6px 14px;border-radius:0;border:1px solid var(--line);background:transparent;color:var(--fg);cursor:pointer}
+.fchip{font:inherit;font-size:14px;padding:6px 14px;border-radius:0;border:1px solid var(--line);background:transparent;color:var(--fg);cursor:pointer}
+.fchip[aria-pressed="true"]{background:var(--olive);border-color:var(--olive);color:var(--ivory)}
+.rrow[hidden]{display:none}
+.rmore{font:inherit;font-size:14px;font-weight:700;padding:11px;border:1px dashed var(--line);border-radius:0;background:transparent;color:var(--olive);cursor:pointer;width:100%}.rmore[hidden]{display:none}
 .chip[aria-pressed="true"]{background:var(--olive);border-color:var(--olive);color:var(--ivory)}
 .list{display:grid;gap:12px}
 details.card{background:var(--surface);border:1px solid var(--line);border-radius:0}
@@ -481,7 +486,7 @@ footer .bizq a{color:var(--accent-ink);font-weight:700;font-size:15px;text-decor
       <a class="btn btn-olive" href="#store">프로그램 보러 가기 →</a>
     </section>
     <div class="sec-head"><h2>무료 자료</h2><a href="#free">전체 보기 →</a></div>
-    <div class="rlist">
+    <div class="rlist" data-more="5">
       <p class="rgrp">바로 보기</p>
       <a class="rrow" href="/vision/"><span class="tag op">앱</span><b>2027 비전보드 앱<em class="nw">NEW</em><small>꿈마다 행동, 달마다 별점 · 홈 화면에 추가해 쓰는 앱</small></b><span class="go">→</span></a>
       <a class="rrow" href="#calc"><span class="tag op">계산기</span><b>탄단지 계산기<small>하루 목표 칼로리와 탄단지 양</small></b><span class="go">→</span></a>
@@ -505,14 +510,20 @@ footer .bizq a{color:var(--accent-ink);font-weight:700;font-size:15px;text-decor
 <section class="view" id="v-free" data-view="free" hidden>
   <div class="wrap">
     <div class="page-head"><span class="eyebrow">FREE</span><h1>무료 자료</h1><p>루아쌤이 직접 만든 기록지와 계산기예요. 모두 무료예요.</p></div>
-    <div class="rlist">
+    <div class="filters" id="freeF" role="group" aria-label="자료 종류">
+      <button class="fchip" aria-pressed="true" data-k="all">전체</button>
+      <button class="fchip" aria-pressed="false" data-k="앱">앱</button>
+      <button class="fchip" aria-pressed="false" data-k="기록지">기록지</button>
+      <button class="fchip" aria-pressed="false" data-k="계산기">계산기</button>
+    </div>
+    <div class="rlist" data-more="5" id="freeList">
       <p class="rgrp">바로 보기</p>
-      <a class="rrow" href="/vision/"><span class="tag op">앱</span><b>2027 비전보드 앱<em class="nw">NEW</em><small>꿈마다 행동, 달마다 별점 · 홈 화면에 추가해 쓰는 앱</small></b><span class="go">→</span></a>
-      <a class="rrow" href="#calc"><span class="tag op">계산기</span><b>탄단지 계산기<small>하루 목표 칼로리와 탄단지 양</small></b><span class="go">→</span></a>
-      <a class="rrow" href="#speed"><span class="tag op">계산기</span><b>감량 속도 계산기<small>체지방률에 맞는 안전 감량 속도</small></b><span class="go">→</span></a>
-      <a class="rrow" href="#tools"><span class="tag op">기록</span><b>습관 기록지·앱<small>매일 체크하는 루아핏 습관 기록</small></b><span class="go">→</span></a>
-      <a class="rrow" href="/2027/"><span class="tag op">기록지</span><b>2027 루틴 기록지<small>2026 돌아보기 + 2027 계획 PDF</small></b><span class="go">→</span></a>
-      <a class="rrow" href="/body-m7k2/"><span class="tag op">기록지</span><b>만다라트<small>루아쌤 예시판 + 빈 만다라트 PDF</small></b><span class="go">→</span></a>
+      <a class="rrow" href="/vision/" data-cat="앱"><span class="tag op">앱</span><b>2027 비전보드 앱<em class="nw">NEW</em><small>꿈마다 행동, 달마다 별점 · 홈 화면에 추가해 쓰는 앱</small></b><span class="go">→</span></a>
+      <a class="rrow" href="#calc" data-cat="계산기"><span class="tag op">계산기</span><b>탄단지 계산기<small>하루 목표 칼로리와 탄단지 양</small></b><span class="go">→</span></a>
+      <a class="rrow" href="#speed" data-cat="계산기"><span class="tag op">계산기</span><b>감량 속도 계산기<small>체지방률에 맞는 안전 감량 속도</small></b><span class="go">→</span></a>
+      <a class="rrow" href="#tools" data-cat="앱 기록지"><span class="tag op">기록</span><b>습관 기록지·앱<small>매일 체크하는 루아핏 습관 기록</small></b><span class="go">→</span></a>
+      <a class="rrow" href="/2027/" data-cat="기록지"><span class="tag op">기록지</span><b>2027 루틴 기록지<small>2026 돌아보기 + 2027 계획 PDF</small></b><span class="go">→</span></a>
+      <a class="rrow" href="/body-m7k2/" data-cat="기록지"><span class="tag op">기록지</span><b>만다라트<small>루아쌤 예시판 + 빈 만다라트 PDF</small></b><span class="go">→</span></a>
     </div>
   </div>
 </section>
@@ -1217,6 +1228,7 @@ footer .bizq a{color:var(--accent-ink);font-weight:700;font-size:15px;text-decor
   function route(){
     let h=(location.hash||'#home').slice(1), item=null, toPapers=false;
     if(h==='papers'){h='tips';toPapers=true}
+    let freeK=null; const FK={'free-app':'앱','free-sheet':'기록지','free-calc':'계산기'}; if(FK[h]){freeK=FK[h];h='free'}
     const el=h&&document.getElementById(h);
     if(el&&el.tagName==='DETAILS'){item=el;h=el.closest('.view').dataset.view}
     else if(el&&!el.classList.contains('view')&&el.closest('.view')){item=el;h=el.closest('.view').dataset.view}
@@ -1226,11 +1238,20 @@ footer .bizq a{color:var(--accent-ink);font-weight:700;font-size:15px;text-decor
     const navH=['calc','speed','tools'].includes(h)?'free':(location.hash==='#contact'?'contact':h);
     links.forEach(a=>a.getAttribute('href')==='#'+navH?a.setAttribute('aria-current','page'):a.removeAttribute('aria-current'));
     if(window.__applyF&&h==='tips') window.__applyF(toPapers?'논문':'all');
+    if(window.__freeF&&h==='free') window.__freeF(freeK||'all');
     if(item){if(item.tagName==='DETAILS')item.open=true;item.hidden=false;requestAnimationFrame(()=>item.scrollIntoView({block:'start'}))}
     else window.scrollTo(0,0);
   }
   window.__updMc=function(){const mc=document.getElementById('mcta'); if(!mc) return; const col=[...document.querySelectorAll('details[data-c="칼럼"]')].some(d=>d.open&&!d.closest('.view').hidden); mc.hidden=(window.__mcV==='store')||col;};
   document.querySelectorAll('details[data-c="칼럼"]').forEach(d=>d.addEventListener('toggle',window.__updMc));
+  window.__lim=function(L){const n=+L.dataset.more,rows=[...L.querySelectorAll('.rrow')],on=rows.filter(r=>!r.dataset.off),open=L.dataset.open==='1';
+    rows.forEach(r=>r.hidden=!!r.dataset.off);on.forEach((r,i)=>{if(i>=n&&!open)r.hidden=true});
+    let m=L.querySelector('.rmore');if(!m){m=document.createElement('button');m.type='button';m.className='rmore';m.addEventListener('click',()=>{L.dataset.open=L.dataset.open==='1'?'':'1';window.__lim(L)});L.appendChild(m)}
+    m.hidden=on.length<=n;m.textContent=open?'접기 ↑':'더보기 ('+(on.length-n)+'개 더) ↓'};
+  document.querySelectorAll('.rlist[data-more]').forEach(L=>window.__lim(L));
+  (function(){const bs=[...document.querySelectorAll('#freeF .fchip')],rows=[...document.querySelectorAll('#v-free .rrow[data-cat]')];
+    window.__freeF=function(k){bs.forEach(b=>b.setAttribute('aria-pressed',b.dataset.k===k));rows.forEach(r=>r.dataset.off=(k==='all'||r.dataset.cat.split(' ').includes(k))?'':'1');const L=document.getElementById('freeList');L.dataset.open='';window.__lim(L)};
+    bs.forEach(b=>b.addEventListener('click',()=>window.__freeF(b.dataset.k)));})();
   addEventListener('hashchange',route); route();
   document.querySelectorAll('.jump a').forEach(a=>a.addEventListener('click',e=>{const d=document.getElementById(a.getAttribute('href').slice(1));if(d&&location.hash===a.getAttribute('href')){e.preventDefault();d.open=true;d.scrollIntoView({block:'start'})}}));
 
