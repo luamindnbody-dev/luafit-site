@@ -43,19 +43,12 @@ footer a{color:inherit}
   <p>2026 돌아보기 + 2027 계획, 두 장</p>
 </header>
 <main>
-  <div class="how"><b>폰에 저장하기</b> 카톡 채널을 추가하고 맨 아래 <b>저장 버튼</b>을 한 번 누르면 끝이에요. 노트 앱(노트+·굿노트 등)에서 바로 쓸 수 있어요.</div>
+  <div class="how"><b>폰에 저장하기</b> 아래 <b>저장 버튼</b>을 한 번 누르면 끝이에요. 노트 앱(노트+·굿노트 등)에서 바로 쓸 수 있어요.</div>
 
   <figure><img src="luafit-2027-1.jpg" alt="2026 돌아보기 기록지"><figcaption>1장 · 2026, 나는 이렇게 살았다</figcaption></figure>
   <figure><img src="luafit-2027-2.jpg" alt="2027 계획 기록지"><figcaption>2장 · 2027, 루틴으로 바꾸는 한 해</figcaption></figure>
 
-  <div class="gate" id="gate">
-    <span class="ey">무료로 받기</span>
-    <h2>카톡 친구 추가하면<br>바로 저장할 수 있어요</h2>
-    <p>루아핏 카카오톡 채널을 추가하면 <mark>사진·컬러 PDF·흑백 PDF</mark> 전부 무료로 열려요. 새 기록지와 자료가 나오면 카톡으로 먼저 알려드려요.</p>
-    <a class="kk" id="kk" href="https://pf.kakao.com/_tTWxeX/friend" target="_blank" rel="noopener">카카오톡 채널 추가하고 무료로 받기</a>
-    <p class="sm">한 번만 추가하면 돼요. 채널은 언제든 차단할 수 있어요.</p>
-  </div>
-  <div id="locked" hidden>
+  <div id="locked">
   <div class="dls" id="pdf">
     <button class="btn dl ph" data-f="luafit-2027-1.jpg,luafit-2027-2.jpg">📷 사진으로 저장 <small>(2장, 노트 앱용)</small></button>
     <a class="btn dl bw" href="/files/luafit-2027-routine.pdf" data-f="/files/luafit-2027-routine.pdf" download>컬러 PDF 저장</a>
@@ -74,6 +67,13 @@ footer a{color:inherit}
   </div>
   </div>
 
+  <div class="gate" id="kakaoopt" style="margin-top:18px">
+    <span class="ey">선택</span>
+    <h2>새 기록지·루틴성형 소식은<br>카톡으로 먼저 받아요</h2>
+    <p>안 해도 기록지는 그대로 받을 수 있어요.</p>
+    <a class="kk" href="https://pf.kakao.com/_tTWxeX/friend" target="_blank" rel="noopener">루아핏 카카오톡 채널 추가하기</a>
+  </div>
+
   <a class="btn alt" href="https://luafit.kr/#program">루틴으로 2027을 바꾸고 싶다면 · 루틴성형 함께하기 →</a>
 </main>
 <footer>luafit.kr · <a href="https://www.instagram.com/luafit_healthylife/">@luafit_healthylife</a> · 만든이 루아쌤</footer>
@@ -82,11 +82,7 @@ footer a{color:inherit}
   var ua=navigator.userAgent||'', note=document.getElementById('pdfnote');
   var inapp=/KAKAOTALK|Instagram|FBAN|FBAV|NAVER\(inapp|Line\//i.test(ua), kakao=/KAKAOTALK/i.test(ua);
   var cache={};
-  var gate=document.getElementById('gate'),locked=document.getElementById('locked');
-  function unlock(){gate.hidden=true;locked.hidden=false;try{localStorage.setItem('luafitKakao','1')}catch(e){}}
-  var ok=/[?&]u=1/.test(location.search);try{ok=ok||localStorage.getItem('luafitKakao')==='1'}catch(e){}
-  if(ok) unlock();
-  document.getElementById('kk').addEventListener('click',function(){setTimeout(unlock,300)});
+  var ok=true;
   function mime(n){return /\.pdf$/i.test(n)?'application/pdf':'image/jpeg'}
   function load(list){return Promise.all(list.map(function(u){
     if(cache[u]) return cache[u];
@@ -112,7 +108,7 @@ footer a{color:inherit}
       if(b.tagName==='BUTTON'){list.forEach(function(u){var a=document.createElement('a');a.href=u;a.download=u.split('/').pop();document.body.appendChild(a);a.click();a.remove();});}
     });
   });
-  if(location.hash==='#pdf'){var d=document.getElementById(ok?'pdf':'gate');d.scrollIntoView({block:'center'});d.classList.add('flash')}
+  if(location.hash==='#pdf'){var d=document.getElementById('pdf');d.scrollIntoView({block:'center'});d.classList.add('flash')}
 })();
 </script>
 </body>
