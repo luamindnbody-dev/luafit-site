@@ -12,7 +12,7 @@ header .logo svg{width:92px!important}
 header nav{position:fixed;top:0;right:0;bottom:0;width:min(78vw,300px);flex-direction:column;gap:0;background:var(--band);padding:calc(70px + env(safe-area-inset-top,0px)) 0 24px;transform:translateX(100%);transition:transform .25s ease;z-index:40;overflow-y:auto;max-width:none;justify-content:flex-start!important}
 header nav a{font-size:17px!important;padding:16px 26px!important;opacity:1;border-bottom:1px solid var(--band-line)}
 header nav .nav-contact{display:block!important}
-header nav .nav-cta{position:static!important;margin:18px 26px 0!important;text-align:center;border-bottom:0}
+header nav .nav-cta{position:static!important;margin:0 26px 12px!important;text-align:center;border-bottom:0}
 body.nav-open header nav{transform:none}
 .nav-dim{position:fixed;inset:0;background:rgba(20,24,16,.45);z-index:35;opacity:0;pointer-events:none;transition:opacity .25s}
 body.nav-open .nav-dim{opacity:1;pointer-events:auto}
@@ -441,12 +441,12 @@ footer .bizq a{color:var(--accent-ink);font-weight:700;font-size:15px;text-decor
     <a class="logo" href="#home" aria-label="루아핏 홈"><svg viewBox="12 20 240 116" width="170" aria-hidden="true"><circle cx="52" cy="74" r="36" fill="#F4E890"/><path d="M52 100 L52 72" stroke="#6F7F5E" stroke-width="4" stroke-linecap="round"/><path d="M52 82 C38 82 30 72 31 60 C44 60 52 68 52 82 Z" fill="#6F7F5E" opacity=".75"/><path d="M52 73 C52 58 62 48 76 48 C76 63 66 73 52 73 Z" fill="#6F7F5E"/><path d="M104 80 Q176 90 247 75" stroke="#F4E890" stroke-width="9" stroke-linecap="round" fill="none"/><text x="104" y="68" font-family="Gaegu,cursive" font-weight="700" font-size="62" fill="#F3F1E9">luafit</text><text x="106" y="106" font-family="Gowun Batang,serif" font-weight="700" font-size="14.5" textLength="138.4" lengthAdjust="spacing" fill="#F3F1E9">운동 · 식단 · 습관관리</text><text x="247.2" y="128" text-anchor="end" font-family="Noto Sans KR,sans-serif" font-size="10.5" letter-spacing="3" fill="#F4E890">BY 루아쌤</text></svg></a>
     <div class="hb-right"><a class="hb-cta" href="#program">루틴성형 신청</a><button class="hb-btn" id="hbOpen" aria-label="메뉴 열기" aria-expanded="false"><span></span></button></div>
     <nav aria-label="메뉴" id="hbNav"><button class="nav-x" id="hbClose" aria-label="메뉴 닫기">✕</button>
-      <a href="#about">루아쌤 소개</a>
+      <a class="nav-cta" href="#program">루틴성형 신청</a>
       <a href="#store">프로그램</a>
       <a href="#tips">논문·칼럼</a>
       <a href="#free">무료 자료</a>
+      <a href="#about">루아쌤 소개</a>
       <a class="nav-contact" href="#contact">문의</a>
-      <a class="nav-cta" href="#program">루틴성형 신청</a>
     </nav>
   </div>
 </header><div class="nav-dim" id="hbDim"></div>
@@ -463,8 +463,8 @@ footer .bizq a{color:var(--accent-ink);font-weight:700;font-size:15px;text-decor
       <div class="hero-cta">
         <a class="btn btn-butter" href="#program">루틴성형 신청하기</a>
         <a class="btn btn-line" href="#store">프로그램 보기</a>
-        <a class="btn btn-line" href="#free">무료 자료 받기</a>
         <a class="btn btn-line" href="#tips">논문·칼럼 읽기</a>
+        <a class="btn btn-line" href="#free">무료 자료 받기</a>
       </div>
       <div class="hero-sns"><a href="https://youtube.com/channel/UCj9zRmdRNYp5Y6a4pW3B89A" target="_blank" rel="noopener">유튜브</a><a href="https://www.instagram.com/luafit_healthylife/" target="_blank" rel="noopener">인스타그램</a><a href="https://pf.kakao.com/_tTWxeX/friend" target="_blank" rel="noopener">카카오채널</a></div>
     </div>
@@ -485,6 +485,14 @@ footer .bizq a{color:var(--accent-ink);font-weight:700;font-size:15px;text-decor
       </ol>
       <a class="btn btn-olive" href="#store">프로그램 보러 가기 →</a>
     </section>
+    <div class="sec-head"><h2>논문·칼럼 읽기</h2><a href="#tips">전체 보기 →</a></div>
+    <div class="rlist">
+      <a class="rrow" href="#col-challenge"><span class="tag">칼럼</span><b>운동이 대장암 재발을 줄였다, 진짜 비결은 따로 있었습니다<em class="nw">✦NEW</em></b><span class="go">→</span></a>
+      <a class="rrow" href="#col-glp1"><span class="tag">칼럼</span><b>위고비·마운자로, 빼는 약일까 지키는 약일까</b><span class="go">→</span></a>
+      <a class="rrow" href="#col-40s"><span class="tag">칼럼</span><b>40대 다이어트, 20대와는 달라요</b><span class="go">→</span></a>
+      <a class="rrow" href="#paper-bellyfat"><span class="tag">정리편</span><b>과학으로 정리한 뱃살 빼는 방법</b><span class="go">→</span></a>
+      <a class="rrow" href="#paper-sleep"><span class="tag">논문</span><b>잠이 부족하면 지방 대신 근육이 빠진다</b><span class="go">→</span></a>
+    </div>
     <div class="sec-head"><h2>무료 자료</h2><a href="#free">전체 보기 →</a></div>
     <div class="rlist" data-more="5">
       <p class="rgrp">바로 보기</p>
@@ -494,14 +502,6 @@ footer .bizq a{color:var(--accent-ink);font-weight:700;font-size:15px;text-decor
       <a class="rrow" href="#tools"><span class="tag op">기록</span><b>습관 기록지·앱<small>매일 체크하는 루아핏 습관 기록</small></b><span class="go">→</span></a>
       <a class="rrow" href="/2027/"><span class="tag op">기록지</span><b>2027 루틴 기록지<small>2026 돌아보기 + 2027 계획 PDF</small></b><span class="go">→</span></a>
       <a class="rrow" href="/body-m7k2/"><span class="tag op">기록지</span><b>만다라트<small>루아쌤 예시판 + 빈 만다라트 PDF</small></b><span class="go">→</span></a>
-    </div>
-    <div class="sec-head"><h2>논문·칼럼 읽기</h2><a href="#tips">전체 보기 →</a></div>
-    <div class="rlist">
-      <a class="rrow" href="#col-challenge"><span class="tag">칼럼</span><b>운동이 대장암 재발을 줄였다, 진짜 비결은 따로 있었습니다<em class="nw">✦NEW</em></b><span class="go">→</span></a>
-      <a class="rrow" href="#col-glp1"><span class="tag">칼럼</span><b>위고비·마운자로, 빼는 약일까 지키는 약일까</b><span class="go">→</span></a>
-      <a class="rrow" href="#col-40s"><span class="tag">칼럼</span><b>40대 다이어트, 20대와는 달라요</b><span class="go">→</span></a>
-      <a class="rrow" href="#paper-bellyfat"><span class="tag">정리편</span><b>과학으로 정리한 뱃살 빼는 방법</b><span class="go">→</span></a>
-      <a class="rrow" href="#paper-sleep"><span class="tag">논문</span><b>잠이 부족하면 지방 대신 근육이 빠진다</b><span class="go">→</span></a>
     </div>
   </div>
 </section>
