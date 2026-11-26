@@ -107,5 +107,20 @@ footer a{color:inherit}
   if(location.hash==='#pdf'){var d=document.getElementById('pdf');d.scrollIntoView({block:'center'});d.classList.add('flash')}
 })();
 </script>
+<!-- 방문 통계 (GoatCounter: 쿠키 없음) -->
+<script>
+(function(){
+  var PG='2027 기록지';
+  document.addEventListener('click',function(e){
+    var b=e.target.closest&&e.target.closest('.dl');if(!b)return;
+    var g=window.goatcounter;if(!g||!g.count)return;
+    var r=b.closest('.r');var part=r?(r.querySelector('b')?r.querySelector('b').firstChild.textContent.trim():'한 장'):'전체';
+    var t=b.classList.contains('ph')?'사진':(/흑백/.test(b.textContent)?'흑백 PDF':'컬러 PDF');
+    var p='다운로드 · '+PG+' · '+part+' · '+t;
+    try{g.count({path:p,title:p,event:true})}catch(x){}
+  },true);
+})();
+</script>
+<script data-goatcounter="https://luafit.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>

@@ -1238,7 +1238,7 @@ footer .bizq a{color:var(--accent-ink);font-weight:700;font-size:15px;text-decor
         <h3>제8조 (안전성 확보 조치)</h3>
         <ul><li>개인정보를 다루는 사람을 대표자와 매니저로 한정해요.</li><li>파일은 비밀번호와 2단계 인증이 걸린 계정에 보관해요.</li><li>체형 사진은 코칭 목적 밖으로 쓰지 않고, 홍보에 쓸 때는 따로 동의를 받아요.</li></ul>
         <h3>제9조 (쿠키)</h3>
-        <p>홈페이지는 이용 현황을 파악하려고 쿠키를 쓸 수 있어요. 브라우저 설정에서 쿠키 저장을 거부할 수 있어요.</p>
+        <p>홈페이지는 이용 현황을 파악하려고 방문 통계 서비스 GoatCounter로 페이지 조회 수와 버튼 누른 수를 집계해요. 이 서비스는 쿠키를 쓰지 않고, 이름·연락처처럼 개인을 알아볼 수 있는 정보는 저장하지 않아요. 앞으로 쿠키를 쓰게 되면 이 방침에 알려 드릴게요. 쿠키는 브라우저 설정에서 저장을 거부할 수 있어요.</p>
         <h3>제10조 (개인정보 보호책임자)</h3>
         <ul><li>책임자: 정지혜 (대표)</li><li>이메일: luamindnbody@gmail.com</li></ul>
         <p>개인정보 침해 신고나 상담은 개인정보침해신고센터(국번 없이 118)에도 할 수 있어요.</p>
@@ -1534,4 +1534,38 @@ im.addEventListener('touchstart',function(e){sx=e.touches[0].clientX;},{passive:
 })();</script>
 <script>(function(){var b=document.body,o=document.getElementById('hbOpen');function set(v){b.classList.toggle('nav-open',v);o.setAttribute('aria-expanded',v)}o.onclick=function(){set(true)};document.getElementById('hbClose').onclick=function(){set(false)};document.getElementById('hbDim').onclick=function(){set(false)};document.querySelectorAll('#hbNav a').forEach(function(a){a.addEventListener('click',function(){set(false)})})})();</script><script>(function(){function ok(){try{return localStorage.getItem('luafitKakao')==='1'}catch(e){return false}}
 function paint(){if(!ok())return;document.querySelectorAll('.rrow.lk').forEach(function(r){r.classList.add('open')});document.querySelectorAll('[data-ktag]').forEach(function(t){t.textContent='✓ 열림'});document.querySelectorAll('[data-kgrp]').forEach(function(t){t.textContent='✓ 카톡 친구 전용 · 열림'});document.querySelectorAll('[data-kban]').forEach(function(t){t.hidden=true})}
-document.querySelectorAll('[data-kadd]').forEach(function(a){a.addEventListener('click',function(){try{localStorage.setItem('luafitKakao','1')}catch(e){}setTimeout(paint,300)})});paint();})();</script></body></html>
+document.querySelectorAll('[data-kadd]').forEach(function(a){a.addEventListener('click',function(){try{localStorage.setItem('luafitKakao','1')}catch(e){}setTimeout(paint,300)})});paint();})();</script><!-- 방문 통계 (GoatCounter: 쿠키 없음, 통계는 luafit.goatcounter.com에서 루아쌤만 봄) -->
+<script>
+(function(){
+  window.goatcounter={no_onload:true};
+  var q=[];
+  function gc(path,title,ev){var g=window.goatcounter;if(g&&g.count){try{g.count({path:path,title:title||path,event:!!ev})}catch(e){}}else q.push([path,title,ev])}
+  window.__lfFlush=function(){var a=q;q=[];a.forEach(function(x){gc(x[0],x[1],x[2])})};
+  window.__lfCount=gc;
+  var NAME={home:'홈',store:'프로그램',tips:'논문·칼럼',free:'무료 자료',about:'루아쌤 소개',calc:'탄단지 계산기',speed:'감량 속도 계산기',tools:'습관 기록지·앱',legal:'약관·정책'};
+  var last='';
+  function page(){
+    var v=window.__mcV||'home';var p=v==='home'?'/':'/'+v;
+    if(p===last)return;last=p;gc(p,'페이지 · '+(NAME[v]||v),false);
+  }
+  addEventListener('hashchange',function(){setTimeout(page,0)});page();
+  function title(d){var h=d.querySelector('summary h3')||d.querySelector('summary');return h?h.textContent.replace('✦NEW','').replace('NEW','').trim().slice(0,60):d.id}
+  function kind(d){var c=d.dataset.c;if(d.closest('#v-store'))return'프로그램 자세히 보기';if(c==='칼럼')return'칼럼 열기';if(c==='논문'||d.classList.contains('paper'))return'논문 열기';if(d.id.indexOf('tip-')===0)return'꿀팁 열기';if(d.closest('#v-legal'))return'약관 열기';return'열기'}
+  function opened(d){var t=Date.now();if(d.__lft&&t-d.__lft<1500)return;d.__lft=t;gc(kind(d)+' · '+d.id,kind(d)+' · '+title(d),true)}
+  document.querySelectorAll('details[id]').forEach(function(d){
+    d.addEventListener('toggle',function(){if(d.open)opened(d)});
+  });
+  var h0=location.hash.slice(1),d0=h0&&document.getElementById(h0);if(d0&&d0.tagName==='DETAILS'&&d0.open)opened(d0);
+  function where(a){var d=a.closest('details[id]');if(d)return d.id;var v=a.closest('.view');if(v)return v.dataset.view;if(a.closest('footer'))return'footer';if(a.closest('header,nav'))return'메뉴';return'기타'}
+  document.addEventListener('click',function(e){
+    var a=e.target.closest&&e.target.closest('a,button');if(!a)return;
+    var h=a.getAttribute('href')||'';
+    if(h.indexOf('pf.kakao.com')>-1){var w=where(a);var s=(w==='program'||w==='coaching'||w==='guide')?'신청 버튼':'카카오채널 버튼';gc(s+' · '+w,s+' · '+w+' · '+a.textContent.trim().slice(0,30),true);return}
+    if(a.classList.contains('gp')){gc('가이드 예시 사진 보기','가이드 예시 사진 보기',true);return}
+    if(h.indexOf('mailto:')===0){gc('메일 문의 버튼','메일 문의 버튼 · '+where(a),true);return}
+    if(/^https?:\/\/(www\.)?(instagram|youtube)\.com/.test(h)){var n=h.indexOf('instagram')>-1?'인스타':'유튜브';gc('바깥 링크 · '+n,'바깥 링크 · '+n,true)}
+  },true);
+})();
+</script>
+<script data-goatcounter="https://luafit.goatcounter.com/count" async src="//gc.zgo.at/count.js" onload="window.__lfFlush&&window.__lfFlush()"></script>
+</body></html>
