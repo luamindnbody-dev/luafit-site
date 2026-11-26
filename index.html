@@ -774,10 +774,10 @@ footer .bizq a{color:var(--accent-ink);font-weight:700;font-size:15px;text-decor
       <details id="tip-66days" class="card" data-c="습관"><summary><span class="tag">습관·마인드</span><h3>습관이 되는 데 걸리는 시간은 평균 66일</h3><span class="plus">+</span></summary>
         <div class="body"><p>새 행동이 자동으로 나오기까지 사람마다 18일에서 254일까지 걸렸고, 중간값은 66일이었어요. 하루 빠졌다고 습관 형성이 망가지지는 않았어요.</p>
         <ul><li>21일 만에 안 됐다고 실망하지 않기</li><li>하루 놓치면 다음 날 다시 하면 돼요</li></ul>
-        <p class="ref">근거: Lally 외 (2010). <a href="#papers">논문 정리 보기</a></p><p class="sharebar"><button type="button" class="copylink" data-id="tip-66days">이 글 링크 복사</button><span class="linktxt">luafit · #tip-66days</span></p></div></details>
+        <p class="ref">근거: Lally 외 (2010). <a href="#paper-habit">논문 정리 보기</a></p><p class="sharebar"><button type="button" class="copylink" data-id="tip-66days">이 글 링크 복사</button><span class="linktxt">luafit · #tip-66days</span></p></div></details>
       <details id="tip-processed" class="card" data-c="식단"><summary><span class="tag">식단</span><h3>가공식품이 많으면 나도 모르게 더 먹어요</h3><span class="plus">+</span></summary>
         <div class="body"><p>초가공식품 위주로 먹은 2주 동안 사람들은 하루 약 500kcal를 더 먹었고 체중이 늘었어요. 의지 문제가 아니라 음식 환경의 문제예요.</p>
-        <p class="ref">근거: Hall 외 (2019). <a href="#papers">논문 정리 보기</a></p><p class="sharebar"><button type="button" class="copylink" data-id="tip-processed">이 글 링크 복사</button><span class="linktxt">luafit · #tip-processed</span></p></div></details>
+        <p class="ref">근거: Hall 외 (2019). <a href="#paper-processed">논문 정리 보기</a></p><p class="sharebar"><button type="button" class="copylink" data-id="tip-processed">이 글 링크 복사</button><span class="linktxt">luafit · #tip-processed</span></p></div></details>
       <details id="tip-sleep" class="card" data-c="습관"><summary><span class="tag">습관·마인드</span><h3>잠을 줄이면 식욕이 늘어요</h3><span class="plus">+</span></summary>
         <div class="body"><p>수면이 부족하면 다음 날 배고픔을 더 느끼고 간식을 찾기 쉬워요. 감량 기간일수록 7시간 이상 자는 걸 목표로 잡아 보세요.</p><p class="sharebar"><button type="button" class="copylink" data-id="tip-sleep">이 글 링크 복사</button><span class="linktxt">luafit · #tip-sleep</span></p></div></details>
 
@@ -1209,8 +1209,8 @@ footer .bizq a{color:var(--accent-ink);font-weight:700;font-size:15px;text-decor
 
 
   // per-item links
-  const BASE='https://claude.ai/artifact/H8SR3S2BL6yviFgiZ7RAhA';
-  document.querySelectorAll('.copylink').forEach(b=>b.addEventListener('click',()=>{
+  const BASE='https://luafit.kr/';
+  document.querySelectorAll('button.copylink[data-id]').forEach(b=>b.addEventListener('click',()=>{
     const url=BASE+'#'+b.dataset.id, txt=b.parentElement.querySelector('.linktxt');
     txt.textContent=url;
     const done=()=>{b.textContent='복사했어요';setTimeout(()=>b.textContent='이 글 링크 복사',1500)};
