@@ -308,6 +308,25 @@ input[type=number],select{font:inherit;font-size:16px;padding:10px 12px;border:1
 .tips-banner{margin-top:32px;height:220px;border-radius:0;background:center 35%/cover no-repeat}
 /* calculators */
 .narrow{max-width:680px}
+#mForm{padding:16px 14px;gap:12px}#mForm .ph2{font-size:16px}#mForm .row3{grid-template-columns:repeat(3,1fr);gap:8px}#mForm .row2{gap:8px}#mForm input[type=number],#mForm select{padding:8px 10px;font-size:16px}#mForm .field{gap:4px}#mForm .field label,#mForm .legend{font-size:13px}#mForm .seg label{padding:7px}
+.result.sum{padding:16px 14px;gap:10px;margin-top:14px;scroll-margin-top:90px}
+.sum-tbl{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+.sum-tbl th{font-size:12px;font-weight:700;text-align:right;padding:4px 6px;opacity:.8}
+.sum-tbl td{padding:7px 6px;border-top:1px solid var(--band-line);text-align:right;font-size:15px}
+.sum-tbl td:first-child,.sum-tbl th:first-child{text-align:left;font-size:13px;opacity:.85;font-weight:400}
+.sum-tbl .kc td{font-size:19px;font-weight:800}
+.sum-tbl .mc td{font-size:14px}.sum-tbl td.rec{color:var(--hero-accent);font-weight:700}
+.sum-diff{margin:0;font-size:14px;font-weight:700}
+.cpf{margin:0;font-size:14px}.cpf b{font-size:17px}
+.sum-btns{display:grid;grid-template-columns:1fr;gap:8px}.sum-btns .btn{padding:11px 8px;font-size:14px;width:100%}
+
+.sum-save{background:transparent;border:1.5px solid currentColor;color:inherit;display:flex;align-items:center;justify-content:center;text-align:center}
+.more-box{margin-top:16px}.more-in{padding:0 16px 14px;display:grid;gap:12px}.more-in .refs{margin:0}
+.shot{position:fixed;inset:0;background:rgba(20,24,16,.88);z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:16px}
+.shot img{max-width:100%;max-height:72vh;box-shadow:0 6px 30px rgba(0,0,0,.4)}
+.shot p{color:#F3F1E9;margin:0;font-size:14px;text-align:center}
+.shot .row{display:flex;gap:8px}.shot button{font:inherit;font-weight:700;padding:10px 18px;border:0;background:#F4E890;color:#36412B;cursor:pointer}.shot button.x{background:#F3F1E9}
+.cmp-tbl td:nth-child(3),.cmp-tbl th:nth-child(3){color:var(--accent-ink);font-weight:700}.cmp-tbl td:first-child{color:var(--muted);font-size:13px}.ph3{font-size:15px;margin:8px 0 0}
 details.inbody{border:1px dashed var(--olive);padding:0}details.inbody summary{list-style:none;cursor:pointer;padding:14px 16px;display:grid;gap:2px}details.inbody summary::-webkit-details-marker{display:none}details.inbody summary b::after{content:" +";color:var(--accent-ink)}details.inbody[open] summary b::after{content:" −"}details.inbody summary span{font-size:13px;color:var(--muted)}details.inbody>.row3,details.inbody>p{margin:0 16px 14px}
 .calc-tabs{display:flex;gap:6px;margin:-8px 0 18px;flex-wrap:wrap}
 .calc-tabs a{text-decoration:none;font-size:14px;font-weight:700;padding:8px 16px;border-radius:0;border:1px solid var(--line)}
@@ -959,83 +978,80 @@ footer .bizq a{color:var(--accent-ink);font-weight:700;font-size:15px;text-decor
       <div class="field"><span class="legend">성별 (지방 섭취량 계산 기준)</span>
         <div class="seg"><input type="radio" name="msex" id="mF" value="f" checked><label for="mF">여성 <small>지방 총 칼로리의 25%</small></label><input type="radio" name="msex" id="mM" value="m"><label for="mM">남성 <small>지방 총 칼로리의 20%</small></label></div></div>
       <div class="row3">
-        <div class="field"><label for="mAge">만 나이 (세)</label><input type="number" id="mAge" inputmode="numeric" value="35"></div>
-        <div class="field"><label for="mH">신장 (cm)</label><input type="number" id="mH" inputmode="decimal" value="162"></div>
-        <div class="field"><label for="mW">현재 체중 (kg)</label><input type="number" id="mW" inputmode="decimal" value="62"></div>
+        <div class="field"><label for="mAge">나이</label><input type="number" id="mAge" inputmode="numeric" value="35"></div>
+        <div class="field"><label for="mH">키 (cm)</label><input type="number" id="mH" inputmode="decimal" value="162"></div>
+        <div class="field"><label for="mW">체중 (kg)</label><input type="number" id="mW" inputmode="decimal" value="62"></div>
+      </div>
+      <h2 class="ph2">나의 목표</h2>
+      <div class="row2">
+        <div class="field"><label for="mTW">목표 체중 (kg)</label><input type="number" id="mTW" inputmode="decimal" value="56"></div>
+        <div class="field"><label for="mMon" id="mMonLbl">한 달에 빼고 싶은 양 (kg)</label><input type="number" id="mMon" inputmode="decimal" value="2" step="0.5"></div>
       </div>
       <details class="inbody" id="mInbody">
         <summary><b>인바디 결과가 있다면 (선택)</b><span>체지방률을 넣으면 안전 감량 구간까지 계산해요</span></summary>
         <div class="row3">
           <div class="field"><label for="mBf">체지방률 (%)</label><input type="number" id="mBf" inputmode="decimal" placeholder="예: 30"></div>
-          <div class="field"><label for="mFm">또는 체지방량 (kg)</label><input type="number" id="mFm" inputmode="decimal" placeholder="예: 18.6"></div>
-          <div class="field"><label for="mBmr">기초대사량 (kcal)</label><input type="number" id="mBmr" inputmode="numeric" placeholder="예: 1300"></div>
+          <div class="field"><label for="mFm">체지방량 (kg)</label><input type="number" id="mFm" inputmode="decimal" placeholder="예: 18.6"></div>
+          <div class="field"><label for="mBmr">기초대사량</label><input type="number" id="mBmr" inputmode="numeric" placeholder="kcal"></div>
         </div>
-        <p class="muted small">모르는 칸은 비워 두세요. 체지방률과 체지방량을 둘 다 넣으면 체지방률을 기준으로 계산해요. 기초대사량을 비워 두면 자동으로 계산해요.</p>
+        <p class="muted small">모르는 칸은 비워 두세요. 체지방률과 체지방량은 둘 중 하나만 넣어도 돼요(둘 다 넣으면 체지방률 기준). 기초대사량을 비워 두면 자동으로 계산해요.</p>
       </details>
-      <h2 class="ph2">활동 및 목표 설정</h2>
+      <h2 class="ph2">활동량과 운동</h2>
       <div class="field"><label for="mAct">평소 활동량 (활동대사량 기준)</label>
         <select id="mAct"><option value="1.2">거의 운동하지 않음 (사무직 등)</option><option value="1.375">가벼운 활동 (주 1~3회 운동)</option><option value="1.55" selected>보통 활동 (주 3~5회 운동)</option><option value="1.725">적극적인 활동 (주 6~7회 강도 높은 운동)</option><option value="1.9">매우 적극적인 활동 (전문 운동선수, 육체노동)</option></select></div>
       <div class="field"><label for="mPro">단백질 섭취 기준</label>
         <select id="mPro"><option value="0">운동 안함 (체중 1kg당 1.2g · 감량 중 1.6g)</option><option value="1" selected>주 3회 근력운동 (체중 1kg당 1.6g · 감량 중 2.0g)</option><option value="2">주 4회 이상 고강도/웨이트 (체중 1kg당 2.0g · 감량 중 2.2g)</option></select></div>
-      <div class="row2">
-        <div class="field"><label for="mTW">목표 체중 (kg)</label><input type="number" id="mTW" inputmode="decimal" value="56"></div>
-        <div class="field"><label for="mMon">한 달 목표치 (감량/증량 kg)</label><input type="number" id="mMon" inputmode="decimal" value="2" step="0.5"></div>
-      </div>
       <p class="err" id="mErr" role="alert"></p>
       <button class="btn btn-olive wide" type="submit">결과 확인하기</button>
     </form>
-    <div class="result" id="mRes" aria-live="polite">
-      <div><div class="note">내 목표대로 하루 섭취 칼로리</div><div class="main-n"><span id="mTarget">0</span><small>kcal</small></div></div>
-      <div class="rgrid">
-        <div><b id="mBmrOut">0</b><span>기초대사량 kcal</span></div>
-        <div><b id="mTdee">0</b><span>활동대사량 kcal</span></div>
-        <div><b id="mAdj">0</b><span>하루 조정 kcal</span></div>
-      </div>
+    <div class="result sum" id="mRes" aria-live="polite">
+      <div class="note" id="mSumTitle">내 목표 vs 루아쌤 권장</div>
+      <table class="sum-tbl" id="mSum"></table>
+      <p class="sum-diff" id="mCompare"></p>
       <div class="macro" id="mBar"></div>
-      <div class="rgrid">
-        <div><b id="mC">0</b><span>탄수화물 g</span></div>
-        <div><b id="mP">0</b><span>단백질 g</span></div>
-        <div><b id="mF2">0</b><span>지방 g</span></div>
-      </div>
-      <p class="est" id="mEst" hidden></p>
+      <p class="cpf">탄수화물 <b id="mC">0</b>g · 단백질 <b id="mP">0</b>g · 지방 <b id="mF2">0</b>g</p>
       <p class="warn" id="mWarn" hidden></p>
-    </div>
-    <div class="panel" id="mRec" aria-live="polite" style="margin-top:16px" hidden>
-      <h2 class="ph2">루아쌤 권장 속도</h2>
-      <div id="mZoneBox" hidden>
-        <p class="verdict" id="zoneName"></p>
-        <div class="gauge"><div class="marker" id="marker"></div><div class="track" id="track"></div><div class="zones" id="zoneLabels"></div></div>
-      </div>
-      <div class="big"><b id="weeklyKg"></b><span id="weeklyUnit">kg / 주</span></div>
-      <p class="muted" id="weeklyPct"></p>
-      <ul class="rows" id="mRecRows"></ul>
-      <p class="warn" id="mCompare"></p>
-      <button class="btn btn-olive wide" type="button" id="mUseRec">권장 속도로 다시 계산하기</button>
-      <p class="muted small" id="mNoBf" hidden>인바디 체지방률을 넣으면 내 체지방 구간에 맞춘 안전 속도로 더 정확하게 알려드려요.</p>
-    </div>
-    <div class="panel" id="mSplitBox" style="margin-top:16px" hidden>
-      <h2 class="ph2">적자를 어떻게 만들까</h2>
-      <ul class="rows"><li><span>하루 총 소모 칼로리 (TDEE)</span><span id="tdee"></span></li><li><span>내 목표 하루 적자</span><span id="myDef"></span></li></ul>
-      <div class="split" id="split"></div>
-      <p class="muted small">식단으로 줄이는 양은 TDEE의 20% 이내로, 나머지는 활동량을 늘려 채우세요.</p>
-      <p class="warn" id="sNote"></p>
+      <div class="sum-btns"><button class="btn sum-save" type="button" id="mSave">결과 이미지로 저장</button></div>
     </div>
     <div class="meals" id="mMeals" aria-live="polite"></div>
-    <div class="panel" id="mDetail" style="margin-top:16px">
-      <h2 class="ph2">세부 수치</h2>
-      <ul class="rows" id="mDetailRows"></ul>
-    </div>
-    <div class="refs">
+    <details class="inbody more-box" id="mMore">
+      <summary><b>자세히 보기</b><span>대사량 · 체지방 구간 · 적자 나누기 · 세부 수치 · 계산 근거</span></summary>
+      <div class="more-in">
+        <ul class="rows"><li><span>내 목표 하루 섭취</span><span id="mTarget">0</span></li><li><span>기초대사량</span><span id="mBmrOut">0</span></li><li><span>활동대사량 (TDEE)</span><span id="mTdee">0</span></li><li><span>하루 조정</span><span id="mAdj">0</span></li></ul>
+        <p class="muted small" id="mEst" hidden></p>
+        <div id="mRec" hidden>
+          <h3 class="ph3">권장 속도 자세히</h3>
+          <table class="meal-tbl cmp-tbl"><thead><tr><th></th><th>내 목표</th><th>루아쌤 권장</th></tr></thead><tbody id="mCmpRows"></tbody></table>
+          <div id="mZoneBox" hidden>
+            <p class="verdict" id="zoneName"></p>
+            <div class="gauge"><div class="marker" id="marker"></div><div class="track" id="track"></div><div class="zones" id="zoneLabels"></div></div>
+          </div>
+          <p class="muted small" id="weeklyPct"></p>
+          <p class="muted small" id="mNoBf" hidden>인바디 체지방률을 넣으면 내 체지방 구간에 맞춘 안전 속도로 더 정확하게 알려드려요.</p>
+        </div>
+        <div id="mSplitBox" hidden>
+          <h3 class="ph3">적자를 어떻게 만들까</h3>
+          <ul class="rows"><li><span>하루 총 소모 칼로리 (TDEE)</span><span id="tdee"></span></li><li><span>내 목표 하루 적자</span><span id="myDef"></span></li></ul>
+          <div class="split" id="split"></div>
+          <p class="muted small">내 목표 적자를 식단과 활동으로 나눈 추천이에요. 식단으로 줄이는 양은 TDEE의 20% 이내가 좋아요.</p>
+          <p class="warn" id="sNote"></p>
+        </div>
+        <h3 class="ph3">세부 수치</h3>
+        <ul class="rows" id="mDetailRows"></ul>
+        <div class="refs">
       <h3>계산 근거</h3>
       <p>기초대사량: 직접 입력한 값이 있으면 그대로 쓰고, 없으면 Mifflin-St Jeor 공식으로 계산해요. 체지방률을 알면 제지방량 기반 Katch-McArdle 공식과의 평균을 써요.</p>
       <p>목표 칼로리: 체중 1kg 변화를 약 7,700kcal로 보고, 한 달 목표치만큼 하루 칼로리를 줄이거나 늘려요. 첫 1~2주는 수분 손실로 계산보다 더 빠지는 게 정상이에요.</p>
       <p>안전 감량 속도: 근육 보존을 위해 주당 체중의 0.5~1% 감량을 권고한 Helms, Aragon &amp; Fitschen (2014, JISSN)과 주당 0.7% vs 1.4% 감량을 비교한 Garthe 등 (2011)을 바탕으로, 체지방이 높을수록 빠르게·낮을수록 천천히 가도록 성별 체지방 구간을 나눴어요. 체중과 관계없이 주 1kg을 넘지 않게 제한해요. 체지방률을 모르면 주당 체중의 0.5~1%를 기준으로 해요.</p>
       <p>체지방 연소 한계: Alpert (2005) 기준 체지방 1kg당 하루 약 53.5~65.5kcal 동원 가능. 루아쌤 권장치(48.5kcal/kg)는 이를 실무에 맞게 보수적으로 낮춘 값이에요.</p>
+      <p>루아쌤 권장 탄단지: 권장 하루 섭취 칼로리에 같은 기준(단백질·지방·탄수화물)을 적용해 계산해요.</p>
       <p>단백질: 운동량에 따라 체중 1kg당 1.2~2.0g (ACSM 2016 권고 1.2~2.0g, 근력운동 시 1.6g 이상 · Morton 2018). 감량 중에는 근손실을 막기 위해 1.6~2.2g으로 올리고 목표 체중을 기준으로 계산해요 (Helms 2014).</p>
       <p>지방: 총 칼로리의 여성 25%, 남성 20% (권장 범위 20~35% · ACSM 2016). 여성은 호르몬 건강을 위해 조금 높게 잡았고, 감량 중에도 체중 1kg당 0.7g 아래로는 내려가지 않게 했어요.</p>
       <p>탄수화물: 목표 칼로리에서 단백질과 지방을 뺀 나머지로 배정하고, 하루 130g보다 적으면 알려드려요.</p>
       <p>증량 속도: 한 달 체중의 1~2% (주당 0.25~0.5% · Iraki 2019)를 권장해요.</p>
     </div>
+      </div>
+    </details>
   </div>
 </section>
 
@@ -1376,7 +1392,7 @@ footer .bizq a{color:var(--accent-ink);font-weight:700;font-size:15px;text-decor
     if(w<30||w>250||(h&&(h<120||h>230))||(age&&(age<15||age>90))){$('mErr').textContent='나이·신장·체중이 일반적인 범위를 벗어났어요. 다시 확인해 주세요.';return}
     const bf=bfIn||(fmIn?fmIn/w*100:0);
     if(bf&&(bf<3||bf>65)){$('mErr').textContent='체지방률은 3~65% 사이로 입력해 주세요. 체지방량을 넣었다면 체중보다 작은지 확인해 주세요.';return}
-    $('mErr').textContent='';
+    $('mErr').textContent=''; monLbl();
     // 대사량
     const fm=bf?w*bf/100:0, lbm=bf?w-fm:0;
     const mifflin=(age&&h)?10*w+6.25*h-5*age+(sex==='m'?5:-161):0;
@@ -1394,8 +1410,10 @@ footer .bizq a{color:var(--accent-ink);font-weight:700;font-size:15px;text-decor
     const fPct=sex==='m'?0.20:0.25, fFloor=pw*0.7;
     const f=Math.max(target*fPct/9,fFloor);
     const c=Math.max((target-p*4-f*9)/4,0);
-    $('mTarget').textContent=fmt(target);$('mBmrOut').textContent=fmt(bmr);$('mTdee').textContent=fmt(tdee);
-    $('mAdj').textContent=(adj>0?'+':adj<0?'−':'')+fmt(Math.abs(adj));
+    const mac=T=>{const ff=Math.max(T*fPct/9,fFloor);return [Math.max((T-p*4-ff*9)/4,0),p,ff]};
+    const macTxt=T=>{const m=mac(T);return `${fmt(m[0])}·${fmt(m[1])}·${fmt(m[2])}g`};
+    $('mTarget').textContent=fmt(target)+' kcal';$('mBmrOut').textContent=fmt(bmr)+' kcal';$('mTdee').textContent=fmt(tdee)+' kcal';
+    $('mAdj').textContent=(adj>0?'+':adj<0?'−':'')+fmt(Math.abs(adj))+' kcal';
     $('mC').textContent=fmt(c);$('mP').textContent=fmt(p);$('mF2').textContent=fmt(f);
     const tot=c*4+p*4+f*9||1;
     $('mBar').innerHTML=`<div style="width:${c*4/tot*100}%;background:var(--butter);color:var(--olive-deep)">탄 ${Math.round(c*4/tot*100)}%</div><div style="width:${p*4/tot*100}%;background:#9DB68A;color:var(--olive-deep)">단 ${Math.round(p*4/tot*100)}%</div><div style="width:${f*9/tot*100}%;background:#F3F1E9;color:var(--olive-deep)">지 ${Math.round(f*9/tot*100)}%</div>`;
@@ -1411,9 +1429,16 @@ footer .bizq a{color:var(--accent-ink);font-weight:700;font-size:15px;text-decor
     else if(dir===0) est='목표 체중이 현재 체중과 같아요. 체중 유지를 위한 식단이에요.';
     $('mEst').hidden=!est;$('mEst').innerHTML=est;
 
-    // ===== 루아쌤 권장 속도 =====
+    // ===== 내 목표 vs 루아쌤 권장 =====
     $('mRec').hidden=dir===0; $('mZoneBox').hidden=!(bf&&dir<0); $('mNoBf').hidden=!!bf||dir>=0;
     recMon=null;
+    const rng=(a,b,d=0)=>Math.abs(a-b)<(d?0.05:1)?fmt(b,d):`${fmt(a,d)}~${fmt(b,d)}`;
+    const mths=m=>m>0?`약 ${(Math.abs(tw-w)/m).toFixed(1)}개월`:'-';
+    if(dir===0){
+      $('mSumTitle').textContent='체중 유지';
+      $('mSum').innerHTML=`<tr class="kc"><td>하루 섭취</td><td>${fmt(target)}kcal</td></tr>`;
+      $('mCompare').textContent='목표 체중이 현재 체중과 같아요. 체중 유지를 위한 식단이에요.';
+    }
     let coachLimit=0;
     if(dir<0){
       let rate,kgLo,kgHi,capNote='';
@@ -1428,36 +1453,48 @@ footer .bizq a{color:var(--accent-ink);font-weight:700;font-size:15px;text-decor
       } else rate=[0.5,1.0];
       kgLo=w*rate[0]/100; kgHi=Math.min(w*rate[1]/100,1.0); if(kgLo>kgHi)kgLo=kgHi;
       let defLo=kgLo*KCAL_PER_KG/7, defHi=kgHi*KCAL_PER_KG/7;
-      if(bf){coachLimit=fm*48.5; if(defHi>coachLimit){defHi=coachLimit;capNote=`체지방량 기준으로 하루 적자는 ${fmt(coachLimit)}kcal를 넘기지 않는 게 좋아서 상한을 낮췄어요.`} defLo=Math.min(defLo,defHi); kgLo=defLo*7/KCAL_PER_KG; kgHi=defHi*7/KCAL_PER_KG;}
-      const defMid=(defLo+defHi)/2;
+      if(bf){coachLimit=fm*48.5; if(defHi>coachLimit){defHi=coachLimit;capNote=`체지방량 기준으로 하루 적자는 ${fmt(coachLimit)}kcal를 넘기지 않는 게 좋아서 권장 상한을 낮췄어요.`} defLo=Math.min(defLo,defHi);}
+      const defMid=(defLo+defHi)/2, mLo=defLo*30/KCAL_PER_KG, mHi=defHi*30/KCAL_PER_KG;
       recMon=Math.round(defMid*30/KCAL_PER_KG*10)/10;
-      $('weeklyUnit').textContent='kg / 주';
-      $('weeklyKg').textContent=Math.abs(kgLo-kgHi)<0.005?fmt(kgHi,2):`${fmt(kgLo,2)}~${fmt(kgHi,2)}`;
       const pctTxt=rate[0]===rate[1]?`${rate[0]}%`:`${rate[0]}~${rate[1]}%`;
-      $('weeklyPct').textContent=`체중의 주당 ${pctTxt}${w*rate[1]/100>1?' (주 1kg 상한 적용)':''}${bf?'':' · 체지방률을 모를 때의 일반 기준'}`;
-      const rng=(a,b,d=0)=>Math.abs(a-b)<(d?0.05:1)?fmt(b,d):`${fmt(a,d)}~${fmt(b,d)}`;
-      const cap=tdee*0.2, fLo=Math.min(defLo,cap), fHi=Math.min(defHi,cap);
-      const rr=[['한 달 권장 감량',`약 ${rng(defLo*30/KCAL_PER_KG,defHi*30/KCAL_PER_KG,1)} kg`],
-        ['권장 하루 적자',`${rng(defLo,defHi)} kcal`],
-        ['권장 하루 섭취 (식단 적자는 TDEE 20% 이내)',`${rng(tdee-fHi,tdee-fLo)} kcal`]];
-      if(defHi>cap) rr.push(['활동으로 채울 양',`${rng(Math.max(defLo-cap,0),defHi-cap)} kcal`]);
-      $('mRecRows').innerHTML=rows(rr);
-      const cmp=[];
-      const inRange=!(myDef>defHi*1.02||myDef<defLo*0.98);
-      if(myDef>defHi*1.02) cmp.push(`내 목표(한 달 ${fmt(mon,1)}kg)는 권장 속도보다 빨라요. 이 속도면 지방보다 근육이 빠질 수 있어요. 한 달 ${fmt(recMon,1)}kg 정도를 권장해요.`);
-      else if(myDef<defLo*0.98) cmp.push(`내 목표(한 달 ${fmt(mon,1)}kg)는 권장 속도보다 느려요. 근육을 지키기엔 안전하지만, 원하면 한 달 ${fmt(recMon,1)}kg까지 속도를 올려도 괜찮아요.`);
-      else cmp.push(`내 목표(한 달 ${fmt(mon,1)}kg)는 권장 속도 안에 있어요. 이대로 가도 좋아요.`);
+      $('weeklyPct').textContent=bf?`체지방 구간에 따라 주당 체중의 ${pctTxt}${w*rate[1]/100>1?' (주 1kg 상한)':''}를 권장해요.`:`체지방률을 모를 때는 주당 체중의 0.5~1%${w*rate[1]/100>1?' (주 1kg 상한)':''}를 권장해요.`;
+      $('mCmpRows').innerHTML=[
+        ['한 달 감량',`${fmt(mon,1)}kg`,`${rng(mLo,mHi,1)}kg`],
+        ['일주일 감량',`${fmt(mon*7/30,2)}kg`,`${rng(defLo*7/KCAL_PER_KG,defHi*7/KCAL_PER_KG,2)}kg`],
+        ['하루 줄일 칼로리',`${fmt(myDef)}kcal`,`${rng(defLo,defHi)}kcal`],
+        ['하루 섭취 칼로리',`${fmt(target)}kcal`,`${fmt(tdee-defMid)}kcal`],
+        [`${tw}kg까지`,mths(mon),mths(recMon)]
+      ].map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td></tr>`).join('');
+      $('mSumTitle').textContent='내 목표 vs 루아쌤 권장';
+      $('mSum').innerHTML=`<tr><th></th><th>내 목표</th><th>루아쌤 권장</th></tr>`+[
+        ['한 달 감량',`−${fmt(mon,1)}kg`,`−${rng(mLo,mHi,1)}kg`,''],
+        ['하루 섭취',`${fmt(target)}kcal`,`${fmt(tdee-defMid)}kcal`,'kc'],
+        ['탄·단·지',macTxt(target),macTxt(tdee-defMid),'mc'],
+        [`${tw}kg까지`,mths(mon),mths(recMon),'']].map(r=>`<tr class="${r[3]}"><td>${r[0]}</td><td>${r[1]}</td><td class="rec">${r[2]}</td></tr>`).join('');
+      const cmp=[]; let inRange=true;
+      if(myDef>defHi*1.02){inRange=false;cmp.push(`내 목표가 권장보다 한 달 약 ${fmt(mon-mHi,1)}kg 빨라요. 이 속도면 지방보다 근육이 빠질 수 있어요.`)}
+      else if(myDef<defLo*0.98){inRange=false;cmp.push(`내 목표가 권장보다 한 달 약 ${fmt(mLo-mon,1)}kg 느려요. 근육을 지키기엔 안전하지만, 조금 더 속도를 내도 괜찮아요.`)}
+      else cmp.push('내 목표가 권장 속도 안에 있어요. 이대로 가도 좋아요.');
       if(capNote) cmp.push(capNote);
       $('mCompare').innerHTML=cmp.join('<br>');
-      $('mUseRec').hidden=inRange;
     } else if(dir>0){
-      $('weeklyUnit').textContent='kg / 한 달';
-      $('weeklyKg').textContent=`${fmt(w*0.01,1)}~${fmt(w*0.02,1)}`;
-      $('weeklyPct').textContent='체중의 한 달 1~2% (주당 0.25~0.5%)';
-      recMon=Math.round(w*0.015*10)/10;
-      $('mRecRows').innerHTML=rows([['권장 하루 추가 섭취',`${fmt(w*0.01*KCAL_PER_KG/30)}~${fmt(w*0.02*KCAL_PER_KG/30)} kcal`]]);
-      $('mCompare').innerHTML=mon>w*0.02?`내 목표(한 달 ${fmt(mon,1)}kg)는 권장보다 빨라요. 한 달 ${fmt(w*0.02,1)}kg(체중의 2%)보다 빠르게 늘리면 근육보다 지방이 더 붙기 쉬워요.`:mon<w*0.01?`내 목표(한 달 ${fmt(mon,1)}kg)는 권장보다 느려요. 천천히 가도 괜찮지만, 한 달 ${fmt(recMon,1)}kg 정도면 근육을 늘리기 좋아요.`:`내 목표(한 달 ${fmt(mon,1)}kg)는 권장 속도 안에 있어요.`;
-      $('mUseRec').hidden=mon>=w*0.01&&mon<=w*0.02;
+      const mLo=w*0.01,mHi=w*0.02; recMon=Math.round(w*0.015*10)/10;
+      const add=recMon*KCAL_PER_KG/30;
+      $('weeklyPct').textContent='근육 위주로 늘리려면 한 달 체중의 1~2%(주당 0.25~0.5%)를 권장해요 (Iraki 2019).';
+      $('mCmpRows').innerHTML=[
+        ['한 달 증량',`${fmt(mon,1)}kg`,`${rng(mLo,mHi,1)}kg`],
+        ['하루 더 먹을 칼로리',`${fmt(myDef)}kcal`,`${rng(mLo*KCAL_PER_KG/30,mHi*KCAL_PER_KG/30)}kcal`],
+        ['하루 섭취 칼로리',`${fmt(target)}kcal`,`${fmt(tdee+add)}kcal`],
+        [`${tw}kg까지`,mths(mon),mths(recMon)]
+      ].map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td></tr>`).join('');
+      $('mSumTitle').textContent='내 목표 vs 루아쌤 권장';
+      $('mSum').innerHTML=`<tr><th></th><th>내 목표</th><th>루아쌤 권장</th></tr>`+[
+        ['한 달 증량',`+${fmt(mon,1)}kg`,`+${rng(mLo,mHi,1)}kg`,''],
+        ['하루 섭취',`${fmt(target)}kcal`,`${fmt(tdee+add)}kcal`,'kc'],
+        ['탄·단·지',macTxt(target),macTxt(tdee+add),'mc'],
+        [`${tw}kg까지`,mths(mon),mths(recMon),'']].map(r=>`<tr class="${r[3]}"><td>${r[0]}</td><td>${r[1]}</td><td class="rec">${r[2]}</td></tr>`).join('');
+      const fast=mon>mHi*1.02, slow=mon<mLo*0.98;
+      $('mCompare').innerHTML=fast?`내 목표가 권장보다 한 달 약 ${fmt(mon-mHi,1)}kg 빨라요. 너무 빠르게 늘리면 근육보다 지방이 더 붙기 쉬워요.`:slow?`내 목표가 권장보다 한 달 약 ${fmt(mLo-mon,1)}kg 느려요. 천천히 가도 괜찮아요.`:'내 목표가 권장 속도 안에 있어요. 이대로 가도 좋아요.';
     }
 
     // ===== 적자를 어떻게 만들까 =====
@@ -1468,7 +1505,7 @@ footer .bizq a{color:var(--accent-ink);font-weight:700;font-size:15px;text-decor
       const fp=myDef?food/myDef*100:100;
       $('split').innerHTML=`<div style="width:${fp}%;background:var(--olive)">식단 −${fmt(food)}</div>`+(ex>0?`<div style="width:${100-fp}%;background:var(--z2)">활동 −${fmt(ex)}</div>`:'');
       const notes=[];
-      if(ex>0) notes.push(`식단만으로 맞추면 TDEE의 20%를 넘어요. 하루 섭취는 약 ${fmt(tdee-food)}kcal로 하고, 나머지 약 ${fmt(ex)}kcal는 걷기·계단·운동 등 활동량을 늘려 채우는 걸 추천해요.`);
+      if(ex>0) notes.push(`식단만으로 다 줄이면 TDEE의 20%를 넘어요. 하루 약 ${fmt(ex)}kcal는 걷기·계단·운동 등 활동량을 늘려 채우는 걸 추천해요. 그만큼 움직인 날은 위 섭취 칼로리보다 ${fmt(ex)}kcal 정도 더 먹어도 돼요.`);
       else notes.push('식단 조절만으로도 목표 속도를 낼 수 있어요. 근력운동은 근육 보존을 위해 꼭 함께 하세요.');
       if(target<bmr) notes.push('목표 섭취량이 기초대사량보다 낮아요. 섭취를 더 줄이기보다 활동량을 늘리는 쪽을 추천해요.');
       $('sNote').innerHTML=notes.join('<br>');
@@ -1486,7 +1523,8 @@ footer .bizq a{color:var(--accent-ink);font-weight:700;font-size:15px;text-decor
 
     meals(target,c,p,f,dir);
   }
-  $('mUseRec').addEventListener('click',()=>{if(recMon==null)return;$('mMon').value=recMon;macro();$('mRes').scrollIntoView({behavior:'smooth',block:'start'})});
+  const monLbl=()=>{const g=+$('mTW').value>+$('mW').value;$('mMonLbl').textContent=g?'한 달에 늘리고 싶은 양 (kg)':'한 달에 빼고 싶은 양 (kg)'};
+  ['mTW','mW'].forEach(i=>$(i).addEventListener('input',monLbl));
 
   // ===== 한 끼 양 + 예시 식단 =====
   // 100g당 탄·단·지 (달걀은 1개당)
@@ -1552,7 +1590,70 @@ footer .bizq a{color:var(--accent-ink);font-weight:700;font-size:15px;text-decor
       </ul></div>`;
   }
 
-  $('mForm').addEventListener('submit',e=>{e.preventDefault();macro()});
+  $('mForm').addEventListener('submit',e=>{e.preventDefault();macro();if(!$('mErr').textContent)$('mRes').scrollIntoView({behavior:'smooth',block:'start'})});
+  // ===== 결과 이미지로 저장 =====
+  async function saveShot(){
+    const btn=$('mSave'); btn.disabled=true; const bt=btn.textContent; btn.textContent='만드는 중…';
+    try{
+      await Promise.all(['700 40px "Noto Sans KR"','400 30px "Noto Sans KR"','700 60px "Gowun Batang"','700 80px "Gaegu"'].map(f=>document.fonts.load(f).catch(()=>{})));
+      const W=1080,H=1350,cv=document.createElement('canvas');cv.width=W;cv.height=H;const x=cv.getContext('2d');
+      const OL='#6F7F5E',DK='#36412B',IV='#F3F1E9',SG='#E4EADB',BT='#F4E890',MU='#5E6654',SN='"Noto Sans KR",sans-serif';
+      const T=(t,X,Y,font,col,al='left')=>{x.font=font;x.fillStyle=col;x.textAlign=al;x.fillText(t,X,Y)};
+      const wrap=(t,X,Y,maxW,lh,font,col)=>{x.font=font;x.fillStyle=col;x.textAlign='left';let line='',y=Y;for(const ch of t){if(x.measureText(line+ch).width>maxW&&line){x.fillText(line,X,y);line=ch;y+=lh}else line+=ch}x.fillText(line,X,y);return y};
+      x.fillStyle=IV;x.fillRect(0,0,W,H);
+      x.fillStyle=BT;x.beginPath();x.arc(118,104,44,0,Math.PI*2);x.fill();
+      T('luafit',180,128,'700 76px "Gaegu",cursive',OL);
+      T('루아쌤의 올인원 다이어트&식단 계산기',W-60,118,'400 26px '+SN,MU,'right');
+      T('나의 다이어트 결과',60,240,'700 58px "Gowun Batang",serif',DK);
+      const sex=document.querySelector('input[name=msex]:checked').value==='m'?'남성':'여성';
+      const bfv=+$('mBf').value||(+$('mFm').value&&+$('mW').value?+$('mFm').value/+$('mW').value*100:0);
+      const info=[sex,$('mAge').value?$('mAge').value+'세':'',$('mH').value?$('mH').value+'cm':'',`${$('mW').value}kg → ${$('mTW').value}kg`,bfv?`체지방 ${fmt(bfv,1)}%`:''].filter(Boolean).join(' · ');
+      T(info,60,296,'400 30px '+SN,MU);
+      // 요약 표
+      const rowsEl=[...$('mSum').querySelectorAll('tr')].filter(r=>r.querySelector('td'));
+      const two=!!$('mSum').querySelector('th');
+      let y=330; const bh=56+rowsEl.length*82; x.fillStyle=SG;x.fillRect(40,y,W-80,bh);
+      if(two){T('내 목표',650,y+52,'700 28px '+SN,MU,'right');T('루아쌤 권장',W-80,y+52,'700 28px '+SN,OL,'right')}
+      let ry=y+60;
+      rowsEl.forEach((r,i)=>{const td=[...r.querySelectorAll('td')].map(t=>t.textContent);const big=r.classList.contains('kc');
+        x.fillStyle='rgba(54,65,43,.18)';x.fillRect(70,ry,W-140,2);
+        T(td[0],80,ry+55,'400 30px '+SN,MU);
+        if(two){T(td[1],650,ry+57,(big?'800 44px ':'700 34px ')+SN,DK,'right');T(td[2],W-80,ry+57,(big?'800 44px ':'700 34px ')+SN,OL,'right')}
+        else T(td[1],W-80,ry+57,'800 46px '+SN,DK,'right');
+        ry+=82});
+      y+=bh+24;
+      // 차이 한 줄
+      const diff=$('mCompare').textContent.trim();
+      x.font='700 30px '+SN; const lines=Math.max(1,Math.ceil(x.measureText(diff).width/(W-160)));
+      x.fillStyle=BT;x.fillRect(40,y,W-80,36+lines*44);
+      const ey=wrap(diff,70,y+52,W-140,44,'700 30px '+SN,DK); y=ey+46;
+      // 탄단지
+      const c=+$('mC').textContent.replace(/,/g,''),p=+$('mP').textContent.replace(/,/g,''),f=+$('mF2').textContent.replace(/,/g,'');
+      const tk=c*4+p*4+f*9||1, segs=[[c*4/tk,BT,'탄'],[p*4/tk,'#9DB68A','단'],[f*9/tk,'#FBFAF5','지']];
+      let sx=40; segs.forEach(([r,col,l])=>{const w=(W-80)*r;x.fillStyle=col;x.fillRect(sx,y,w,50);if(w>70)T(`${l} ${Math.round(r*100)}%`,sx+w/2,y+35,'700 24px '+SN,DK,'center');sx+=w});
+      x.strokeStyle='rgba(54,65,43,.25)';x.lineWidth=2;x.strokeRect(40,y,W-80,50);
+      y+=92; T(`탄수화물 ${fmt(c)}g · 단백질 ${fmt(p)}g · 지방 ${fmt(f)}g`,60,y,'700 34px '+SN,DK);
+      // 끼니별
+      y+=30; const mr=[...document.querySelectorAll('#mMeals .meal-tbl tbody tr')].map(r=>[...r.children].map(t=>t.textContent));
+      mr.forEach(r=>{y+=50;x.fillStyle='rgba(54,65,43,.12)';x.fillRect(60,y-40,W-120,2);
+        T(r[0],70,y,'700 28px '+SN,DK);T(`${r[1]}kcal`,330,y,'700 28px '+SN,OL,'right');T(`탄 ${r[2]} · 단 ${r[3]} · 지 ${r[4]}`,W-70,y,'400 26px '+SN,MU,'right')});
+      // 하단
+      x.fillStyle=OL;x.fillRect(0,H-116,W,116);
+      T('Instagram @luafit_healthylife',60,H-66,'700 28px '+SN,IV);
+      T('카카오톡 채널 · 루아핏',60,H-28,'400 24px '+SN,IV);
+      T('luafit.kr',W-60,H-46,'700 34px '+SN,BT,'right');
+      const blob=await new Promise(r=>cv.toBlob(r,'image/png'));
+      const url=URL.createObjectURL(blob), file=new File([blob],'luafit-다이어트결과.png',{type:'image/png'});
+      const ov=document.createElement('div');ov.className='shot';
+      ov.innerHTML=`<img alt="나의 다이어트 결과 이미지" src="${url}"><p>휴대폰은 이미지를 길게 눌러 사진에 저장할 수 있어요</p><div class="row"><button type="button" class="dl">저장·공유</button><button type="button" class="x">닫기</button></div>`;
+      document.body.appendChild(ov);
+      ov.querySelector('.x').onclick=()=>{ov.remove();URL.revokeObjectURL(url)};
+      ov.querySelector('.dl').onclick=async()=>{try{if(navigator.canShare&&navigator.canShare({files:[file]})){await navigator.share({files:[file],title:'나의 다이어트 결과'});return}}catch(e){if(e&&e.name==='AbortError')return}
+        const a=document.createElement('a');a.href=url;a.download=file.name;document.body.appendChild(a);a.click();a.remove()};
+    }catch(e){console.error(e);btn.disabled=false;btn.textContent='저장이 안 되면 화면을 캡처해 주세요';setTimeout(()=>btn.textContent=bt,2500);return}
+    btn.disabled=false;btn.textContent=bt
+  }
+  $('mSave').addEventListener('click',saveShot);
   macro();
 })();
 </script>
