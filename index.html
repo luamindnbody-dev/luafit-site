@@ -14,6 +14,7 @@ header nav a{font-size:17px!important;padding:16px 26px!important;opacity:1;bord
 header nav .nav-contact{display:block!important}
 header nav .nav-cta{position:static!important;margin:0 26px 12px!important;text-align:center;border-bottom:0}
 body.nav-open header nav{transform:none}
+body.nav-open header{z-index:60}
 .nav-dim{position:fixed;inset:0;background:rgba(20,24,16,.45);z-index:35;opacity:0;pointer-events:none;transition:opacity .25s}
 body.nav-open .nav-dim{opacity:1;pointer-events:auto}
 .nav-x{position:absolute;top:calc(14px + env(safe-area-inset-top,0px));right:14px;width:40px;height:40px;border:0;background:transparent;color:var(--band-fg);font-size:26px}
@@ -310,6 +311,14 @@ input[type=number],select{font:inherit;font-size:16px;padding:10px 12px;border:1
 .narrow{max-width:680px}
 #mForm{padding:16px 14px;gap:12px}#mForm .ph2{font-size:16px}#mForm .row3{grid-template-columns:repeat(3,1fr);gap:8px}#mForm .row2{gap:8px}#mForm input[type=number],#mForm select{padding:8px 10px;font-size:16px}#mForm .field{gap:4px}#mForm .field label,#mForm .legend{font-size:13px}#mForm .seg label{padding:7px}
 .result.sum{padding:16px 14px;gap:10px;margin-top:14px;scroll-margin-top:90px}
+.ib-box{background:var(--butter);color:var(--olive-deep);padding:14px;display:grid;gap:8px;scroll-margin-top:100px}
+.ib-head{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.ib-head b{font-size:16px}
+.ib-badge{background:var(--olive);color:var(--ivory);font-size:11.5px;font-weight:700;padding:3px 8px}
+.ib-lead,.ib-note{margin:0;font-size:13px;line-height:1.55}.ib-note{opacity:.8}
+#mForm .ib-box input[type=number]{background:#fff;border-color:rgba(54,65,43,.25);color:#36412B}
+#mForm .ib-box .field label{color:#36412B}
+.nudge{margin:0}.nudge button{width:100%;font:inherit;font-size:14px;font-weight:700;padding:10px;border:0;background:var(--butter);color:var(--olive-deep);cursor:pointer}
+.dx{margin:0;font-size:15px;font-weight:800;line-height:1.5;color:var(--fg);border-left:4px solid var(--olive);padding-left:10px}
 .sum-tbl{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
 .sum-tbl th{font-size:12px;font-weight:700;text-align:right;padding:4px 6px;opacity:.8}
 .sum-tbl td{padding:7px 6px;border-top:1px solid var(--band-line);text-align:right;font-size:15px}
@@ -317,6 +326,7 @@ input[type=number],select{font:inherit;font-size:16px;padding:10px 12px;border:1
 .sum-tbl .kc td{font-size:19px;font-weight:800}
 .sum-tbl .mc td{font-size:14px}.sum-tbl td.rec{color:var(--hero-accent);font-weight:700}
 .sum-diff{margin:0;font-size:14px;font-weight:700}
+.basis{margin-top:18px;display:grid;gap:10px}.basis-tabs{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line)}.basis-tabs button{font:inherit;font-size:14px;font-weight:700;padding:10px 6px;border:0;background:transparent;color:var(--fg);cursor:pointer}.basis-tabs button[aria-pressed=true]{background:var(--olive);color:var(--ivory)}.basis-lead{margin:0;font-size:14px}.basis-lead b{font-size:17px}
 .cpf{margin:0;font-size:14px}.cpf b{font-size:17px}
 .sum-btns{display:grid;grid-template-columns:1fr;gap:8px}.sum-btns .btn{padding:11px 8px;font-size:14px;width:100%}
 
@@ -987,15 +997,16 @@ footer .bizq a{color:var(--accent-ink);font-weight:700;font-size:15px;text-decor
         <div class="field"><label for="mTW">목표 체중 (kg)</label><input type="number" id="mTW" inputmode="decimal" value="56"></div>
         <div class="field"><label for="mMon" id="mMonLbl">한 달에 빼고 싶은 양 (kg)</label><input type="number" id="mMon" inputmode="decimal" value="2" step="0.5"></div>
       </div>
-      <details class="inbody" id="mInbody">
-        <summary><b>인바디 결과가 있다면 (선택)</b><span>체지방률을 넣으면 안전 감량 구간까지 계산해요</span></summary>
+      <div class="ib-box" id="mInbody">
+        <div class="ib-head"><span class="ib-badge">더 정확해져요</span><b>인바디 결과가 있나요?</b></div>
+        <p class="ib-lead">체지방률을 넣으면 내 몸에 맞는 안전 감량 속도로 계산해요. 없으면 비워 두세요.</p>
         <div class="row3">
           <div class="field"><label for="mBf">체지방률 (%)</label><input type="number" id="mBf" inputmode="decimal" placeholder="예: 30"></div>
           <div class="field"><label for="mFm">체지방량 (kg)</label><input type="number" id="mFm" inputmode="decimal" placeholder="예: 18.6"></div>
           <div class="field"><label for="mBmr">기초대사량</label><input type="number" id="mBmr" inputmode="numeric" placeholder="kcal"></div>
         </div>
-        <p class="muted small">모르는 칸은 비워 두세요. 체지방률과 체지방량은 둘 중 하나만 넣어도 돼요(둘 다 넣으면 체지방률 기준). 기초대사량을 비워 두면 자동으로 계산해요.</p>
-      </details>
+        <p class="ib-note">체지방률과 체지방량은 둘 중 하나만 넣어도 돼요. 기초대사량은 비워 두면 자동으로 계산해요.</p>
+      </div>
       <h2 class="ph2">활동량과 운동</h2>
       <div class="field"><label for="mAct">평소 활동량 (활동대사량 기준)</label>
         <select id="mAct"><option value="1.2">거의 운동하지 않음 (사무직 등)</option><option value="1.375">가벼운 활동 (주 1~3회 운동)</option><option value="1.55" selected>보통 활동 (주 3~5회 운동)</option><option value="1.725">적극적인 활동 (주 6~7회 강도 높은 운동)</option><option value="1.9">매우 적극적인 활동 (전문 운동선수, 육체노동)</option></select></div>
@@ -1008,10 +1019,16 @@ footer .bizq a{color:var(--accent-ink);font-weight:700;font-size:15px;text-decor
       <div class="note" id="mSumTitle">내 목표 vs 루아쌤 권장</div>
       <table class="sum-tbl" id="mSum"></table>
       <p class="sum-diff" id="mCompare"></p>
+      <p class="warn" id="mWarn" hidden></p>
+      <p class="nudge" id="mNudge" hidden><button type="button" id="mNudgeBtn">체지방률을 넣으면 내 몸에 맞게 더 정확해져요 → 입력하기</button></p>
+      <div class="sum-btns"><button class="btn sum-save" type="button" id="mSave">결과 이미지로 저장</button></div>
+    </div>
+    <div class="basis" id="mBasisBox">
+      <div class="basis-tabs" id="mBasisTabs"><button type="button" data-b="rec" aria-pressed="true">루아쌤 권장 기준</button><button type="button" data-b="me" aria-pressed="false">내 목표 기준</button></div>
+      <p class="basis-lead" id="mBasisLead"></p>
       <div class="macro" id="mBar"></div>
       <p class="cpf">탄수화물 <b id="mC">0</b>g · 단백질 <b id="mP">0</b>g · 지방 <b id="mF2">0</b>g</p>
-      <p class="warn" id="mWarn" hidden></p>
-      <div class="sum-btns"><button class="btn sum-save" type="button" id="mSave">결과 이미지로 저장</button></div>
+      <p class="dx" id="mDx" hidden></p>
     </div>
     <div class="meals" id="mMeals" aria-live="polite"></div>
     <details class="inbody more-box" id="mMore">
@@ -1383,7 +1400,7 @@ footer .bizq a{color:var(--accent-ink);font-weight:700;font-size:15px;text-decor
   const KCAL_PER_KG=7700;
   function zoneIndex(sex,bf){const [a,b,c]=ZONES[sex].cuts;if(sex==="m")return bf<=a?0:bf<b?1:bf<=c?2:3;return bf<=a?0:bf<b?1:bf<c?2:3}
   const rows=list=>list.map(([a,b])=>`<li><span>${a}</span><span>${b}</span></li>`).join('');
-  let recMon=null;
+  let recMon=null, basis='rec', lastRender=null;
   function macro(){
     const sex=document.querySelector('input[name=msex]:checked').value;
     const age=+$('mAge').value,h=+$('mH').value,w=+$('mW').value,act=+$('mAct').value,tw=+$('mTW').value,mon=Math.abs(+$('mMon').value);
@@ -1414,9 +1431,6 @@ footer .bizq a{color:var(--accent-ink);font-weight:700;font-size:15px;text-decor
     const macTxt=T=>{const m=mac(T);return `${fmt(m[0])}·${fmt(m[1])}·${fmt(m[2])}g`};
     $('mTarget').textContent=fmt(target)+' kcal';$('mBmrOut').textContent=fmt(bmr)+' kcal';$('mTdee').textContent=fmt(tdee)+' kcal';
     $('mAdj').textContent=(adj>0?'+':adj<0?'−':'')+fmt(Math.abs(adj))+' kcal';
-    $('mC').textContent=fmt(c);$('mP').textContent=fmt(p);$('mF2').textContent=fmt(f);
-    const tot=c*4+p*4+f*9||1;
-    $('mBar').innerHTML=`<div style="width:${c*4/tot*100}%;background:var(--butter);color:var(--olive-deep)">탄 ${Math.round(c*4/tot*100)}%</div><div style="width:${p*4/tot*100}%;background:#9DB68A;color:var(--olive-deep)">단 ${Math.round(p*4/tot*100)}%</div><div style="width:${f*9/tot*100}%;background:#F3F1E9;color:var(--olive-deep)">지 ${Math.round(f*9/tot*100)}%</div>`;
     const warn=[];
     if(dir<0&&target<bmr*0.8) warn.push('주의: 감량 페이스가 너무 빨라 섭취 권장량이 기초대사량보다 지나치게 낮아집니다. 근손실 예방을 위해 한 달 감량 목표를 조금 낮추는 것을 권장합니다.');
     if(c<130) warn.push(`탄수화물이 하루 최소 권장량(130g)보다 적어요. 한 달 감량 목표를 낮추거나 활동량을 늘려 보세요.`);
@@ -1430,8 +1444,9 @@ footer .bizq a{color:var(--accent-ink);font-weight:700;font-size:15px;text-decor
     $('mEst').hidden=!est;$('mEst').innerHTML=est;
 
     // ===== 내 목표 vs 루아쌤 권장 =====
+    $('mNudge').hidden=!!bf;
     $('mRec').hidden=dir===0; $('mZoneBox').hidden=!(bf&&dir<0); $('mNoBf').hidden=!!bf||dir>=0;
-    recMon=null;
+    recMon=null; let recT=target;
     const rng=(a,b,d=0)=>Math.abs(a-b)<(d?0.05:1)?fmt(b,d):`${fmt(a,d)}~${fmt(b,d)}`;
     const mths=m=>m>0?`약 ${(Math.abs(tw-w)/m).toFixed(1)}개월`:'-';
     if(dir===0){
@@ -1455,7 +1470,7 @@ footer .bizq a{color:var(--accent-ink);font-weight:700;font-size:15px;text-decor
       let defLo=kgLo*KCAL_PER_KG/7, defHi=kgHi*KCAL_PER_KG/7;
       if(bf){coachLimit=fm*48.5; if(defHi>coachLimit){defHi=coachLimit;capNote=`체지방량 기준으로 하루 적자는 ${fmt(coachLimit)}kcal를 넘기지 않는 게 좋아서 권장 상한을 낮췄어요.`} defLo=Math.min(defLo,defHi);}
       const defMid=(defLo+defHi)/2, mLo=defLo*30/KCAL_PER_KG, mHi=defHi*30/KCAL_PER_KG;
-      recMon=Math.round(defMid*30/KCAL_PER_KG*10)/10;
+      recMon=Math.round(defMid*30/KCAL_PER_KG*10)/10; recT=tdee-defMid;
       const pctTxt=rate[0]===rate[1]?`${rate[0]}%`:`${rate[0]}~${rate[1]}%`;
       $('weeklyPct').textContent=bf?`체지방 구간에 따라 주당 체중의 ${pctTxt}${w*rate[1]/100>1?' (주 1kg 상한)':''}를 권장해요.`:`체지방률을 모를 때는 주당 체중의 0.5~1%${w*rate[1]/100>1?' (주 1kg 상한)':''}를 권장해요.`;
       $('mCmpRows').innerHTML=[
@@ -1479,7 +1494,7 @@ footer .bizq a{color:var(--accent-ink);font-weight:700;font-size:15px;text-decor
       $('mCompare').innerHTML=cmp.join('<br>');
     } else if(dir>0){
       const mLo=w*0.01,mHi=w*0.02; recMon=Math.round(w*0.015*10)/10;
-      const add=recMon*KCAL_PER_KG/30;
+      const add=recMon*KCAL_PER_KG/30; recT=tdee+add;
       $('weeklyPct').textContent='근육 위주로 늘리려면 한 달 체중의 1~2%(주당 0.25~0.5%)를 권장해요 (Iraki 2019).';
       $('mCmpRows').innerHTML=[
         ['한 달 증량',`${fmt(mon,1)}kg`,`${rng(mLo,mHi,1)}kg`],
@@ -1521,7 +1536,33 @@ footer .bizq a{color:var(--accent-ink);font-weight:700;font-size:15px;text-decor
     if(bf){det.push(['체지방 동원 이론적 한계',`${fmt(fm*53.5)}~${fmt(fm*65.5)} kcal`],['루아쌤 권장 적자 상한',`${fmt(fm*48.5)} kcal`])}
     $('mDetailRows').innerHTML=rows(det);
 
-    meals(target,c,p,f,dir);
+    // ===== 한 줄 진단 (이유까지) =====
+    const ffmi=(bf&&h)?lbm/Math.pow(h/100,2):0, zI=bf?zoneIndex(sex,bf):-1;
+    const gap=recT-target, sfx=dir===0?'':gap>30?', 권장은 탄수화물을 더 먹어요':gap<-30?', 권장은 섭취가 더 낮아요':', 내 목표와 거의 같아요';
+    let dx='';
+    if(dir===0) dx='체중은 그대로, 근력운동으로 몸의 질을 바꿔요';
+    else if(dir>0) dx=(ffmi&&ffmi<(sex==='m'?17.5:14))?'근육량이 적은 편이에요 → 근력운동과 단백질부터 챙겨요':'근력운동과 함께 천천히 늘려야 근육으로 가요';
+    else if(act<=1.2) dx='활동량이 적은 편이에요 → 굶기보다 걷기를 늘리면 탄수화물을 덜 줄여도 돼요';
+    else if(ffmi&&ffmi>=(sex==='m'?20:17)) dx='근육량이 많은 편이에요 → 쓰는 에너지가 커서'+(gap>30?', 권장은 탄수화물을 넉넉히 먹어요':sfx);
+    else if(ffmi&&ffmi<(sex==='m'?17.5:14)) dx='근육량이 적은 편이에요 → 근력운동과 단백질부터 챙겨요';
+    else if(bf) dx=(zI>=2?'체지방이 높은 편이에요 → 조금 빠르게 빼도 돼서':zI===0?'체지방이 낮은 편이에요 → 근육을 지키려면 천천히 빼야 해서':'체지방은 보통이에요 → 근육을 지키며 꾸준히 빼는 속도라서')+sfx;
+    else if(act>=1.725) dx='활동량이 많은 편이에요 → 움직인 만큼 탄수화물로 채워요';
+    else dx='체지방률을 모를 때는 일반 기준(주당 체중의 0.5~1%)이라서'+sfx;
+    $('mDx').textContent=dx; $('mDx').hidden=!dx;
+
+    // ===== 식단 기준 (루아쌤 권장 / 내 목표) =====
+    $('mBasisTabs').hidden=dir===0;
+    lastRender=()=>{
+      const useRec=dir!==0&&basis==='rec';
+      const T=useRec?recT:target, m=useRec?mac(recT):[c,p,f];
+      [...$('mBasisTabs').children].forEach(b=>b.setAttribute('aria-pressed',b.dataset.b===(useRec?'rec':'me')));
+      $('mBasisLead').innerHTML=dir===0?`하루 <b>${fmt(T)}</b>kcal 기준 식단이에요.`:`<b>${useRec?'루아쌤 권장':'내 목표'}</b> 기준 · 하루 <b>${fmt(T)}</b>kcal`;
+      $('mC').textContent=fmt(m[0]);$('mP').textContent=fmt(m[1]);$('mF2').textContent=fmt(m[2]);
+      const tt=m[0]*4+m[1]*4+m[2]*9||1;
+      $('mBar').innerHTML=`<div style="width:${m[0]*4/tt*100}%;background:var(--butter);color:var(--olive-deep)">탄 ${Math.round(m[0]*4/tt*100)}%</div><div style="width:${m[1]*4/tt*100}%;background:#9DB68A;color:var(--olive-deep)">단 ${Math.round(m[1]*4/tt*100)}%</div><div style="width:${m[2]*9/tt*100}%;background:#F3F1E9;color:var(--olive-deep)">지 ${Math.round(m[2]*9/tt*100)}%</div>`;
+      meals(T,m[0],m[1],m[2],dir);
+    };
+    lastRender();
   }
   const monLbl=()=>{const g=+$('mTW').value>+$('mW').value;$('mMonLbl').textContent=g?'한 달에 늘리고 싶은 양 (kg)':'한 달에 빼고 싶은 양 (kg)'};
   ['mTW','mW'].forEach(i=>$(i).addEventListener('input',monLbl));
@@ -1604,23 +1645,24 @@ footer .bizq a{color:var(--accent-ink);font-weight:700;font-size:15px;text-decor
       x.fillStyle=BT;x.beginPath();x.arc(118,104,44,0,Math.PI*2);x.fill();
       T('luafit',180,128,'700 76px "Gaegu",cursive',OL);
       T('루아쌤의 올인원 다이어트&식단 계산기',W-60,118,'400 26px '+SN,MU,'right');
-      T('나의 다이어트 결과',60,240,'700 58px "Gowun Batang",serif',DK);
+      T('나의 다이어트 결과',60,226,'700 58px "Gowun Batang",serif',DK);
       const sex=document.querySelector('input[name=msex]:checked').value==='m'?'남성':'여성';
       const bfv=+$('mBf').value||(+$('mFm').value&&+$('mW').value?+$('mFm').value/+$('mW').value*100:0);
       const info=[sex,$('mAge').value?$('mAge').value+'세':'',$('mH').value?$('mH').value+'cm':'',`${$('mW').value}kg → ${$('mTW').value}kg`,bfv?`체지방 ${fmt(bfv,1)}%`:''].filter(Boolean).join(' · ');
-      T(info,60,296,'400 30px '+SN,MU);
+      T(info,60,280,'400 30px '+SN,MU);
       // 요약 표
       const rowsEl=[...$('mSum').querySelectorAll('tr')].filter(r=>r.querySelector('td'));
       const two=!!$('mSum').querySelector('th');
-      let y=330; const bh=56+rowsEl.length*82; x.fillStyle=SG;x.fillRect(40,y,W-80,bh);
-      if(two){T('내 목표',650,y+52,'700 28px '+SN,MU,'right');T('루아쌤 권장',W-80,y+52,'700 28px '+SN,OL,'right')}
-      let ry=y+60;
+      const dxT=$('mDx').hidden?'':$('mDx').textContent;
+      let y=316; const bh=52+rowsEl.length*76; x.fillStyle=SG;x.fillRect(40,y,W-80,bh);
+      if(two){T('내 목표',650,y+42,'700 28px '+SN,MU,'right');T('루아쌤 권장',W-80,y+42,'700 28px '+SN,OL,'right')}
+      let ry=y+54;
       rowsEl.forEach((r,i)=>{const td=[...r.querySelectorAll('td')].map(t=>t.textContent);const big=r.classList.contains('kc');
         x.fillStyle='rgba(54,65,43,.18)';x.fillRect(70,ry,W-140,2);
-        T(td[0],80,ry+55,'400 30px '+SN,MU);
-        if(two){T(td[1],650,ry+57,(big?'800 44px ':'700 34px ')+SN,DK,'right');T(td[2],W-80,ry+57,(big?'800 44px ':'700 34px ')+SN,OL,'right')}
-        else T(td[1],W-80,ry+57,'800 46px '+SN,DK,'right');
-        ry+=82});
+        T(td[0],80,ry+51,'400 30px '+SN,MU);
+        if(two){T(td[1],650,ry+53,(big?'800 44px ':'700 34px ')+SN,DK,'right');T(td[2],W-80,ry+53,(big?'800 44px ':'700 34px ')+SN,OL,'right')}
+        else T(td[1],W-80,ry+53,'800 46px '+SN,DK,'right');
+        ry+=76});
       y+=bh+24;
       // 차이 한 줄
       const diff=$('mCompare').textContent.trim();
@@ -1632,10 +1674,11 @@ footer .bizq a{color:var(--accent-ink);font-weight:700;font-size:15px;text-decor
       const tk=c*4+p*4+f*9||1, segs=[[c*4/tk,BT,'탄'],[p*4/tk,'#9DB68A','단'],[f*9/tk,'#FBFAF5','지']];
       let sx=40; segs.forEach(([r,col,l])=>{const w=(W-80)*r;x.fillStyle=col;x.fillRect(sx,y,w,50);if(w>70)T(`${l} ${Math.round(r*100)}%`,sx+w/2,y+35,'700 24px '+SN,DK,'center');sx+=w});
       x.strokeStyle='rgba(54,65,43,.25)';x.lineWidth=2;x.strokeRect(40,y,W-80,50);
-      y+=92; T(`탄수화물 ${fmt(c)}g · 단백질 ${fmt(p)}g · 지방 ${fmt(f)}g`,60,y,'700 34px '+SN,DK);
+      y+=92; T(`탄수화물 ${fmt(c)}g · 단백질 ${fmt(p)}g · 지방 ${fmt(f)}g`,60,y,'700 34px '+SN,DK); T('식단: '+(($('mBasisTabs').hidden||basis!=='rec')?'내 목표':'루아쌤 권장')+' 기준',W-60,y,'400 24px '+SN,MU,'right');
+      if(dxT){y+=24;x.fillStyle=OL;x.fillRect(60,y,6,38);let fs=30;x.font='800 30px '+SN;while(fs>20&&x.measureText(dxT).width>W-150){fs--;x.font='800 '+fs+'px '+SN}T(dxT,80,y+30,'800 '+fs+'px '+SN,DK);y+=40}
       // 끼니별
       y+=30; const mr=[...document.querySelectorAll('#mMeals .meal-tbl tbody tr')].map(r=>[...r.children].map(t=>t.textContent));
-      mr.forEach(r=>{y+=50;x.fillStyle='rgba(54,65,43,.12)';x.fillRect(60,y-40,W-120,2);
+      mr.forEach(r=>{y+=42;x.fillStyle='rgba(54,65,43,.12)';x.fillRect(60,y-40,W-120,2);
         T(r[0],70,y,'700 28px '+SN,DK);T(`${r[1]}kcal`,330,y,'700 28px '+SN,OL,'right');T(`탄 ${r[2]} · 단 ${r[3]} · 지 ${r[4]}`,W-70,y,'400 26px '+SN,MU,'right')});
       // 하단
       x.fillStyle=OL;x.fillRect(0,H-116,W,116);
@@ -1654,6 +1697,8 @@ footer .bizq a{color:var(--accent-ink);font-weight:700;font-size:15px;text-decor
     btn.disabled=false;btn.textContent=bt
   }
   $('mSave').addEventListener('click',saveShot);
+  $('mBasisTabs').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;basis=b.dataset.b;lastRender&&lastRender()});
+  $('mNudgeBtn').addEventListener('click',()=>{$('mInbody').scrollIntoView({behavior:'smooth',block:'start'});setTimeout(()=>$('mBf').focus({preventScroll:true}),450)});
   macro();
 })();
 </script>
