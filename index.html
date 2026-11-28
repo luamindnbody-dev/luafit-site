@@ -319,6 +319,7 @@ input[type=number],select{font:inherit;font-size:16px;padding:10px 12px;border:1
 #mForm .ib-box .field label{color:#36412B}
 .nudge{margin:0}.nudge button{width:100%;font:inherit;font-size:14px;font-weight:700;padding:10px;border:0;background:var(--butter);color:var(--olive-deep);cursor:pointer}
 .dx{margin:0;font-size:15px;font-weight:800;line-height:1.5;color:var(--fg);border-left:4px solid var(--olive);padding-left:10px}
+.energy{display:grid;grid-template-columns:1fr 1fr;gap:8px}.energy div{background:var(--surface);border:1px solid var(--band-line);padding:10px 12px}.energy span{display:block;font-size:12.5px;font-weight:700;opacity:.8}.energy b{font-size:22px;font-weight:800;font-variant-numeric:tabular-nums}.energy small{font-size:13px;margin-left:2px}
 .sum-tbl{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
 .sum-tbl th{font-size:12px;font-weight:700;text-align:right;padding:4px 6px;opacity:.8}
 .sum-tbl td{padding:7px 6px;border-top:1px solid var(--band-line);text-align:right;font-size:15px}
@@ -326,11 +327,13 @@ input[type=number],select{font:inherit;font-size:16px;padding:10px 12px;border:1
 .sum-tbl .kc td{font-size:19px;font-weight:800}
 .sum-tbl .mc td{font-size:14px}.sum-tbl td.rec{color:var(--hero-accent);font-weight:700}
 .sum-diff{margin:0;font-size:14px;font-weight:700}
-.basis{margin-top:18px;display:grid;gap:10px}.basis-tabs{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line)}.basis-tabs button{font:inherit;font-size:14px;font-weight:700;padding:10px 6px;border:0;background:transparent;color:var(--fg);cursor:pointer}.basis-tabs button[aria-pressed=true]{background:var(--olive);color:var(--ivory)}.basis-lead{margin:0;font-size:14px}.basis-lead b{font-size:17px}
+.basis-hint{margin:0;font-size:13.5px;background:var(--butter);color:var(--olive-deep);padding:9px 12px;cursor:pointer}.basis-hint b{font-weight:800}.basis-q{margin:0;font-size:17px}.basis-tabs{border:2px solid var(--butter)!important}
+.basis{margin-top:18px;scroll-margin-top:90px;display:grid;gap:10px}.basis-tabs{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line)}.basis-tabs button{font:inherit;font-size:14px;font-weight:700;padding:10px 6px;border:0;background:transparent;color:var(--fg);cursor:pointer}.basis-tabs button[aria-pressed=true]{background:var(--olive);color:var(--ivory)}.basis-lead{margin:0;font-size:14px}.basis-lead b{font-size:17px}
 .cpf{margin:0;font-size:14px}.cpf b{font-size:17px}
 .sum-btns{display:grid;grid-template-columns:1fr;gap:8px}.sum-btns .btn{padding:11px 8px;font-size:14px;width:100%}
 
 .sum-save{background:transparent;border:1.5px solid currentColor;color:inherit;display:flex;align-items:center;justify-content:center;text-align:center}
+details.more-box{scroll-margin-top:90px;border:2px solid var(--olive)!important;background:var(--surface)}details.more-box>summary{background:var(--olive);padding:15px 16px}details.more-box>summary b{font-size:19px;font-weight:800;color:#F3F1E9}details.more-box>summary b::after{content:" ▼"!important;font-size:14px;color:#F4E890!important}details.more-box[open]>summary b::after{content:" ▲"!important}details.more-box>summary span{color:#F4E890!important;font-size:13.5px;font-weight:700}details.more-box[open] .more-in{padding-top:12px}
 .more-box{margin-top:16px}.more-in{padding:0 16px 14px;display:grid;gap:12px}.more-in .refs{margin:0}
 .shot{position:fixed;inset:0;background:rgba(20,24,16,.88);z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:16px}
 .shot img{max-width:100%;max-height:72vh;box-shadow:0 6px 30px rgba(0,0,0,.4)}
@@ -1017,22 +1020,16 @@ footer .bizq a{color:var(--accent-ink);font-weight:700;font-size:15px;text-decor
     </form>
     <div class="result sum" id="mRes" aria-live="polite">
       <div class="note" id="mSumTitle">내 목표 vs 루아쌤 권장</div>
+      <div class="energy" id="mEnergy"></div>
       <table class="sum-tbl" id="mSum"></table>
       <p class="sum-diff" id="mCompare"></p>
       <p class="warn" id="mWarn" hidden></p>
       <p class="nudge" id="mNudge" hidden><button type="button" id="mNudgeBtn">체지방률을 넣으면 내 몸에 맞게 더 정확해져요 → 입력하기</button></p>
+      <p class="basis-hint" id="mBasisHint" hidden></p>
       <div class="sum-btns"><button class="btn sum-save" type="button" id="mSave">결과 이미지로 저장</button></div>
     </div>
-    <div class="basis" id="mBasisBox">
-      <div class="basis-tabs" id="mBasisTabs"><button type="button" data-b="rec" aria-pressed="true">루아쌤 권장 기준</button><button type="button" data-b="me" aria-pressed="false">내 목표 기준</button></div>
-      <p class="basis-lead" id="mBasisLead"></p>
-      <div class="macro" id="mBar"></div>
-      <p class="cpf">탄수화물 <b id="mC">0</b>g · 단백질 <b id="mP">0</b>g · 지방 <b id="mF2">0</b>g</p>
-      <p class="dx" id="mDx" hidden></p>
-    </div>
-    <div class="meals" id="mMeals" aria-live="polite"></div>
     <details class="inbody more-box" id="mMore">
-      <summary><b>자세히 보기</b><span>대사량 · 체지방 구간 · 적자 나누기 · 세부 수치 · 계산 근거</span></summary>
+      <summary><b>📊 자세히 보기</b><span>대사량 · 내 체지방 구간 · 적자 나누기 · 세부 수치 · 계산 근거</span></summary>
       <div class="more-in">
         <ul class="rows"><li><span>내 목표 하루 섭취</span><span id="mTarget">0</span></li><li><span>기초대사량</span><span id="mBmrOut">0</span></li><li><span>활동대사량 (TDEE)</span><span id="mTdee">0</span></li><li><span>하루 조정</span><span id="mAdj">0</span></li></ul>
         <p class="muted small" id="mEst" hidden></p>
@@ -1067,6 +1064,20 @@ footer .bizq a{color:var(--accent-ink);font-weight:700;font-size:15px;text-decor
       <p>탄수화물: 목표 칼로리에서 단백질과 지방을 뺀 나머지로 배정하고, 하루 130g보다 적으면 알려드려요.</p>
       <p>증량 속도: 한 달 체중의 1~2% (주당 0.25~0.5% · Iraki 2019)를 권장해요.</p>
     </div>
+      </div>
+    </details>
+    <details class="inbody more-box" id="mDiet">
+      <summary><b>🥗 식단 보기</b><span>권장·내 목표 기준 탄단지 · 끼니별 양 · 예시 식단</span></summary>
+      <div class="more-in">
+    <div class="basis" id="mBasisBox">
+      <h3 class="basis-q" id="mBasisQ">어떤 기준으로 식단을 볼까요?</h3>
+      <div class="basis-tabs" id="mBasisTabs"><button type="button" data-b="rec" aria-pressed="true">루아쌤 권장 기준</button><button type="button" data-b="me" aria-pressed="false">내 목표 기준</button></div>
+      <p class="basis-lead" id="mBasisLead"></p>
+      <div class="macro" id="mBar"></div>
+      <p class="cpf">탄수화물 <b id="mC">0</b>g · 단백질 <b id="mP">0</b>g · 지방 <b id="mF2">0</b>g</p>
+      <p class="dx" id="mDx" hidden></p>
+    </div>
+    <div class="meals" id="mMeals" aria-live="polite"></div>
       </div>
     </details>
   </div>
@@ -1445,6 +1456,7 @@ footer .bizq a{color:var(--accent-ink);font-weight:700;font-size:15px;text-decor
 
     // ===== 내 목표 vs 루아쌤 권장 =====
     $('mNudge').hidden=!!bf;
+    $('mEnergy').innerHTML=`<div><span>기초대사량</span><b>${fmt(bmr)}</b><small>kcal</small></div><div><span>하루 소모 (TDEE)</span><b>${fmt(tdee)}</b><small>kcal</small></div>`;
     $('mRec').hidden=dir===0; $('mZoneBox').hidden=!(bf&&dir<0); $('mNoBf').hidden=!!bf||dir>=0;
     recMon=null; let recT=target;
     const rng=(a,b,d=0)=>Math.abs(a-b)<(d?0.05:1)?fmt(b,d):`${fmt(a,d)}~${fmt(b,d)}`;
@@ -1556,6 +1568,9 @@ footer .bizq a{color:var(--accent-ink);font-weight:700;font-size:15px;text-decor
       const useRec=dir!==0&&basis==='rec';
       const T=useRec?recT:target, m=useRec?mac(recT):[c,p,f];
       [...$('mBasisTabs').children].forEach(b=>b.setAttribute('aria-pressed',b.dataset.b===(useRec?'rec':'me')));
+      window.__basisLbl=dir===0?'':(useRec?'루아쌤 권장':'내 목표');
+      $('mBasisHint').hidden=dir===0; $('mBasisQ').hidden=dir===0;
+      $('mBasisHint').innerHTML=`아래 식단은 <b>${useRec?'루아쌤 권장':'내 목표'} 기준</b>이에요 · ${useRec?'내 목표':'루아쌤 권장'} 기준으로도 볼 수 있어요 · 아래 <b>식단 보기</b>를 눌러 주세요 ↓`;
       $('mBasisLead').innerHTML=dir===0?`하루 <b>${fmt(T)}</b>kcal 기준 식단이에요.`:`<b>${useRec?'루아쌤 권장':'내 목표'}</b> 기준 · 하루 <b>${fmt(T)}</b>kcal`;
       $('mC').textContent=fmt(m[0]);$('mP').textContent=fmt(m[1]);$('mF2').textContent=fmt(m[2]);
       const tt=m[0]*4+m[1]*4+m[2]*9||1;
@@ -1612,7 +1627,7 @@ footer .bizq a{color:var(--accent-ink);font-weight:700;font-size:15px;text-decor
     const oilTxt=g=>g>=3?`올리브유·참기름 ${g}g (약 ${Math.max(1,Math.round(g/5))}작은술)`:'';
     const card=(t,items,list,alt)=>`<div class="meal-card"><div class="mh"><b>${t}</b><span>약 ${fmt(tot(items))}kcal</span></div><ul>${list.filter(Boolean).map(i=>`<li>${i}</li>`).join('')}</ul>${alt?`<p class="alt">바꿔 먹기: ${alt}</p>`:''}</div>`;
     $('mMeals').innerHTML=`
-      <h3>한 끼에 이만큼 먹어요</h3>
+      <h3>한 끼에 이만큼 먹어요${window.__basisLbl?` <small style="font-size:13px;font-weight:700;color:var(--accent-ink)">(${window.__basisLbl} 기준)</small>`:''}</h3>
       <p class="lead">하루 목표를 아침 25% · 점심 35% · 저녁 30% · 간식 10%로 나눴어요. 하루 두 끼라면 아침과 간식을 합쳐 한 끼로 먹어도 돼요.</p>
       <table class="meal-tbl"><thead><tr><th>끼니</th><th>칼로리</th><th>탄수화물</th><th>단백질</th><th>지방</th></tr></thead><tbody>${row}</tbody></table>
       <h3>예시 식단</h3>
@@ -1645,16 +1660,16 @@ footer .bizq a{color:var(--accent-ink);font-weight:700;font-size:15px;text-decor
       x.fillStyle=BT;x.beginPath();x.arc(118,104,44,0,Math.PI*2);x.fill();
       T('luafit',180,128,'700 76px "Gaegu",cursive',OL);
       T('루아쌤의 올인원 다이어트&식단 계산기',W-60,118,'400 26px '+SN,MU,'right');
-      T('나의 다이어트 결과',60,226,'700 58px "Gowun Batang",serif',DK);
+      T('나의 다이어트 결과',60,218,'700 58px "Gowun Batang",serif',DK);
       const sex=document.querySelector('input[name=msex]:checked').value==='m'?'남성':'여성';
       const bfv=+$('mBf').value||(+$('mFm').value&&+$('mW').value?+$('mFm').value/+$('mW').value*100:0);
       const info=[sex,$('mAge').value?$('mAge').value+'세':'',$('mH').value?$('mH').value+'cm':'',`${$('mW').value}kg → ${$('mTW').value}kg`,bfv?`체지방 ${fmt(bfv,1)}%`:''].filter(Boolean).join(' · ');
-      T(info,60,280,'400 30px '+SN,MU);
+      T(info,60,268,'400 28px '+SN,MU); {const ev=[...$('mEnergy').querySelectorAll('b')].map(b=>b.textContent);T(`기초대사량 ${ev[0]} · 하루 소모(TDEE) ${ev[1]} kcal`,60,306,'800 28px '+SN,OL)}
       // 요약 표
       const rowsEl=[...$('mSum').querySelectorAll('tr')].filter(r=>r.querySelector('td'));
       const two=!!$('mSum').querySelector('th');
       const dxT=$('mDx').hidden?'':$('mDx').textContent;
-      let y=316; const bh=52+rowsEl.length*76; x.fillStyle=SG;x.fillRect(40,y,W-80,bh);
+      let y=326; const bh=52+rowsEl.length*76; x.fillStyle=SG;x.fillRect(40,y,W-80,bh);
       if(two){T('내 목표',650,y+42,'700 28px '+SN,MU,'right');T('루아쌤 권장',W-80,y+42,'700 28px '+SN,OL,'right')}
       let ry=y+54;
       rowsEl.forEach((r,i)=>{const td=[...r.querySelectorAll('td')].map(t=>t.textContent);const big=r.classList.contains('kc');
@@ -1697,6 +1712,7 @@ footer .bizq a{color:var(--accent-ink);font-weight:700;font-size:15px;text-decor
     btn.disabled=false;btn.textContent=bt
   }
   $('mSave').addEventListener('click',saveShot);
+  $('mBasisHint').addEventListener('click',()=>{$('mDiet').open=true;$('mDiet').scrollIntoView({behavior:'smooth',block:'start'})});
   $('mBasisTabs').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;basis=b.dataset.b;lastRender&&lastRender()});
   $('mNudgeBtn').addEventListener('click',()=>{$('mInbody').scrollIntoView({behavior:'smooth',block:'start'});setTimeout(()=>$('mBf').focus({preventScroll:true}),450)});
   macro();
