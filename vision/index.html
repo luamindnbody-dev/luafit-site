@@ -148,16 +148,28 @@ footer a{color:var(--olive);font-weight:700}
 .a2s{background:#fff;border-radius:10px;padding:8px 10px;margin-top:8px;opacity:.85}.a2s.me{opacity:1;box-shadow:0 0 0 2px var(--olive)}.a2t{font-weight:700;color:var(--olive);font-size:13px}.a2s ol{margin:4px 0 0;padding-left:20px;line-height:1.55}.a2s small{color:var(--muted)}
 .a2w{background:#fff;border:1.5px solid var(--alert);border-radius:10px;padding:8px 10px;margin-top:8px;line-height:1.5}.a2w .btn{margin-top:6px}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.gbtn{position:absolute;right:0;top:4px;border:1.5px solid var(--ink);background:var(--butter);color:var(--ink);border-radius:99px;padding:6px 12px;font-size:13px;font-weight:800}
+.top{position:relative}
+.gd{position:fixed;inset:0;z-index:60;background:rgba(42,49,35,.55);display:flex;align-items:flex-end;justify-content:center}
+.gd .in{background:var(--bg);width:100%;max-width:520px;max-height:88vh;overflow:auto;border-radius:18px 18px 0 0;padding:18px 16px 22px}
+.gd h3{margin:0 0 2px;font-size:19px}.gd .sub{color:var(--muted);font-size:13px;margin:0 0 12px}
+.gs{display:flex;gap:10px;background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:10px 12px;margin-bottom:8px}
+.gs .n{flex:none;width:24px;height:24px;border-radius:99px;background:var(--olive);color:#fff;font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.gs .gt{display:block;font-size:14.5px;font-weight:800;margin-bottom:2px}.gs p{margin:0;font-size:13.5px;line-height:1.5;color:var(--ink)}
+.gs .go{border:0;background:none;color:var(--olive);font-weight:800;font-size:13px;padding:4px 0 0;text-decoration:underline}
+.gs.warn{border-color:var(--alert)}.gs.warn .n{background:var(--alert)}
+.gd .tip{background:var(--butter);border-radius:12px;padding:10px 12px;font-size:13.5px;line-height:1.5;margin:4px 0 12px}
 </style>
 </head>
 <body>
 <div class="wrap">
-  <div class="top"><p class="hand"><a class="home" href="https://luafit.kr/" target="_blank" rel="noopener" aria-label="루아핏 홈으로">← <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true" style="vertical-align:-2px;margin-right:4px"><path d="M12 21V12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M12 15C7 15 4.5 11.5 5 8c4.5 0 7 3 7 7z" fill="currentColor" opacity=".75"/><path d="M12 12c0-5 3-8 7.5-8 0 5-3 8-7.5 8z" fill="currentColor"/></svg>LUAFIT</a> 2027</p><h1>2027 비전보드</h1></div>
+  <div class="top"><p class="hand"><a class="home" href="https://luafit.kr/" target="_blank" rel="noopener" aria-label="루아핏 홈으로">← <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true" style="vertical-align:-2px;margin-right:4px"><path d="M12 21V12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M12 15C7 15 4.5 11.5 5 8c4.5 0 7 3 7 7z" fill="currentColor" opacity=".75"/><path d="M12 12c0-5 3-8 7.5-8 0 5-3 8-7.5 8z" fill="currentColor"/></svg>LUAFIT</a> 2027</p><h1>2027 비전보드</h1><button class="gbtn" data-gopen="1">📖 사용법</button></div>
   <nav class="tabs" id="tabs" aria-label="탭"></nav>
   <div id="a2hs"></div>
   <div id="note"></div>
   <main id="view"></main>
   <div id="sheet"></div>
+  <div id="guide"></div>
   <footer>만든이 루아쌤 · <a href="https://www.instagram.com/luafit_healthylife/" target="_blank" rel="noopener">인스타그램</a> · <a href="https://luafit.kr/">루아핏 홈페이지</a><br><a href="#" data-a2open="1">홈 화면에 추가하는 법</a></footer>
 </div>
 <script>
@@ -480,6 +492,30 @@ window.addEventListener("pagehide",()=>{if(dirty)flush()});
 const h0=(location.hash||"").slice(1);if(VIEWS[h0])tab=h0;
 a2hs();
 boot();
+
+const GKEY="luafit-vision-guide";
+const GSTEPS=[
+ ["리스트에 꿈 적기","<b>리스트</b> 탭에서 하고 싶은 것·갖고 싶은 것·배우고 싶은 것·이루고 싶은 것을 적어요. 적은 꿈은 비전보드와 행동 탭에 자동으로 생겨요.","list"],
+ ["비전보드에 사진 넣기","<b>비전보드</b> 탭에서 꿈 사진을 누르면 뒤집혀요. 뒷면의 <b>고치기</b>에서 사진과 이름을 바꿔요. 사진은 끌어서 보이는 부분을 맞출 수 있어요.","vision"],
+ ["꿈마다 행동 하나","<b>행동</b> 탭에서 꿈을 위해 할 행동을 적어요. 꿈마다 한두 개면 충분해요. 예) 건강한 몸 → 주 3회 운동, 돈 모으기 → 배달 끊기","act"],
+ ["달마다 별점과 소감","<b>별점</b> 탭에서 달이 끝날 때 행동을 얼마나 했는지 별점을 매기고 한 줄 소감을 남겨요. 칸을 누를 때마다 별이 하나씩 늘어요.","star"],
+ ["나의 2027 정하기","<b>2027</b> 탭에서 올해를 한 문장으로, 핵심 목표, 버릴 습관·채울 습관을 적어요. 매일 체크로 습관을 확인해요.","me"],
+ ["이룬 꿈은 내 사진으로","꿈을 이루면 <b>이룬</b> 탭으로 옮겨져요. 사진을 눌러 내가 직접 찍은 사진, 이룬 날, 소감으로 바꿔요.","done"],
+ ["백업하기 (폰 바꾸기 전에)","기록은 지금 쓰는 폰에만 저장돼요. <b>2027</b> 탭 맨 아래 <b>백업</b>에서 <b>백업 코드 복사</b>를 누르고, 메모장이나 카톡 나에게 보내기에 붙여 두세요. 사진은 백업 코드에 들어가지 않아요.","me",1],
+ ["새 폰으로 옮기기","새 폰에서 luafit.kr/vision 을 열어요(사파리·크롬). <b>2027</b> 탭 맨 아래 <b>백업</b> 칸에 저장해 둔 코드를 붙여 넣고 <b>백업 불러오기</b>를 누르면 꿈·행동·별점이 그대로 옮겨져요. 사진은 다시 넣어 주세요.","me",1]
+];
+function guide(open){const el=$("#guide");if(!el)return;if(!open){el.innerHTML="";document.body.style.overflow="";return}
+ el.innerHTML=`<div class="gd" data-gbg="1"><div class="in" role="dialog" aria-label="사용법"><h3>📖 2027 비전보드 사용법</h3><p class="sub">보기만 하는 비전보드 말고, 행동하는 비전보드</p>
+ <div class="tip">핵심은 하나예요. <b>꿈마다 행동 하나</b>를 붙이고, 달마다 별점으로 돌아보기.</div>
+ ${GSTEPS.map((g,i)=>`<div class="gs ${g[3]?"warn":""}"><span class="n">${g[3]?"!":i+1}</span><div><span class="gt">${g[0]}</span><p>${g[1]}</p><button class="go" data-ggo="${g[2]}">${g[2]==="a2"?"홈 화면 추가 방법 보기":"이 탭으로 가기"} →</button></div></div>`).join("")}
+ <button class="btn" data-gclose="1" style="width:100%;margin-top:6px">시작하기</button></div></div>`;document.body.style.overflow="hidden"}
+document.addEventListener("click",e=>{
+ if(e.target.closest("[data-gopen]")){guide(true);return}
+ const g=e.target.closest("[data-ggo]");if(g){const t=g.dataset.ggo;try{localStorage.setItem(GKEY,"1")}catch(er){}guide(false);if(t==="a2"){a2hs(true);window.scrollTo(0,0)}else go(t);return}
+ if(e.target.closest("[data-gclose]")||(e.target.matches&&e.target.matches("[data-gbg]"))){try{localStorage.setItem(GKEY,"1")}catch(er){}guide(false)}
+});
+setTimeout(()=>{let seen=false;try{seen=localStorage.getItem(GKEY)==="1"}catch(e){}if(!seen)guide(true)},400);
+
 </script>
 <script data-goatcounter="https://luafit.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
