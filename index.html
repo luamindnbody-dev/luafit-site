@@ -308,6 +308,7 @@ input[type=number],select{font:inherit;font-size:16px;padding:10px 12px;border:1
 .tips-banner{margin-top:32px;height:220px;border-radius:0;background:center 35%/cover no-repeat}
 /* calculators */
 .narrow{max-width:680px}
+details.inbody{border:1px dashed var(--olive);padding:0}details.inbody summary{list-style:none;cursor:pointer;padding:14px 16px;display:grid;gap:2px}details.inbody summary::-webkit-details-marker{display:none}details.inbody summary b::after{content:" +";color:var(--accent-ink)}details.inbody[open] summary b::after{content:" −"}details.inbody summary span{font-size:13px;color:var(--muted)}details.inbody>.row3,details.inbody>p{margin:0 16px 14px}
 .calc-tabs{display:flex;gap:6px;margin:-8px 0 18px;flex-wrap:wrap}
 .calc-tabs a{text-decoration:none;font-size:14px;font-weight:700;padding:8px 16px;border-radius:0;border:1px solid var(--line)}
 .calc-tabs a[aria-current="page"]{background:var(--olive);border-color:var(--olive);color:var(--ivory)}
@@ -516,8 +517,7 @@ footer .bizq a{color:var(--accent-ink);font-weight:700;font-size:15px;text-decor
     <div class="rlist" data-more="5">
       <p class="rgrp">바로 보기</p>
       <a class="rrow hot" href="/vision/"><span class="tag op">앱</span><b>2027 비전보드 앱<em class="nw">NEW</em><small>꿈마다 행동, 달마다 별점 · 홈 화면에 추가해 쓰는 앱</small></b><span class="go">→</span></a>
-      <a class="rrow" href="#calc"><span class="tag op">계산기</span><b>탄단지 계산기<small>하루 목표 칼로리와 탄단지 양</small></b><span class="go">→</span></a>
-      <a class="rrow" href="#speed"><span class="tag op">계산기</span><b>감량 속도 계산기<small>체지방률에 맞는 안전 감량 속도</small></b><span class="go">→</span></a>
+      <a class="rrow" href="#calc"><span class="tag op">계산기</span><b>올인원 다이어트&amp;식단 계산기<small>하루 칼로리·탄단지·식단·안전 감량 속도까지 한 번에</small></b><span class="go">→</span></a>
       <a class="rrow" href="#tools"><span class="tag op">기록</span><b>습관 기록지·앱<small>매일 체크하는 루아핏 습관 기록</small></b><span class="go">→</span></a>
       <a class="rrow" href="/2027/"><span class="tag op">기록지</span><b>2027 루틴 기록지<small>2026 돌아보기 + 2027 계획 PDF</small></b><span class="go">→</span></a>
       <a class="rrow hot" href="/body-m7k2/"><span class="tag op">기록지</span><b>만다라트<em class="nw">NEW</em><small>루아쌤 예시판 + 빈 만다라트 PDF</small></b><span class="go">→</span></a>
@@ -538,8 +538,7 @@ footer .bizq a{color:var(--accent-ink);font-weight:700;font-size:15px;text-decor
     <div class="rlist" data-more="5" id="freeList">
       <p class="rgrp">바로 보기</p>
       <a class="rrow hot" href="/vision/" data-cat="앱"><span class="tag op">앱</span><b>2027 비전보드 앱<em class="nw">NEW</em><small>꿈마다 행동, 달마다 별점 · 홈 화면에 추가해 쓰는 앱</small></b><span class="go">→</span></a>
-      <a class="rrow" href="#calc" data-cat="계산기"><span class="tag op">계산기</span><b>탄단지 계산기<small>하루 목표 칼로리와 탄단지 양</small></b><span class="go">→</span></a>
-      <a class="rrow" href="#speed" data-cat="계산기"><span class="tag op">계산기</span><b>감량 속도 계산기<small>체지방률에 맞는 안전 감량 속도</small></b><span class="go">→</span></a>
+      <a class="rrow" href="#calc" data-cat="계산기"><span class="tag op">계산기</span><b>올인원 다이어트&amp;식단 계산기<small>하루 칼로리·탄단지·식단·안전 감량 속도까지 한 번에</small></b><span class="go">→</span></a>
       <a class="rrow" href="#tools" data-cat="앱 기록지"><span class="tag op">기록</span><b>습관 기록지·앱<small>매일 체크하는 루아핏 습관 기록</small></b><span class="go">→</span></a>
       <a class="rrow" href="/2027/" data-cat="기록지"><span class="tag op">기록지</span><b>2027 루틴 기록지<small>2026 돌아보기 + 2027 계획 PDF</small></b><span class="go">→</span></a>
       <a class="rrow hot" href="/body-m7k2/" data-cat="기록지"><span class="tag op">기록지</span><b>만다라트<em class="nw">NEW</em><small>루아쌤 예시판 + 빈 만다라트 PDF</small></b><span class="go">→</span></a>
@@ -618,7 +617,7 @@ footer .bizq a{color:var(--accent-ink);font-weight:700;font-size:15px;text-decor
         <a href="#guide"><b>나만의 루틴 가이드</b><span>설문으로 만드는 맞춤 운동·식단·습관 PDF</span></a>
         <a href="#coaching"><b>1:1 온라인 코칭</b><span>매달 다시 짜고 매주 일요일 피드백, 6·12개월은 한 달에 2번 실시간 상담까지 함께해요</span></a>
         <a href="#program"><b>루틴성형 함께하기</b><span>한 달 동안 함께하는 루틴 · 매달 1일 시작</span></a>
-        <a href="#calc"><b>계산기 · 습관 앱</b><span>탄단지 계산기, 감량 속도 계산기, 습관 기록 앱</span></a>
+        <a href="#calc"><b>계산기 · 습관 앱</b><span>올인원 다이어트&amp;식단 계산기, 습관 기록 앱</span></a>
       </div>
     </section>
 
@@ -860,9 +859,9 @@ footer .bizq a{color:var(--accent-ink);font-weight:700;font-size:15px;text-decor
         <h4>운동은 이렇게 했어요</h4>
         <ul><li><b>주 4회</b>, 한 번에 40분~1시간 10분 이내 — 바쁜 하루에 현실적으로 낼 수 있는 시간만큼만</li><li><b>근력운동</b>은 밀기+하체, 당기기+하체로 나눠서</li><li><b>상체 하는 날</b>은 가벼운 조깅, 빨리 걷기, 인클라인 걷기를 더했어요</li><li><b>하체 하는 날</b>은 평지 걷기를 가볍게 하거나, 유산소는 건너뛰어요(스킵)</li><li><b>근육량이 제일 중요해요.</b> 무게나 횟수를 조금씩 늘리는 점진적 과부하로</li><li><b>일상 움직임 늘리기</b>: 많이 걷고, 앉아 있다가도 중간중간 일어나기</li></ul>
         <h4>식단은 이렇게 했어요</h4>
-        <ul><li><b>칼로리 적자를 계산했어요.</b> 너무 적게 먹으면 오히려 안 빠져요. <a href="#calc">탄단지 계산기 바로가기 →</a></li><li><b>시간이 허락하면 눈대중 말고 재 보는 걸 추천해요.</b></li><li><b>비슷한 메뉴로 돌려 먹었어요.</b> 매끼 새로 계산하는 건 힘들어서, 한 번 계산해 둔 식단 몇 가지를 번갈아 먹었어요. 고민할 시간도, 실수할 일도 줄어요.</li><li><b>혈당을 생각해서 당을 줄였어요.</b></li></ul>
+        <ul><li><b>칼로리 적자를 계산했어요.</b> 너무 적게 먹으면 오히려 안 빠져요. <a href="#calc">다이어트&amp;식단 계산기 바로가기 →</a></li><li><b>시간이 허락하면 눈대중 말고 재 보는 걸 추천해요.</b></li><li><b>비슷한 메뉴로 돌려 먹었어요.</b> 매끼 새로 계산하는 건 힘들어서, 한 번 계산해 둔 식단 몇 가지를 번갈아 먹었어요. 고민할 시간도, 실수할 일도 줄어요.</li><li><b>혈당을 생각해서 당을 줄였어요.</b></li></ul>
         <h4>꼭 지킨 세 가지</h4>
-        <ul><li><b>운동 전 탄수화물 챙기기</b></li><li><b>하루 단백질량 챙기기</b> — 근력운동과 함께할 때 단백질은 하루 체중 1kg당 약 1.6g까지 근육에 도움이 됐고, 나이가 들수록 그 효과는 조금 작아졌어요.<sup>4</sup> 그래서 40대는 단백질만 챙기기보다 근력운동을 꼭 같이 해요. 내 목표량은 <a href="#calc">탄단지 계산기</a>에서 확인해 보세요.</li><li><b>수면 7시간 이상</b> — 잠이 부족하면 같은 식단에서도 지방이 덜 빠져요 (<a href="#paper-sleep">논문 정리</a>)</li></ul>
+        <ul><li><b>운동 전 탄수화물 챙기기</b></li><li><b>하루 단백질량 챙기기</b> — 근력운동과 함께할 때 단백질은 하루 체중 1kg당 약 1.6g까지 근육에 도움이 됐고, 나이가 들수록 그 효과는 조금 작아졌어요.<sup>4</sup> 그래서 40대는 단백질만 챙기기보다 근력운동을 꼭 같이 해요. 내 목표량은 <a href="#calc">다이어트&amp;식단 계산기</a>에서 확인해 보세요.</li><li><b>수면 7시간 이상</b> — 잠이 부족하면 같은 식단에서도 지방이 덜 빠져요 (<a href="#paper-sleep">논문 정리</a>)</li></ul>
         <h4>체중은 이렇게 봤어요</h4>
         <ul><li><b>매일 재지만 일희일비하지 않아요.</b></li><li><b>일주일 평균 체중</b>으로 지난주와 비교해요.</li><li><b>생리 주기에는 지난달 같은 시기와 비교</b>해요. 생리 전후로는 물 때문에 체중이 출렁이거든요.</li></ul>
         <h4>잘 빠지다가 멈췄을 때, 리피드</h4>
@@ -883,7 +882,7 @@ footer .bizq a{color:var(--accent-ink);font-weight:700;font-size:15px;text-decor
       <details id="tip-protein" class="card" data-c="식단"><summary><span class="tag">식단</span><h3>단백질은 끼니마다 손바닥 하나</h3><span class="plus">+</span></summary>
         <div class="body"><p>감량 중에는 근육이 같이 빠지기 쉬워요. 단백질을 충분히 먹으면 근육 손실을 줄이고 포만감도 오래가요.</p>
         <ul><li>목표: 체중 1kg당 하루 1.2~1.6g 정도</li><li>끼니마다 손바닥 크기의 고기·생선·두부·달걀 한 덩이</li><li>아침에 단백질이 비는 경우가 많으니 아침부터 챙기기</li></ul>
-        <p class="ref">탄단지 계산기에서 내 단백질 목표를 바로 확인할 수 있어요.</p><p class="sharebar"><button type="button" class="copylink" data-id="tip-protein">이 글 링크 복사</button><span class="linktxt">luafit · #tip-protein</span></p></div></details>
+        <p class="ref">다이어트&amp;식단 계산기에서 내 단백질 목표를 바로 확인할 수 있어요.</p><p class="sharebar"><button type="button" class="copylink" data-id="tip-protein">이 글 링크 복사</button><span class="linktxt">luafit · #tip-protein</span></p></div></details>
       <details id="tip-neat" class="card" data-c="운동"><summary><span class="tag">운동</span><h3>운동보다 많이 태우는 건 '일상 움직임'</h3><span class="plus">+</span></summary>
         <div class="body"><p>걷기, 계단, 집안일처럼 운동이 아닌 움직임(NEAT)은 사람마다 하루 소모량 차이가 크게 나요.</p>
         <ul><li>엘리베이터 대신 계단 2~3층</li><li>통화는 서서, 걸으면서</li><li>하루 걸음 수를 기록하고 지난주보다 조금씩 늘리기</li></ul><p class="sharebar"><button type="button" class="copylink" data-id="tip-neat">이 글 링크 복사</button><span class="linktxt">luafit · #tip-neat</span></p></div></details>
@@ -954,20 +953,25 @@ footer .bizq a{color:var(--accent-ink);font-weight:700;font-size:15px;text-decor
 <!-- CALC -->
 <section class="view" id="v-calc" data-view="calc" hidden>
   <div class="wrap narrow">
-    <div class="page-head"><span class="eyebrow">MACRO CALCULATOR</span><h1>루아쌤의 맞춤형 탄단지 계산기</h1><p>기초대사량과 활동량, 목표 체중으로 하루 칼로리와 탄수화물·단백질·지방 양을 계산해요.</p></div>
-    <div class="calc-tabs"><a href="#calc" aria-current="page">탄단지 계산기</a><a href="#speed">감량 속도 계산기</a></div>
+    <div class="page-head"><span class="eyebrow">ALL-IN-ONE CALCULATOR</span><h1>루아쌤의 올인원 다이어트&amp;식단 계산기</h1><p>하루 칼로리와 탄수화물·단백질·지방, 끼니별 식단까지 한 번에 계산해요. 인바디 체지방률을 넣으면 내 체지방 구간에 맞는 안전 감량 속도도 알려드려요.</p></div>
     <form class="panel" id="mForm" novalidate>
       <h2 class="ph2">기본 정보</h2>
       <div class="field"><span class="legend">성별 (지방 섭취량 계산 기준)</span>
         <div class="seg"><input type="radio" name="msex" id="mF" value="f" checked><label for="mF">여성 <small>지방 총 칼로리의 25%</small></label><input type="radio" name="msex" id="mM" value="m"><label for="mM">남성 <small>지방 총 칼로리의 20%</small></label></div></div>
-      <div class="field"><label for="mBmrMode">기초대사량 (BMR)</label>
-        <select id="mBmrMode"><option value="auto" selected>모름 (자동 계산)</option><option value="manual">직접 입력 (인바디 등)</option></select></div>
-      <div class="field" id="mBmrWrap" hidden><label for="mBmr">내 기초대사량 (kcal)</label><input type="number" id="mBmr" inputmode="numeric" placeholder="예: 1300"></div>
       <div class="row3">
-        <div class="field" id="mAgeWrap"><label for="mAge">만 나이 (세)</label><input type="number" id="mAge" inputmode="numeric" value="35"></div>
-        <div class="field" id="mHWrap"><label for="mH">신장 (cm)</label><input type="number" id="mH" inputmode="decimal" value="162"></div>
+        <div class="field"><label for="mAge">만 나이 (세)</label><input type="number" id="mAge" inputmode="numeric" value="35"></div>
+        <div class="field"><label for="mH">신장 (cm)</label><input type="number" id="mH" inputmode="decimal" value="162"></div>
         <div class="field"><label for="mW">현재 체중 (kg)</label><input type="number" id="mW" inputmode="decimal" value="62"></div>
       </div>
+      <details class="inbody" id="mInbody">
+        <summary><b>인바디 결과가 있다면 (선택)</b><span>체지방률을 넣으면 안전 감량 구간까지 계산해요</span></summary>
+        <div class="row3">
+          <div class="field"><label for="mBf">체지방률 (%)</label><input type="number" id="mBf" inputmode="decimal" placeholder="예: 30"></div>
+          <div class="field"><label for="mFm">또는 체지방량 (kg)</label><input type="number" id="mFm" inputmode="decimal" placeholder="예: 18.6"></div>
+          <div class="field"><label for="mBmr">기초대사량 (kcal)</label><input type="number" id="mBmr" inputmode="numeric" placeholder="예: 1300"></div>
+        </div>
+        <p class="muted small">모르는 칸은 비워 두세요. 체지방률과 체지방량을 둘 다 넣으면 체지방률을 기준으로 계산해요. 기초대사량을 비워 두면 자동으로 계산해요.</p>
+      </details>
       <h2 class="ph2">활동 및 목표 설정</h2>
       <div class="field"><label for="mAct">평소 활동량 (활동대사량 기준)</label>
         <select id="mAct"><option value="1.2">거의 운동하지 않음 (사무직 등)</option><option value="1.375">가벼운 활동 (주 1~3회 운동)</option><option value="1.55" selected>보통 활동 (주 3~5회 운동)</option><option value="1.725">적극적인 활동 (주 6~7회 강도 높은 운동)</option><option value="1.9">매우 적극적인 활동 (전문 운동선수, 육체노동)</option></select></div>
@@ -981,7 +985,7 @@ footer .bizq a{color:var(--accent-ink);font-weight:700;font-size:15px;text-decor
       <button class="btn btn-olive wide" type="submit">결과 확인하기</button>
     </form>
     <div class="result" id="mRes" aria-live="polite">
-      <div><div class="note">하루 목표 칼로리 섭취량</div><div class="main-n"><span id="mTarget">0</span><small>kcal</small></div></div>
+      <div><div class="note">내 목표대로 하루 섭취 칼로리</div><div class="main-n"><span id="mTarget">0</span><small>kcal</small></div></div>
       <div class="rgrid">
         <div><b id="mBmrOut">0</b><span>기초대사량 kcal</span></div>
         <div><b id="mTdee">0</b><span>활동대사량 kcal</span></div>
@@ -996,62 +1000,42 @@ footer .bizq a{color:var(--accent-ink);font-weight:700;font-size:15px;text-decor
       <p class="est" id="mEst" hidden></p>
       <p class="warn" id="mWarn" hidden></p>
     </div>
+    <div class="panel" id="mRec" aria-live="polite" style="margin-top:16px" hidden>
+      <h2 class="ph2">루아쌤 권장 속도</h2>
+      <div id="mZoneBox" hidden>
+        <p class="verdict" id="zoneName"></p>
+        <div class="gauge"><div class="marker" id="marker"></div><div class="track" id="track"></div><div class="zones" id="zoneLabels"></div></div>
+      </div>
+      <div class="big"><b id="weeklyKg"></b><span id="weeklyUnit">kg / 주</span></div>
+      <p class="muted" id="weeklyPct"></p>
+      <ul class="rows" id="mRecRows"></ul>
+      <p class="warn" id="mCompare"></p>
+      <button class="btn btn-olive wide" type="button" id="mUseRec">권장 속도로 다시 계산하기</button>
+      <p class="muted small" id="mNoBf" hidden>인바디 체지방률을 넣으면 내 체지방 구간에 맞춘 안전 속도로 더 정확하게 알려드려요.</p>
+    </div>
+    <div class="panel" id="mSplitBox" style="margin-top:16px" hidden>
+      <h2 class="ph2">적자를 어떻게 만들까</h2>
+      <ul class="rows"><li><span>하루 총 소모 칼로리 (TDEE)</span><span id="tdee"></span></li><li><span>내 목표 하루 적자</span><span id="myDef"></span></li></ul>
+      <div class="split" id="split"></div>
+      <p class="muted small">식단으로 줄이는 양은 TDEE의 20% 이내로, 나머지는 활동량을 늘려 채우세요.</p>
+      <p class="warn" id="sNote"></p>
+    </div>
     <div class="meals" id="mMeals" aria-live="polite"></div>
+    <div class="panel" id="mDetail" style="margin-top:16px">
+      <h2 class="ph2">세부 수치</h2>
+      <ul class="rows" id="mDetailRows"></ul>
+    </div>
     <div class="refs">
       <h3>계산 근거</h3>
-      <p>기초대사량: 직접 입력하거나, Mifflin-St Jeor 공식으로 계산해요.</p>
-      <p>목표 칼로리: 체중 1kg 변화를 약 7,700kcal로 보고, 한 달 목표치만큼 하루 칼로리를 줄이거나 늘려요.</p>
+      <p>기초대사량: 직접 입력한 값이 있으면 그대로 쓰고, 없으면 Mifflin-St Jeor 공식으로 계산해요. 체지방률을 알면 제지방량 기반 Katch-McArdle 공식과의 평균을 써요.</p>
+      <p>목표 칼로리: 체중 1kg 변화를 약 7,700kcal로 보고, 한 달 목표치만큼 하루 칼로리를 줄이거나 늘려요. 첫 1~2주는 수분 손실로 계산보다 더 빠지는 게 정상이에요.</p>
+      <p>안전 감량 속도: 근육 보존을 위해 주당 체중의 0.5~1% 감량을 권고한 Helms, Aragon &amp; Fitschen (2014, JISSN)과 주당 0.7% vs 1.4% 감량을 비교한 Garthe 등 (2011)을 바탕으로, 체지방이 높을수록 빠르게·낮을수록 천천히 가도록 성별 체지방 구간을 나눴어요. 체중과 관계없이 주 1kg을 넘지 않게 제한해요. 체지방률을 모르면 주당 체중의 0.5~1%를 기준으로 해요.</p>
+      <p>체지방 연소 한계: Alpert (2005) 기준 체지방 1kg당 하루 약 53.5~65.5kcal 동원 가능. 루아쌤 권장치(48.5kcal/kg)는 이를 실무에 맞게 보수적으로 낮춘 값이에요.</p>
       <p>단백질: 운동량에 따라 체중 1kg당 1.2~2.0g (ACSM 2016 권고 1.2~2.0g, 근력운동 시 1.6g 이상 · Morton 2018). 감량 중에는 근손실을 막기 위해 1.6~2.2g으로 올리고 목표 체중을 기준으로 계산해요 (Helms 2014).</p>
       <p>지방: 총 칼로리의 여성 25%, 남성 20% (권장 범위 20~35% · ACSM 2016). 여성은 호르몬 건강을 위해 조금 높게 잡았고, 감량 중에도 체중 1kg당 0.7g 아래로는 내려가지 않게 했어요.</p>
       <p>탄수화물: 목표 칼로리에서 단백질과 지방을 뺀 나머지로 배정하고, 하루 130g보다 적으면 알려드려요.</p>
-      <p>속도: 감량은 주당 체중의 0.5~1% (Helms 2014), 증량은 한 달 체중의 1~2% (주당 0.25~0.5% · Iraki 2019)를 권장해요.</p>
+      <p>증량 속도: 한 달 체중의 1~2% (주당 0.25~0.5% · Iraki 2019)를 권장해요.</p>
     </div>
-    <a class="cta" href="#speed">체지방률별 근손실 없는 안전 감량구간 확인하기 →</a>
-  </div>
-</section>
-
-<!-- SPEED -->
-<section class="view" id="v-speed" data-view="speed" hidden>
-  <div class="wrap narrow">
-    <div class="page-head"><span class="eyebrow">FAT-LOSS SPEED</span><h1>내 몸에 맞는 감량 속도 계산기</h1><p>체지방률과 성별에 따라 근육을 지키면서 뺄 수 있는 주간 감량 속도와 하루 적자 칼로리를 알려드려요.</p></div>
-    <div class="calc-tabs"><a href="#calc">탄단지 계산기</a><a href="#speed" aria-current="page">감량 속도 계산기</a></div>
-    <form class="panel" id="sForm" novalidate>
-      <h2 class="ph2">신체 정보</h2>
-      <div class="seg"><input type="radio" name="ssex" id="sF" value="f" checked><label for="sF">여성</label><input type="radio" name="ssex" id="sM" value="m"><label for="sM">남성</label></div>
-      <div class="row2">
-        <div class="field"><label for="sAge">만 나이 (세)</label><input type="number" id="sAge" inputmode="numeric" value="35"></div>
-        <div class="field"><label for="sH">신장 (cm)</label><input type="number" id="sH" inputmode="decimal" value="162"></div>
-        <div class="field"><label for="sW">현재 체중 (kg)</label><input type="number" id="sW" inputmode="decimal" value="62"></div>
-        <div class="field"><label for="sBf">체지방률 (%)</label><input type="number" id="sBf" inputmode="decimal" value="30"></div>
-      </div>
-      <div class="field"><label for="sAct">활동량</label>
-        <select id="sAct"><option value="1.2">거의 운동하지 않음 (사무직 등)</option><option value="1.375" selected>가벼운 활동 (주 1~3회 운동)</option><option value="1.55">보통 활동 (주 3~5회 운동)</option><option value="1.725">적극적인 활동 (주 6~7회 고강도)</option><option value="1.9">매우 적극적인 활동 (선수, 육체노동)</option></select></div>
-      <p class="err" id="sErr" role="alert"></p>
-      <button class="btn btn-olive wide" type="submit">내 감량 속도 계산하기</button>
-    </form>
-    <div class="panel" id="sRes" aria-live="polite">
-      <h2 class="ph2">내 체지방 구간</h2>
-      <p class="verdict" id="zoneName"></p>
-      <div class="gauge"><div class="marker" id="marker"></div><div class="track" id="track"></div><div class="zones" id="zoneLabels"></div></div>
-      <div class="big"><b id="weeklyKg"></b><span>kg / 주</span></div>
-      <p class="muted" id="weeklyPct"></p>
-      <ul class="rows"><li><span>한 달 예상 감량</span><span id="monthKg"></span></li><li><span>필요한 하루 적자 칼로리</span><span id="deficit"></span></li></ul>
-      <h2 class="ph2" style="margin-top:20px">적자를 어떻게 만들까</h2>
-      <ul class="rows"><li><span>하루 총 소모 칼로리 (TDEE)</span><span id="tdee"></span></li><li><span>권장 섭취 칼로리</span><span id="intake"></span></li></ul>
-      <div class="split" id="split"></div>
-      <p class="muted small">식단으로 줄이는 양은 TDEE의 20% 이내로, 나머지는 운동으로 채우세요.</p>
-      <p class="warn" id="sNote"></p>
-      <h2 class="ph2" style="margin-top:20px">세부 수치</h2>
-      <ul class="rows"><li><span>체지방량</span><span id="fm"></span></li><li><span>제지방량 (LBM)</span><span id="lbm"></span></li><li><span>기초대사량 (BMR)</span><span id="bmr"></span></li><li><span>체지방 동원 이론적 한계</span><span id="limitMax"></span></li><li><span>루아쌤 권장 적자 상한</span><span id="limitCoach"></span></li></ul>
-    </div>
-    <div class="refs">
-      <h3>계산 근거</h3>
-      <p>주간 감량 속도: 근육 보존을 위해 주당 체중의 0.5~1% 감량을 권고한 Helms, Aragon &amp; Fitschen (2014, JISSN)과 주당 0.7% vs 1.4% 감량을 비교한 Garthe 등 (2011)을 바탕으로, 체지방이 높을수록 빠르게·낮을수록 천천히 가도록 성별 체지방 구간을 나눴습니다. 체중과 관계없이 주 1kg을 넘지 않게 제한합니다.</p>
-      <p>대사량: Mifflin-St Jeor 공식과 제지방량 기반 Katch-McArdle 공식의 평균을 사용합니다.</p>
-      <p>체지방 연소 한계: Alpert (2005) 기준 체지방 1kg당 하루 약 53.5~65.5 kcal 동원 가능. 루아쌤 권장치(48.5 kcal/kg)는 이를 실무에 맞게 보수적으로 낮춘 값입니다.</p>
-      <p>지방 1kg ≈ 7,700 kcal로 환산했으며, 첫 1~2주는 수분 손실로 계산보다 더 빠지는 게 정상입니다.</p>
-    </div>
-    <a class="cta" href="#calc">맞춤형 탄단지 계산하러 가기 →</a>
   </div>
 </section>
 
@@ -1310,6 +1294,7 @@ footer .bizq a{color:var(--accent-ink);font-weight:700;font-size:15px;text-decor
   function route(){
     let h=(location.hash||'#home').slice(1), item=null, toPapers=false;
     if(h==='papers'){h='tips';toPapers=true}
+    if(h==='speed') h='calc';
     let freeK=null; const FK={'free-app':'앱','free-sheet':'기록지','free-calc':'계산기'}; if(FK[h]){freeK=FK[h];h='free'}
     const el=h&&document.getElementById(h);
     if(el&&el.tagName==='DETAILS'){item=el;h=el.closest('.view').dataset.view}
@@ -1370,20 +1355,37 @@ footer .bizq a{color:var(--accent-ink);font-weight:700;font-size:15px;text-decor
   chips.forEach(c=>c.addEventListener('click',()=>applyF(c.dataset.f)));
   subs.forEach(c=>c.addEventListener('click',()=>applyF('논문',c.dataset.p)));
 
-  // ===== 탄단지 계산기 =====
+  // ===== 올인원 다이어트&식단 계산기 =====
   const $=id=>document.getElementById(id);
   const fmt=(n,d=0)=>Number(n).toLocaleString('ko-KR',{minimumFractionDigits:d,maximumFractionDigits:d});
-  $('mBmrMode').addEventListener('change',e=>{const m=e.target.value==='manual';$('mBmrWrap').hidden=!m;$('mAgeWrap').hidden=m;$('mHWrap').hidden=m});
+  const ZONES={m:{min:5,max:40,cuts:[12,20,25],labels:["~12%","13~19%","20~25%","25%~"]},f:{min:10,max:50,cuts:[20,28,35],labels:["~20%","21~27%","28~34%","35%~"]}};
+  const ZONE_INFO=[
+    {name:"낮은 체지방",rate:[0.25,0.5],color:"var(--z0)",desc:"이미 마른 편이라 천천히 가야 근육이 덜 빠져요."},
+    {name:"보통 체지방",rate:[0.5,0.75],color:"var(--z1)",desc:"근육을 지키며 꾸준히 빼기 좋은 구간이에요."},
+    {name:"높은 체지방",rate:[0.75,1.0],color:"var(--z2)",desc:"조금 더 빠른 속도로 진행해도 괜찮은 구간이에요."},
+    {name:"매우 높은 체지방",rate:[1.0,1.0],color:"var(--z3)",desc:"주당 약 1%, 최대 주 1kg까지 가능한 구간이에요."}];
+  const KCAL_PER_KG=7700;
+  function zoneIndex(sex,bf){const [a,b,c]=ZONES[sex].cuts;if(sex==="m")return bf<=a?0:bf<b?1:bf<=c?2:3;return bf<=a?0:bf<b?1:bf<c?2:3}
+  const rows=list=>list.map(([a,b])=>`<li><span>${a}</span><span>${b}</span></li>`).join('');
+  let recMon=null;
   function macro(){
     const sex=document.querySelector('input[name=msex]:checked').value;
-    const age=+$('mAge').value,h=+$('mH').value,w=+$('mW').value,act=+$('mAct').value,pk=+$('mPro').value,tw=+$('mTW').value,mon=Math.abs(+$('mMon').value);
-    const manual=$('mBmrMode').value==='manual';
-    if(!w||!tw||(!manual&&(!age||!h))||(manual&&!+$('mBmr').value)){$('mErr').textContent='빈 칸을 모두 숫자로 입력해 주세요.';return}
+    const age=+$('mAge').value,h=+$('mH').value,w=+$('mW').value,act=+$('mAct').value,tw=+$('mTW').value,mon=Math.abs(+$('mMon').value);
+    const bmrIn=+$('mBmr').value, bfIn=+$('mBf').value, fmIn=+$('mFm').value;
+    if(!w||!tw||(!bmrIn&&(!age||!h))){$('mErr').textContent='빈 칸을 모두 숫자로 입력해 주세요.';return}
+    if(w<30||w>250||(h&&(h<120||h>230))||(age&&(age<15||age>90))){$('mErr').textContent='나이·신장·체중이 일반적인 범위를 벗어났어요. 다시 확인해 주세요.';return}
+    const bf=bfIn||(fmIn?fmIn/w*100:0);
+    if(bf&&(bf<3||bf>65)){$('mErr').textContent='체지방률은 3~65% 사이로 입력해 주세요. 체지방량을 넣었다면 체중보다 작은지 확인해 주세요.';return}
     $('mErr').textContent='';
-    const bmr=manual?+$('mBmr').value:10*w+6.25*h-5*age+(sex==='m'?5:-161);
+    // 대사량
+    const fm=bf?w*bf/100:0, lbm=bf?w-fm:0;
+    const mifflin=(age&&h)?10*w+6.25*h-5*age+(sex==='m'?5:-161):0;
+    const katch=bf?370+21.6*lbm:0;
+    const bmr=bmrIn?bmrIn:(bf&&mifflin)?(mifflin+katch)/2:mifflin;
     const tdee=bmr*act;
     const dir=tw<w?-1:tw>w?1:0;
-    const adj=dir*mon*7700/30;
+    const myDef=mon*KCAL_PER_KG/30;
+    const adj=dir*myDef;
     const target=tdee+adj;
     // 단백질: 감량은 목표 체중, 유지·증량은 현재 체중 기준
     const lv=+$('mPro').value, pkk=dir<0?[1.6,2.0,2.2][lv]:[1.2,1.6,2.0][lv];
@@ -1401,16 +1403,90 @@ footer .bizq a{color:var(--accent-ink);font-weight:700;font-size:15px;text-decor
     if(dir<0&&target<bmr*0.8) warn.push('주의: 감량 페이스가 너무 빨라 섭취 권장량이 기초대사량보다 지나치게 낮아집니다. 근손실 예방을 위해 한 달 감량 목표를 조금 낮추는 것을 권장합니다.');
     if(c<130) warn.push(`탄수화물이 하루 최소 권장량(130g)보다 적어요. 한 달 감량 목표를 낮추거나 활동량을 늘려 보세요.`);
     if(f*9/target>0.35) warn.push('칼로리가 낮아 지방 최소량(체중 1kg당 0.7g)이 총 칼로리의 35%를 넘었어요. 한 달 감량 목표를 낮추는 걸 추천해요.');
-    if(dir>0&&mon>w*0.02) warn.push(`한 달 ${fmt(w*0.02,1)}kg(체중의 2%)보다 빠르게 늘리면 근육보다 지방이 더 붙기 쉬워요. 한 달 ${fmt(w*0.01,1)}~${fmt(w*0.02,1)}kg을 추천해요.`);
-    if(dir<0&&mon>w*0.04) warn.push(`한 달 ${fmt(w*0.04,1)}kg(체중의 약 4%, 주당 1%)보다 빠른 감량은 근손실 위험이 커요.`);
+    if(c*4+p*4+f*9>target*1.03) warn.push(`목표 칼로리가 너무 낮아서 단백질·지방 최소량만으로 하루 ${fmt(c*4+p*4+f*9)}kcal가 돼요. 목표 칼로리를 지키려면 단백질·지방을 줄여야 해서 근손실 위험이 커요. 한 달 감량 목표를 꼭 낮춰 주세요.`);
     $('mWarn').hidden=!warn.length;$('mWarn').innerHTML=warn.join('<br>');
     let est='';
     if(dir<0&&mon>0) est=`<b>[감량 모드]</b> 현재 식단을 유지하시면 목표 체중(${tw}kg)까지 약 <b>${((w-tw)/mon).toFixed(1)}개월</b>이 걸려요.`;
     else if(dir>0&&mon>0) est=`<b>[증량 모드]</b> 현재 식단을 유지하시면 목표 체중(${tw}kg)까지 약 <b>${((tw-w)/mon).toFixed(1)}개월</b>이 걸려요.`;
     else if(dir===0) est='목표 체중이 현재 체중과 같아요. 체중 유지를 위한 식단이에요.';
     $('mEst').hidden=!est;$('mEst').innerHTML=est;
+
+    // ===== 루아쌤 권장 속도 =====
+    $('mRec').hidden=dir===0; $('mZoneBox').hidden=!(bf&&dir<0); $('mNoBf').hidden=!!bf||dir>=0;
+    recMon=null;
+    let coachLimit=0;
+    if(dir<0){
+      let rate,kgLo,kgHi,capNote='';
+      if(bf){
+        const zi=zoneIndex(sex,bf),z=ZONE_INFO[zi]; rate=z.rate;
+        $('zoneName').innerHTML=`${z.name}<small>${z.desc}</small>`;
+        const Z=ZONES[sex],span=Z.max-Z.min,edges=[Z.min,...Z.cuts,Z.max];
+        $('track').innerHTML=ZONE_INFO.map((zz,i)=>`<div style="width:${(edges[i+1]-edges[i])/span*100}%;background:${zz.color}"></div>`).join('');
+        $('zoneLabels').innerHTML=Z.labels.map((l,i)=>`<span style="width:${(edges[i+1]-edges[i])/span*100}%">${l}</span>`).join('');
+        const pos=Math.min(Math.max((bf-Z.min)/span*100,2),98);
+        $('marker').textContent=`${fmt(bf,1)}%`;$('marker').style.left=pos+'%';
+      } else rate=[0.5,1.0];
+      kgLo=w*rate[0]/100; kgHi=Math.min(w*rate[1]/100,1.0); if(kgLo>kgHi)kgLo=kgHi;
+      let defLo=kgLo*KCAL_PER_KG/7, defHi=kgHi*KCAL_PER_KG/7;
+      if(bf){coachLimit=fm*48.5; if(defHi>coachLimit){defHi=coachLimit;capNote=`체지방량 기준으로 하루 적자는 ${fmt(coachLimit)}kcal를 넘기지 않는 게 좋아서 상한을 낮췄어요.`} defLo=Math.min(defLo,defHi); kgLo=defLo*7/KCAL_PER_KG; kgHi=defHi*7/KCAL_PER_KG;}
+      const defMid=(defLo+defHi)/2;
+      recMon=Math.round(defMid*30/KCAL_PER_KG*10)/10;
+      $('weeklyUnit').textContent='kg / 주';
+      $('weeklyKg').textContent=Math.abs(kgLo-kgHi)<0.005?fmt(kgHi,2):`${fmt(kgLo,2)}~${fmt(kgHi,2)}`;
+      const pctTxt=rate[0]===rate[1]?`${rate[0]}%`:`${rate[0]}~${rate[1]}%`;
+      $('weeklyPct').textContent=`체중의 주당 ${pctTxt}${w*rate[1]/100>1?' (주 1kg 상한 적용)':''}${bf?'':' · 체지방률을 모를 때의 일반 기준'}`;
+      const rng=(a,b,d=0)=>Math.abs(a-b)<(d?0.05:1)?fmt(b,d):`${fmt(a,d)}~${fmt(b,d)}`;
+      const cap=tdee*0.2, fLo=Math.min(defLo,cap), fHi=Math.min(defHi,cap);
+      const rr=[['한 달 권장 감량',`약 ${rng(defLo*30/KCAL_PER_KG,defHi*30/KCAL_PER_KG,1)} kg`],
+        ['권장 하루 적자',`${rng(defLo,defHi)} kcal`],
+        ['권장 하루 섭취 (식단 적자는 TDEE 20% 이내)',`${rng(tdee-fHi,tdee-fLo)} kcal`]];
+      if(defHi>cap) rr.push(['활동으로 채울 양',`${rng(Math.max(defLo-cap,0),defHi-cap)} kcal`]);
+      $('mRecRows').innerHTML=rows(rr);
+      const cmp=[];
+      const inRange=!(myDef>defHi*1.02||myDef<defLo*0.98);
+      if(myDef>defHi*1.02) cmp.push(`내 목표(한 달 ${fmt(mon,1)}kg)는 권장 속도보다 빨라요. 이 속도면 지방보다 근육이 빠질 수 있어요. 한 달 ${fmt(recMon,1)}kg 정도를 권장해요.`);
+      else if(myDef<defLo*0.98) cmp.push(`내 목표(한 달 ${fmt(mon,1)}kg)는 권장 속도보다 느려요. 근육을 지키기엔 안전하지만, 원하면 한 달 ${fmt(recMon,1)}kg까지 속도를 올려도 괜찮아요.`);
+      else cmp.push(`내 목표(한 달 ${fmt(mon,1)}kg)는 권장 속도 안에 있어요. 이대로 가도 좋아요.`);
+      if(capNote) cmp.push(capNote);
+      $('mCompare').innerHTML=cmp.join('<br>');
+      $('mUseRec').hidden=inRange;
+    } else if(dir>0){
+      $('weeklyUnit').textContent='kg / 한 달';
+      $('weeklyKg').textContent=`${fmt(w*0.01,1)}~${fmt(w*0.02,1)}`;
+      $('weeklyPct').textContent='체중의 한 달 1~2% (주당 0.25~0.5%)';
+      recMon=Math.round(w*0.015*10)/10;
+      $('mRecRows').innerHTML=rows([['권장 하루 추가 섭취',`${fmt(w*0.01*KCAL_PER_KG/30)}~${fmt(w*0.02*KCAL_PER_KG/30)} kcal`]]);
+      $('mCompare').innerHTML=mon>w*0.02?`내 목표(한 달 ${fmt(mon,1)}kg)는 권장보다 빨라요. 한 달 ${fmt(w*0.02,1)}kg(체중의 2%)보다 빠르게 늘리면 근육보다 지방이 더 붙기 쉬워요.`:mon<w*0.01?`내 목표(한 달 ${fmt(mon,1)}kg)는 권장보다 느려요. 천천히 가도 괜찮지만, 한 달 ${fmt(recMon,1)}kg 정도면 근육을 늘리기 좋아요.`:`내 목표(한 달 ${fmt(mon,1)}kg)는 권장 속도 안에 있어요.`;
+      $('mUseRec').hidden=mon>=w*0.01&&mon<=w*0.02;
+    }
+
+    // ===== 적자를 어떻게 만들까 =====
+    $('mSplitBox').hidden=!(dir<0&&mon>0);
+    if(dir<0&&mon>0){
+      const foodCap=tdee*0.2, food=Math.min(myDef,foodCap), ex=Math.max(myDef-food,0);
+      $('tdee').textContent=`${fmt(tdee)} kcal`; $('myDef').textContent=`${fmt(myDef)} kcal`;
+      const fp=myDef?food/myDef*100:100;
+      $('split').innerHTML=`<div style="width:${fp}%;background:var(--olive)">식단 −${fmt(food)}</div>`+(ex>0?`<div style="width:${100-fp}%;background:var(--z2)">활동 −${fmt(ex)}</div>`:'');
+      const notes=[];
+      if(ex>0) notes.push(`식단만으로 맞추면 TDEE의 20%를 넘어요. 하루 섭취는 약 ${fmt(tdee-food)}kcal로 하고, 나머지 약 ${fmt(ex)}kcal는 걷기·계단·운동 등 활동량을 늘려 채우는 걸 추천해요.`);
+      else notes.push('식단 조절만으로도 목표 속도를 낼 수 있어요. 근력운동은 근육 보존을 위해 꼭 함께 하세요.');
+      if(target<bmr) notes.push('목표 섭취량이 기초대사량보다 낮아요. 섭취를 더 줄이기보다 활동량을 늘리는 쪽을 추천해요.');
+      $('sNote').innerHTML=notes.join('<br>');
+    }
+
+    // ===== 세부 수치 =====
+    const det=[];
+    if(bf){det.push(['체지방률',`${fmt(bf,1)} %`],['체지방량',`${fmt(fm,1)} kg`],['제지방량 (LBM)',`${fmt(lbm,1)} kg`])}
+    if(bmrIn) det.push(['기초대사량 (직접 입력)',`${fmt(bmrIn)} kcal`]);
+    else if(bf&&mifflin) det.push(['기초대사량 (두 공식 범위)',`${fmt(Math.min(mifflin,katch))}~${fmt(Math.max(mifflin,katch))} kcal`]);
+    else det.push(['기초대사량 (Mifflin-St Jeor)',`${fmt(bmr)} kcal`]);
+    det.push(['활동대사량 (TDEE)',`${fmt(tdee)} kcal`]);
+    if(bf){det.push(['체지방 동원 이론적 한계',`${fmt(fm*53.5)}~${fmt(fm*65.5)} kcal`],['루아쌤 권장 적자 상한',`${fmt(fm*48.5)} kcal`])}
+    $('mDetailRows').innerHTML=rows(det);
+
     meals(target,c,p,f,dir);
   }
+  $('mUseRec').addEventListener('click',()=>{if(recMon==null)return;$('mMon').value=recMon;macro();$('mRes').scrollIntoView({behavior:'smooth',block:'start'})});
 
   // ===== 한 끼 양 + 예시 식단 =====
   // 100g당 탄·단·지 (달걀은 1개당)
@@ -1463,10 +1539,10 @@ footer .bizq a{color:var(--accent-ink);font-weight:700;font-size:15px;text-decor
       <h3>예시 식단</h3>
       <p class="lead">위 양에 맞춘 하루 예시예요. 밥·고구마·고기·생선은 익힌 뒤 무게예요. 합계 약 ${fmt(total)}kcal</p>
       <div class="meal-cards">
-        ${card('아침',bI,[`오트밀 ${oat}g (물에 불려서)`,`달걀 ${eggs}개`,byog>=30?`그릭요거트(무가당) ${byog}g`:''],'오트밀 대신 통밀빵, 요거트 대신 두유·우유')}
-        ${card('점심',lI,[`밥 ${rice}g`,`닭가슴살 ${chick}g`,`채소 반찬·샐러드 넉넉히`,oilTxt(loil)],'잡곡밥, 소고기 우둔, 돼지 안심')}
-        ${card('저녁',dI,[`고구마 ${sweet}g`,`흰살생선(대구·동태) ${cod}g`,`채소 넉넉히`,oilTxt(doil)],'생선 대신 두부·연어, 고구마 대신 현미밥')}
-        ${card('간식',sI,[`그릭요거트(무가당) ${yog}g`,`사과 ${apple}g`,snuts>=5?`견과 ${snuts}g`:''],'단백질 음료, 삶은 달걀, 바나나')}
+        ${card('아침',bI,[oat>=5?`오트밀 ${oat}g (물에 불려서)`:'',`달걀 ${eggs}개`,byog>=30?`그릭요거트(무가당) ${byog}g`:''],'오트밀 대신 통밀빵, 요거트 대신 두유·우유')}
+        ${card('점심',lI,[rice>=10?`밥 ${rice}g`:'',`닭가슴살 ${chick}g`,`채소 반찬·샐러드 넉넉히`,oilTxt(loil)],'잡곡밥, 소고기 우둔, 돼지 안심')}
+        ${card('저녁',dI,[sweet>=10?`고구마 ${sweet}g`:'',`흰살생선(대구·동태) ${cod}g`,`채소 넉넉히`,oilTxt(doil)],'생선 대신 두부·연어, 고구마 대신 현미밥')}
+        ${card('간식',sI,[`그릭요거트(무가당) ${yog}g`,apple>=10?`사과 ${apple}g`:'',snuts>=5?`견과 ${snuts}g`:''],'단백질 음료, 삶은 달걀, 바나나')}
       </div>
       <div class="tips"><h3>식단 팁</h3><ul>
         ${dir<0?'<li><b>당류</b> 감량 중에는 당류를 특히 조심해요. 단 음료, 과자, 빵, 소스·드레싱에 숨은 설탕을 줄이고, 첨가당은 하루 25g(각설탕 약 6개) 안쪽으로 맞춰요. 영양성분표의 "당류"를 확인하는 습관을 들여요.</li>':''}
@@ -1478,65 +1554,6 @@ footer .bizq a{color:var(--accent-ink);font-weight:700;font-size:15px;text-decor
 
   $('mForm').addEventListener('submit',e=>{e.preventDefault();macro()});
   macro();
-
-  // ===== 감량 속도 계산기 (루아쌤 원본 로직) =====
-  const ZONES={m:{min:5,max:40,cuts:[12,20,25],labels:["~12%","13~19%","20~25%","25%~"]},f:{min:10,max:50,cuts:[20,28,35],labels:["~20%","21~27%","28~34%","35%~"]}};
-  const ZONE_INFO=[
-    {name:"낮은 체지방",rate:[0.25,0.5],color:"var(--z0)",desc:"이미 마른 편이라 천천히 가야 근육이 덜 빠져요."},
-    {name:"보통 체지방",rate:[0.5,0.75],color:"var(--z1)",desc:"근육을 지키며 꾸준히 빼기 좋은 구간이에요."},
-    {name:"높은 체지방",rate:[0.75,1.0],color:"var(--z2)",desc:"조금 더 빠른 속도로 진행해도 괜찮은 구간이에요."},
-    {name:"매우 높은 체지방",rate:[1.0,1.0],color:"var(--z3)",desc:"주당 약 1%, 최대 주 1kg까지 가능한 구간이에요."}];
-  const KCAL_PER_KG=7700;
-  function zoneIndex(sex,bf){const [a,b,c]=ZONES[sex].cuts;if(sex==="m")return bf<=a?0:bf<b?1:bf<=c?2:3;return bf<=a?0:bf<b?1:bf<c?2:3}
-  function speed(){
-    const sex=document.querySelector('input[name=ssex]:checked').value;
-    const age=+$("sAge").value,h=+$("sH").value,w=+$("sW").value,bf=+$("sBf").value,act=+$("sAct").value;
-    if(!age||!h||!w||!bf){$("sErr").textContent="네 칸을 모두 숫자로 입력해 주세요.";return}
-    if(bf<3||bf>65){$("sErr").textContent="체지방률은 3~65% 사이로 입력해 주세요.";return}
-    if(w<30||w>250||h<120||h>230||age<15||age>90){$("sErr").textContent="나이·신장·체중이 일반적인 범위를 벗어났어요. 다시 확인해 주세요.";return}
-    $("sErr").textContent="";
-    const fm=w*bf/100,lbm=w-fm;
-    const mifflin=10*w+6.25*h-5*age+(sex==="m"?5:-161);
-    const katch=370+21.6*lbm;
-    const bmr=(mifflin+katch)/2;
-    const tdee=bmr*act;
-    const zi=zoneIndex(sex,bf),z=ZONE_INFO[zi];
-    let kgLo=w*z.rate[0]/100,kgHi=Math.min(w*z.rate[1]/100,1.0);
-    if(kgLo>kgHi)kgLo=kgHi;
-    const defLo=kgLo*KCAL_PER_KG/7,defHiRaw=kgHi*KCAL_PER_KG/7;
-    const coachLimit=fm*48.5;
-    const defHi=Math.min(defHiRaw,coachLimit);
-    const defLoC=Math.min(defLo,defHi);
-    const defMid=(defLoC+defHi)/2;
-    const foodCap=tdee*0.2;
-    const food=Math.min(defMid,foodCap);
-    const exercise=Math.max(defMid-food,0);
-    $("zoneName").innerHTML=`${z.name}<small>${z.desc}</small>`;
-    $("weeklyKg").textContent=kgLo===kgHi?fmt(kgHi,2):`${fmt(kgLo,2)}~${fmt(kgHi,2)}`;
-    const pctTxt=z.rate[0]===z.rate[1]?`${z.rate[0]}%`:`${z.rate[0]}~${z.rate[1]}%`;
-    $("weeklyPct").textContent=`체중의 주당 ${pctTxt}${kgHi>=1.0&&w*z.rate[1]/100>1?" (주 1kg 상한 적용)":""}`;
-    $("monthKg").textContent=`약 ${fmt(kgLo*4.3,1)}~${fmt(kgHi*4.3,1)} kg`;
-    $("deficit").textContent=`${fmt(defLoC)}~${fmt(defHi)} kcal`;
-    const Z=ZONES[sex],span=Z.max-Z.min,edges=[Z.min,...Z.cuts,Z.max];
-    $("track").innerHTML=ZONE_INFO.map((zz,i)=>`<div style="width:${(edges[i+1]-edges[i])/span*100}%;background:${zz.color}"></div>`).join("");
-    $("zoneLabels").innerHTML=Z.labels.map((l,i)=>`<span style="width:${(edges[i+1]-edges[i])/span*100}%">${l}</span>`).join("");
-    const pos=Math.min(Math.max((bf-Z.min)/span*100,2),98);
-    $("marker").textContent=`${fmt(bf,1)}%`;$("marker").style.left=pos+"%";
-    $("tdee").textContent=`${fmt(tdee)} kcal`;$("intake").textContent=`${fmt(tdee-food)} kcal`;
-    const fp=defMid?food/defMid*100:100;
-    $("split").innerHTML=`<div style="width:${fp}%;background:var(--olive)">식단 −${fmt(food)}</div>`+(exercise>0?`<div style="width:${100-fp}%;background:var(--z2)">운동 −${fmt(exercise)}</div>`:"");
-    let notes=[];
-    if(defHiRaw>coachLimit)notes.push(`현재 체지방량 기준으로 하루 적자는 ${fmt(coachLimit)} kcal를 넘기지 않는 게 좋아서 상한을 낮췄어요.`);
-    if(exercise>0)notes.push(`식단만으로 맞추면 TDEE의 20%를 넘으니, 하루 약 ${fmt(exercise)} kcal는 운동으로 채워 주세요.`);
-    else notes.push("식단 조절만으로도 목표 속도를 낼 수 있어요. 근력운동은 근육 보존을 위해 꼭 함께 하세요.");
-    if(tdee-food<bmr)notes.push("권장 섭취량이 기초대사량보다 낮아요. 섭취를 더 줄이기보다 활동량을 늘리는 쪽을 추천해요.");
-    $("sNote").innerHTML=notes.join("<br>");
-    $("fm").textContent=`${fmt(fm,1)} kg`;$("lbm").textContent=`${fmt(lbm,1)} kg`;
-    $("bmr").textContent=`${fmt(Math.min(mifflin,katch))}~${fmt(Math.max(mifflin,katch))} kcal`;
-    $("limitMax").textContent=`${fmt(fm*53.5)}~${fmt(fm*65.5)} kcal`;$("limitCoach").textContent=`${fmt(coachLimit)} kcal`;
-  }
-  $('sForm').addEventListener('submit',e=>{e.preventDefault();speed()});
-  speed();
 })();
 </script>
 
@@ -1560,7 +1577,7 @@ document.querySelectorAll('[data-kadd]').forEach(function(a){a.addEventListener(
   function gc(path,title,ev){var g=window.goatcounter;if(g&&g.count){try{g.count({path:path,title:title||path,event:!!ev})}catch(e){}}else q.push([path,title,ev])}
   window.__lfFlush=function(){var a=q;q=[];a.forEach(function(x){gc(x[0],x[1],x[2])})};
   window.__lfCount=gc;
-  var NAME={home:'홈',store:'프로그램',tips:'논문·칼럼',free:'무료 자료',about:'루아쌤 소개',calc:'탄단지 계산기',speed:'감량 속도 계산기',tools:'습관 기록지·앱',legal:'약관·정책'};
+  var NAME={home:'홈',store:'프로그램',tips:'논문·칼럼',free:'무료 자료',about:'루아쌤 소개',calc:'올인원 다이어트&식단 계산기',tools:'습관 기록지·앱',legal:'약관·정책'};
   var last='';
   function page(){
     var v=window.__mcV||'home';var p=v==='home'?'/':'/'+v;
